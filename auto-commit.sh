@@ -16,9 +16,10 @@ function show_spinner() {
 }
 
 # Run git fetch in the background and show a spinner
-echo "Fetching latest changes from remote repository..."
+echo "Fetching Latest Changes From Remote Repository..."
 git fetch &
 show_spinner $!
+echo
 
 # Check if there are any changes on the remote
 if ! git diff --quiet HEAD..origin/$(git rev-parse --abbrev-ref HEAD); then
