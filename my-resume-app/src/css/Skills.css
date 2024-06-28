@@ -1,40 +1,45 @@
+/* Updated Skills.css */
+
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 /* Styles for the skills section */
-.skills {
+.skills-page {
     text-align: center;
     padding: 20px;
+    margin-bottom: 20px; /* Added margin-bottom to create space between Skills and content */
 }
 
-.skills h2 {
+.skills-page h1 {
     margin-bottom: 20px;
     font-size: 2.5em; /* Increased heading font size */
     color: #333;
-    font-family: 'Playfair Display', Arial;
+    font-family: 'Poppins', sans-serif; /* Changed font family */
+    text-decoration: underline; /* Added underline */
 }
 
-.skills-grid {
+.skills-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px; /* Increased gap between items */
+    margin-bottom: 20px; /* Added margin-bottom to create space between bubbles and content */
 }
 
 .skill-bubble {
     background: linear-gradient(to right, black, red); /* Adjusted gradient direction */
     color: yellow;
-    padding: 12px 16px; /* Increased padding */
+    padding: 8px 10px; /* Decreased padding to make bubbles smaller */
     border-radius: 20px; /* Increased border-radius */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
-    font-size: 1.2em; /* Increased font size */
+    font-size: 0.8em; /* Further decreased font size */
     text-align: center;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Playfair Display', Arial;
+    font-family: 'Poppins', sans-serif; /* Changed font family */
     transition: transform 0.3s ease;
-    min-height: 50px; /* Increased minimum height */
+    min-height: 40px; /* Adjusted minimum height */
     white-space: nowrap;
     font-weight: bold; /* Bold text */
     font-style: italic; /* Italic text */
@@ -46,42 +51,42 @@
 
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
-    .skills h2 {
+    .skills-page h1 {
         font-size: 1.8em; /* Adjusted heading for mobile */
     }
 
     .skill-bubble {
-        font-size: 0.9em; /* Adjusted font size for mobile */
-        padding: 10px 14px; /* Adjusted padding for mobile */
-        min-height: 40px; /* Adjusted minimum height for mobile */
+        font-size: 0.75em; /* Adjusted font size for mobile */
+        padding: 6px 10px; /* Further reduced padding for mobile */
+        min-height: 35px; /* Adjusted minimum height for mobile */
     }
 
-    .skills-grid {
+    .skills-list {
         gap: 10px; /* Reduced gap for mobile */
     }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-    .skills h2 {
+    .skills-page h1 {
         font-size: 2em; /* Adjusted heading for tablet */
     }
 
     .skill-bubble {
-        font-size: 1em; /* Adjusted font size for tablet */
-        padding: 10px 14px; /* Adjusted padding for tablet */
-        min-height: 45px; /* Adjusted minimum height for tablet */
+        font-size: 0.85em; /* Adjusted font size for tablet */
+        padding: 6px 10px; /* Adjusted padding for tablet */
+        min-height: 38px; /* Adjusted minimum height for tablet */
     }
 }
 
 @media (min-width: 1025px) {
-    .skills h2 {
+    .skills-page h1 {
         font-size: 2.2em; /* Adjusted heading for desktop */
     }
 
     .skill-bubble {
-        font-size: 1.1em; /* Adjusted font size for desktop */
-        padding: 12px 16px; /* Adjusted padding for desktop */
-        min-height: 50px; /* Adjusted minimum height for desktop */
+        font-size: 0.9em; /* Adjusted font size for desktop */
+        padding: 8px 12px; /* Adjusted padding for desktop */
+        min-height: 40px; /* Adjusted minimum height for desktop */
     }
 }
 

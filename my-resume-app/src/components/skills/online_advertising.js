@@ -1,0 +1,12 @@
+import React from 'react';
+
+const Online_Advertising = () => {
+    return (
+        <div>
+            <h2>Online_Advertising Details</h2>
+            <p>Details about Online_Advertising...</p>
+        </div>
+    );
+};
+
+export default Online_Advertising;
