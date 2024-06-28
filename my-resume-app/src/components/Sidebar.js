@@ -7,7 +7,7 @@ const Sidebar = () => {
         <div className={styles.sidebar}>
             <ul className={styles.sidebarList}>
                 <li>
-                    <a href="https://github.com/MrBoyd23?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub Repositories</a>
+                    <a href="https://github.com/MrBoyd23/Projects" target="_blank" rel="noopener noreferrer">GitHub Repositories</a>
 	        </li>
             </ul>
         </div>
