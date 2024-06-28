@@ -1,7 +1,6 @@
 #!/bin/bash
 #Useful Only When Making Edits Locally And No Other Users Make Changes To Your Repository 
 
-
 # FUNCTION TO SHOW A PROGRESS SPINNER
 function show_spinner() {
     local pid=$1
