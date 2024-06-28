@@ -22,6 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-my-resume-app/node_modules/.cache
 my-resume-app/node_modules
 *.pack
