@@ -4,7 +4,7 @@
 function show_spinner() {
     local pid=$1
     local delay=0.1
-    local spinstr='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+    local spinstr='🕛🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚'
     local i=0
     while ps -p $pid > /dev/null; do
         local temp=${spinstr:i++%${#spinstr}:1}
