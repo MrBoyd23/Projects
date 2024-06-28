@@ -1,0 +1,37 @@
+# ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/postfix_install.yml
+---
+- name: INSTALL AND CONFIGURE POSTFIX
+  hosts: MintApps  # Replace with your host or host group
+  gather_facts: true
+  become: "{{ enable_become | default(false) }}"
+  serial: 1
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+
+  tasks:
+    - name: UPDATE APT CACHE
+      become: yes
+      apt:
+        update_cache: yes
+
+    - name: INSTALL POSTFIX
+      become: yes
+      apt:
+        name: postfix
+        state: present
+
+    - name: COPY MAIN.CF CONFIGURATION FILE
+      become: yes
+      template:
+        src: templates/main.cf.j2  # Adjust the path as per your template location
+        dest: /etc/postfix/main.cf
+      notify: 
+        - restart postfix
+
+  handlers:
+    - name: RESTART POSTFIX
+      become: yes
+      service:
+        name: postfix
+        state: restarted

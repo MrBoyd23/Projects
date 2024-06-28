@@ -1,0 +1,36 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/docker_stats.yml
+---
+- name: CHECK DOCKER STATS FOR ALL CONTAINERS
+  hosts: all
+  gather_facts: true  # This is the default; you can set it to false to disable fact gathering
+  become: "{{ enable_become | default(false) }}"
+  serial: 1
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: GET DOCKER CONTAINER STATS
+      shell: docker ps --format '{{ "{{ json ." }} }}'
+      register: docker_container_output
+      changed_when: false
+
+    - name: CONVERT DOCKER CONTAINER STATS TO LIST
+      set_fact:
+        container_stats: "{{ docker_container_output.stdout_lines | map('from_json') | list }}"
+
+    - name: DISPLAY SPECIFIC DOCKER STATS FOR EACH CONTAINER
+      debug:
+        msg:
+          - "Name: {{ item.Names }}"
+          - "CreatedAt: {{ item.CreatedAt }}"
+          - "Image: {{ item.Image }}"
+          - "ID: {{ item.ID }}"
+          - "Size: {{ item.Size }}"
+          - "Ports: {{ item.Ports }}"
+          - "Network: {{ item.Networks }}"
+          - "RunningFor: {{ item.RunningFor }}"
+          - "State: {{ item.State }}"
+          - "Status: {{ item.Status }}"
+      loop: "{{ container_stats }}"
+      loop_control:
+        label: ""

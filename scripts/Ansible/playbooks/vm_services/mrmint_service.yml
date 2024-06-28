@@ -1,0 +1,69 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/vm_services/mrmint_service.yml
+- name: MRMINT CURRENT SERVICES STATUS
+  hosts: MrMint
+  gather_facts: false
+  become: true
+  serial: 1
+  vars_files:
+    - ../../.secrets/secret_vars.yml
+
+  tasks:
+    - name: CHECK STATUS OF SPECIFIED SERVICES
+      command: systemctl status "{{ item }}"
+      loop:
+        - accounts-daemon.service
+        - acpid.service
+        - avahi-daemon.service
+        - colord.service
+        - containerd.service
+        - cron.service
+        - cups-browsed.service
+        - cups.service
+        - dbus.service
+        - docker.service
+        - getty@tty1.service
+        - irqbalance.service
+        - kerneloops.service
+        - lightdm.service
+        - ModemManager.service
+        - networkd-dispatcher.service
+        - NetworkManager.service
+        - nmbd.service
+        - packagekit.service
+        - polkit.service
+        - rsyslog.service
+        - rtkit-daemon.service
+        - smbd.service
+        - ssh.service
+        - switcheroo-control.service
+        - systemd-journald.service
+        - systemd-logind.service
+        - systemd-resolved.service
+        - systemd-timesyncd.service
+        - systemd-udevd.service
+        - touchegg.service
+        - udisks2.service
+        - upower.service
+        - user@1000.service
+        - uuidd.service
+        - wpa_supplicant.service
+        - zfs-zed.service      
+      register: service_status
+      failed_when: false  # This ensures the task does not fail due to non-zero return codes
+
+    - name: DEBUG SERVICE STATUS
+      debug:
+        msg: "Service {{ item.item }} status: {{ item.stdout }}"
+      loop: "{{ service_status.results }}"
+      when: item.stdout is defined
+
+    - name: START SERVICES THAT ARE NOT RUNNING
+      command: systemctl start "{{ item.item }}"
+      loop: "{{ service_status.results }}"
+      when: '"inactive" in item.stdout or "dead" in item.stdout'
+      register: start_result
+      ignore_errors: true
+
+    - name: DISPLAY SERVICE STATUS AFTER CHECKING AND STARTING/RESTARTING
+      debug:
+        var: service_status.results

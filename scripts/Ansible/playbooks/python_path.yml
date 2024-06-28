@@ -1,0 +1,14 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/python_path.yml
+---
+- name: DISPLAY PYTHON PATH
+  hosts: all
+  gather_facts: true
+  become: "{{ enable_become | default(false) }}"
+  serial: 1
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: SHOW PYTHON PATH
+      debug:
+        var: ansible_python_interpreter

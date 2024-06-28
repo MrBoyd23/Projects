@@ -1,0 +1,62 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/vm_services/mastermint_service.yml
+- name: PROXMOX CURRENT SERVICES STATUS
+  hosts: Prox
+  gather_facts: false
+  serial: 1
+  vars_files:
+    - ../../.secrets/secret_vars.yml
+
+  tasks:
+    - name: CHECK STATUS OF SPECIFIED SERVICES
+      command: systemctl status "{{ item }}"
+      loop:
+        - cron.service
+        - dbus.service
+        - dm-event.service
+        - getty@tty1.service
+        - ksmtuned.service
+        - lxc-monitord.service
+        - lxcfs.service
+        - postfix@-.service
+        - pve-cluster.service
+        - pve-firewall.service
+        - pve-ha-crm.service
+        - pve-ha-lrm.service
+        - pve-lxc-syscalld.service
+        - pvedaemon.service
+        - pvefw-logger.service
+        - pveproxy.service
+        - pvescheduler.service
+        - pvestatd.service
+        - qmeventd.service
+        - rpcbind.service
+        - rrdcached.service
+        - smartmontools.service
+        - spiceproxy.service
+        - ssh.service
+        - systemd-journald.service
+        - systemd-logind.service
+        - systemd-timesyncd.service
+        - systemd-udevd.service
+        - user@0.service
+        - watchdog-mux.service
+        - zfs-zed.service      
+      register: service_status
+      failed_when: false  # This ensures the task does not fail due to non-zero return codes
+
+    - name: DEBUG SERVICE STATUS
+      debug:
+        msg: "Service {{ item.item }} status: {{ item.stdout }}"
+      loop: "{{ service_status.results }}"
+      when: item.stdout is defined
+
+    - name: START SERVICES THAT ARE NOT RUNNING
+      command: systemctl start "{{ item.item }}"
+      loop: "{{ service_status.results }}"
+      when: '"inactive" in item.stdout or "dead" in item.stdout'
+      register: start_result
+      ignore_errors: true
+
+    - name: DISPLAY SERVICE STATUS AFTER CHECKING AND STARTING/RESTARTING
+      debug:
+        var: service_status.results

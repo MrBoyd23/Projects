@@ -1,0 +1,39 @@
+# ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/unhealthy_dock.yml
+---
+- name: RESTART UNHEALTHY DOCKER CONTAINERS
+  hosts: all
+  gather_facts: true  # Enable fact gathering to get ansible_facts
+  become: "{{ enable_become | default(false) }}"
+  serial: 1
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: ENSURE PIP IS INSTALLED
+      apt:
+        name: python3-pip
+        state: present
+      become: "{{ enable_become | default(false) }}"
+
+    - name: ENSURE DOCKER SDK FOR PYTHON IS INSTALLED
+      pip:
+        name: docker
+        state: present
+      become: "{{ enable_become | default(false) }}"
+
+    - name: GET UNHEALTHY CONTAINERS
+      command: docker ps --filter "health=unhealthy" --quiet
+      register: unhealthy_containers
+      changed_when: false
+
+    - name: EXTRACT CONTAINER NAMES
+      set_fact:
+        container_ids: "{{ unhealthy_containers.stdout_lines }}"      
+
+    - name: RESTART UNHEALTHY CONTAINERS
+      docker_container:
+        name: "{{ item }}"
+        state: started
+      loop: "{{ container_ids }}"
+      vars:
+        ansible_python_interpreter: "/usr/bin/python3"

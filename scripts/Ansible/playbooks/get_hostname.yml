@@ -1,0 +1,18 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/get_hostname.yml
+---
+- name: GET HOSTNAME FROM PROXMOX VMS
+  hosts: all
+  gather_facts: false
+  become: "{{ enable_become | default(false) }}"
+  serial: 4
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: OBTAIN HOSTNAME
+      shell: hostname
+      register: hostname
+
+    - name: DISPLAY HOSTNAME
+      debug:
+        msg: "{{ hostname.stdout_lines }}"

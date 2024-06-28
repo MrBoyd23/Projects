@@ -1,0 +1,41 @@
+---
+- name: GATHER RUNNING SERVICE VERSIONS ON UBUNTU
+  hosts: all
+  gather_facts: yes
+  become: "{{ enable_become | default(false) }}"
+  serial: 1
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: GET ACTIVE SERVICE UNITS
+      shell: systemctl list-units --type=service --state=active --no-pager | awk 'NR>1 {print $1}' | grep -v -E '^(LOAD|ACTIVE|SUB|UNIT|[0-9]+)$'
+      register: active_services
+      changed_when: false
+
+    - name: GET VERSION OF EACH SERVICE
+      shell: |
+        service_name=$(echo {{ item }} | sed 's/\.service$//')
+        version_output=""
+        if command -v $service_name --version &> /dev/null; then
+          version_output="$($service_name --version | head -n 1)"
+        elif command -v $service_name -v &> /dev/null; then
+          version_output="$($service_name -v | head -n 1)"
+        fi
+        if [ -n "$version_output" ]; then
+          echo "$service_name | $version_output"
+        fi
+      loop: "{{ active_services.stdout_lines }}"
+      register: service_versions
+      changed_when: false
+
+    - name: FILTER SERVICES WITH VERSION INFORMATION
+      set_fact:
+        services_with_version: "{{ service_versions.results | selectattr('stdout', '!=', '') | list }}"
+
+    - name: DISPLAY UNIT NAMES WITH THEIR VERSIONS
+      debug:
+        msg: "{{ item.stdout | regex_replace('/usr/sbin/', '') }}"
+      loop: "{{ services_with_version }}"
+      loop_control:
+        label: "{{ item.item }}"

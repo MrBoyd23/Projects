@@ -1,0 +1,47 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/check_updates.yml
+---
+- name: CHECK FOR SYSTEM UPDATES ON PROXMOX VMS
+  hosts: all
+  gather_facts: false
+  become: "{{ enable_become | default(false) }}"
+  serial: 4
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: UPDATE APT CACHE
+      apt:
+        update_cache: yes
+
+    - name: CHECK FOR AVAILABLE UPDATES
+      apt:
+        upgrade: dist
+        update_cache: yes
+      register: update_result
+
+    - name: DISPLAY UPDATE STATUS
+      debug:
+        var: update_result.stdout_lines
+
+    - name: CHECK FOR HELD PACKAGES
+      shell: apt-mark showhold
+      register: held_packages
+      changed_when: false
+      ignore_errors: true
+
+    - name: DISPLAY HELD BACK PACKAGES
+      debug:
+        msg: "Held back packages: {{ held_packages.stdout }}"
+      when: held_packages.stdout != ""
+
+    - name: UPGRADE HELD BACK PACKAGES
+      apt:
+        upgrade: yes
+        state: latest
+      register: upgrade_output
+      when: held_packages.stdout != "" and update_result.changed
+
+    - name: DISPLAY UPGRADE OUTPUT
+      debug:
+        msg: "Upgrade output: {{ upgrade_output.stdout }}"
+      when: upgrade_output.stdout is defined

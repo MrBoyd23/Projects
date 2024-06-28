@@ -1,0 +1,21 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/gather_facts.yml
+---
+- name: PLAYBOOK WITH GATHERING FACTS
+  hosts: all
+  gather_facts: true  # This is the default; you can set it to false to disable fact gathering
+  become: "{{ enable_become | default(false) }}"
+  serial: 4
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: DISPLAY GATHERED FACTS
+      debug:
+        var: ansible_facts
+
+    - name: DISPLAY DETAILS ON VMS
+      debug:
+        msg:
+          - "Hostname: {{ ansible_facts['hostname']  }}"
+          - "Distribution: {{ ansible_facts['distribution'] }}"
+          - "IP Address: {{ ansible_facts['default_ipv4']['address'] }}"

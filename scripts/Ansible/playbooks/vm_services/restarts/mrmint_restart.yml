@@ -1,0 +1,59 @@
+# ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/vm_services/mrmint_service.yml
+- name: MRMINT RESTART SERVICES
+  hosts: MrMint
+  gather_facts: false
+  become: true
+  serial: 1
+  vars_files:
+    - ../../../.secrets/secret_vars.yml
+
+  tasks:
+    - name: RESTART SPECIFIED SERVICES
+      command: systemctl restart "{{ item }}"
+      loop:
+        - docker.service
+        - accounts-daemon.service
+        - acpid.service
+        - avahi-daemon.service
+        - colord.service
+        - containerd.service
+        - cron.service
+        - cups-browsed.service
+        - cups.service
+        - dbus.service
+        - getty@tty1.service
+        - irqbalance.service
+        - kerneloops.service
+        - lightdm.service
+        - ModemManager.service
+        - networkd-dispatcher.service
+        - NetworkManager.service
+        - nmbd.service
+        - packagekit.service
+        - polkit.service
+        - rsyslog.service
+        - rtkit-daemon.service
+        - smbd.service
+        - ssh.service
+        - switcheroo-control.service
+        - systemd-journald.service
+        - systemd-logind.service
+        - systemd-resolved.service
+        - systemd-timesyncd.service
+        - systemd-udevd.service
+        - touchegg.service
+        - udisks2.service
+        - upower.service
+        - user@1000.service
+        - uuidd.service
+        - wpa_supplicant.service
+        - zfs-zed.service      
+      register: restart_result
+      failed_when: false  # This ensures the task does not fail due to non-zero return codes
+
+    - name: DEBUG RESTART RESULTS
+      debug:
+        msg: "Service {{ item.item }} restart result: {{ item.stdout }}"
+      loop: "{{ restart_result.results }}"
+      when: item.stdout is defined
+

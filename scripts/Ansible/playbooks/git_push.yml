@@ -1,0 +1,18 @@
+# ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/git_push.yml
+---
+- name: EXECUTE GIT COMMANDS ON REMOTE HOSTS
+  hosts: all  # Specify your target hosts here
+  gather_facts: false
+  become: "{{ enable_become | default(false) }}"
+  serial: 1
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: EXECUTE THE SHELL SCRIPT
+      command: /home/scripts/auto-commit.sh
+      register: script_output
+
+    - name: PRINT THE OUTPUT OF THE SCRIPT
+      debug:
+        var: script_output.stdout_lines     

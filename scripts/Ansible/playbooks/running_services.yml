@@ -1,0 +1,23 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/running_services.yml
+---
+- name: CHECK ACTIVE RUNNING SERVICES
+  hosts: all
+  gather_facts: false
+  become: "{{ enable_become | default(false) }}"
+  serial: 1
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: GET A LIST OF RUNNING SERVICES
+      command: systemctl list-units --type=service --state=running
+      register: running_services
+
+    - name: EXTRACT SERVICE NAMES
+      set_fact:
+        service_names: "{{ running_services.stdout_lines[1:] | map('regex_replace', '^\\s*(\\S+).+', '\\1') | list }}"
+
+    - name: DISPLAY SERVICE NAMES
+      debug:
+        msg: "{{ service_names }}"
+

@@ -1,0 +1,18 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/get_osversion.yml
+---
+- name: GET OPERATING SYSTEM FROM PROXMOX VMS
+  hosts: all
+  gather_facts: false
+  become: "{{ enable_become | default(false) }}"
+  serial: 4
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: OBTAIN OPERATING SYSTEM
+      shell: cat /etc/os-release
+      register: osversion
+
+    - name: DISPLAY HOSTNAME
+      debug:
+        msg: '{{ osversion.stdout_lines}}'

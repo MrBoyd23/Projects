@@ -1,0 +1,24 @@
+# Example main.cf.j2 template for Postfix
+# Adjust according to your specific requirements
+
+# General settings
+myhostname = mail.wtfiscrackin.com
+mydomain = wtfiscrackin.com
+myorigin = $mydomain
+inet_interfaces = all
+inet_protocols = all
+
+# Relay settings (if needed)
+relayhost = [mail.wtfiscrackin.com]
+
+# Virtual domain settings (if needed)
+virtual_alias_domains = wtfiscrackin.com
+virtual_alias_maps = hash:/etc/postfix/virtual
+
+# TLS settings (optional but recommended)
+smtp_tls_security_level = may
+smtpd_tls_cert_file = /etc/ssl/certs/ssl-cert-snakeoil.pem
+smtpd_tls_key_file = /etc/ssl/private/ssl-cert-snakeoil.key
+smtpd_tls_security_level = may
+
+# Additional settings as required

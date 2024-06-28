@@ -1,0 +1,18 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/kernel_check.yml
+---
+- name: CHECK DOCKER STATS FOR ALL CONTAINERS
+  hosts: all
+  gather_facts: true  # This is the default; you can set it to false to disable fact gathering
+  become: "{{ enable_become | default(false) }}"
+  serial: 5
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: GET CURRENT KERNEL
+      shell: uname -r
+      register: kernel
+
+    - name: KERNEL VERSION
+      debug:
+        msg: "{{ kernel.stdout_lines }}"

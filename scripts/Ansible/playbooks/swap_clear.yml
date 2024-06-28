@@ -1,0 +1,18 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/swap_clear.yml
+---
+- name: CLEAR SWAP AND LIST CONNECTIONS
+  hosts: all
+  gather_facts: false  # This is the default; you can set it to false to disable fact gathering
+  become: "{{ enable_become | default(false) }}"
+  serial: 1
+  vars_files:
+    - ../.secrets/secret_vars.yml
+    
+  tasks:
+    - name: RUN SWAP COMMAND
+      shell: /home/scripts/crons/swap-clear.sh
+      register: swap_clear
+
+    - name:
+      debug:
+        msg: "{{ swap_clear.stdout_lines }}"

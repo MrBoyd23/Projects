@@ -1,0 +1,23 @@
+# ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/docker_names.yml
+---
+- name: IDENTIFY DOCKER CONTAINERS
+  hosts: all
+  gather_facts: false
+  become: "{{ enable_become | default(false) }}"
+  serial: 4
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: PARSE DOCKER NAMES
+      command: docker ps --format "table {{'{{'}}.Names{{'}}'}}\t{{'{{'}}.ID{{'}}'}}"
+      register: docker_ps_output
+
+    - name: SPLIT DOCKER OUTPUT INTO LINES
+      set_fact:
+        docker_ps_lines: "{{ docker_ps_output.stdout_lines }}"
+
+    - name: DISPLAY DOCKER OUTPUT LINE BY LINE
+      debug:
+        msg: "{{ item }}"
+      loop: "{{ docker_ps_lines }}"
