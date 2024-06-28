@@ -58,8 +58,12 @@ if [[ -n "$status_output" ]]; then
     git push
 
     # Output the results
+    echo
     echo "CHANGES HAVE BEEN PUSHED TO THE REPOSITORY."
+    echo
 else
+    echo
     echo "NO CHANGES TO COMMIT."
+    echo
 fi
 
