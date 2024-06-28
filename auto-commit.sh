@@ -1,65 +1,65 @@
 #!/bin/bash
-#Useful Only When Making Edits Locally And No Other Users Make Changes To Your Repository 
 
-# FUNCTION TO SHOW A PROGRESS SPINNER
+# Function to show a progress spinner
 function show_spinner() {
     local pid=$1
-    local delay=0.2
+    local delay=0.1
     local spinstr='▁▃▄▅▆▇█▇▆▅▄▃'
+    local i=0
     while ps -p $pid > /dev/null; do
-        local temp=${spinstr#?}
-        printf " [%c]  " "$spinstr"
-        local spinstr=$temp${spinstr%"$temp"}
+        local temp=${spinstr:i++%${#spinstr}:1}
+        printf " [%s]  " "$temp"
         sleep $delay
         printf "\b\b\b\b\b\b"
     done
     printf "    \b\b\b\b"
 }
 
-# RUN GIT FETCH IN THE BACKGROUND AND SHOW A SPINNER
+# Run git fetch in the background and show a spinner
+echo "Fetching latest changes from remote repository..."
 git fetch &
 show_spinner $!
 
-# CHECK IF THERE ARE ANY CHANGES ON THE REMOTE
+# Check if there are any changes on the remote
 if ! git diff --quiet HEAD..origin/$(git rev-parse --abbrev-ref HEAD); then
-    # STASH ANY LOCAL CHANGES
+    # Stash any local changes
     git stash
 
-    # PULL CHANGES FROM THE REMOTE REPOSITORY
+    # Pull changes from the remote repository
     git pull
 
-    # MERGE THE STASHED CHANGES
+    # Merge the stashed changes
     git stash pop
 fi
 
-# RUN GIT STATUS AND CAPTURE THE OUTPUT
+# Run git status and capture the output
 status_output=$(git status --porcelain)
 
-# CHECK IF THERE ARE UNTRACKED FILES OR CHANGES TO BE COMMITTED
+# Check if there are untracked files or changes to be committed
 if [[ -n "$status_output" ]]; then
-    # ADD ALL CHANGES
+    # Add all changes
     git add -A
     
-    # GET THE LIST OF FILES BEING ADDED
+    # Get the list of files being added
     files=$(git diff --cached --name-only)
     
-    # DETERMINE THE COMMIT MESSAGE BASED ON THE NUMBER OF FILES
-    file_count=$(echo "$FILES" | wc -l)
+    # Determine the commit message based on the number of files
+    file_count=$(echo "$files" | wc -l)
     if (( file_count > 2 )); then
         commit_message="Updating Mass Files in Repository"
     else
         commit_message="Adding: $files"
     fi
     
-    # COMMIT THE CHANGES
+    # Commit the changes
     git commit -m "$commit_message"
     
-    # PUSH THE CHANGES
+    # Push the changes
     git push
 
-    # OUTPUT THE RESULTS
-    echo "CHANGES HAVE BEEN PUSHED TO THE REPOSITORY."
+    # Output the results
+    echo "Changes have been pushed to the repository."
 else
-    echo "NO CHANGES TO COMMIT."
+    echo "No changes to commit."
 fi
 
