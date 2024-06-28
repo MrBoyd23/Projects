@@ -1,0 +1,56 @@
+/* Sidebar.module.css */
+
+.sidebar {
+    width: 200px; /* Adjust width as needed */
+    background-color: transparent;
+    padding: 20px;
+    position: fixed; /* Fixed position to ensure it stays in place */
+    top: 0; /* Align with the top of the viewport */
+    right: 0; /* Align with the right side of the viewport */
+    z-index: 10; /* Higher z-index for the sidebar */
+    font-family: 'Playfair Display', Arial;
+}
+
+.sidebarList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebarList li {
+    margin-bottom: 10px;
+    position: relative; /* Ensure position context for pseudo-element */
+}
+
+.sidebarList li::before {
+    content: '•'; /* Bullet point content */
+    color: black; /* Black color for bullet points */
+    display: inline-block;
+    width: 10px; /* Adjust width of bullet point if needed */
+    margin-right: 5px; /* Adjust spacing between bullet point and text */
+    position: absolute;
+    left: -15px; /* Adjust position of bullet point relative to text */
+    top: 50%; /* Align bullet point vertically with text */
+    transform: translateY(-50%); /* Center bullet point vertically */
+}
+
+.sidebarList li a {
+    text-decoration: none;
+    color: #ff0;
+    font-weight: bold;
+    display: inline-block; /* Ensure proper alignment with bullet points */
+    vertical-align: middle; /* Align text vertically with bullet point */
+}
+
+.sidebarList li a:hover {
+    text-decoration: underline;
+    color: #00ffff; /* Turquoise color on hover */
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Full width on small screens */
+        border-right: none; /* Remove border on small screens */
+        border-bottom: 1px solid #ccc; /* Add bottom border for separation */
+    }
+}
+

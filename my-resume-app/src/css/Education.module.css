@@ -1,0 +1,45 @@
+.education {
+    padding: 20px;
+    background: #000; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px auto;
+}
+
+.education h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #ff0;
+    border-bottom: 2px solid #61dafb;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.educationItem {
+    margin-bottom: 20px;
+}
+
+.educationItem h3 {
+    font-size: 1.2em;
+    color: #8b0000;
+    margin-bottom: 5px;
+}
+
+.educationItem p {
+    color: #ff0;
+    line-height: 1.6;
+    margin: 5px 0;
+    font-family: 'Playfair Display', Arial;
+}
+
+/* Education.module.css */
+
+.turquoiseLink {
+    color: #00CED1; /* Turquoise color */
+    text-decoration: none; /* Remove underline */
+}
+
+.turquoiseLink:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+

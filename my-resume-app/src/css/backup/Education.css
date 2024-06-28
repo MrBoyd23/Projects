@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.education {
+    padding: 20px;
+    background: #fff; /* White background for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    margin: 20px auto; /* Center the container */
+}
+
+.education h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #61dafb; /* Accent color underline */
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.education-item {
+    margin-bottom: 20px;
+}
+
+.education-item h3 {
+    font-size: 1.2em;
+    color: #282c34; /* Darker color for school names */
+    margin-bottom: 5px;
+}
+
+.education-item p {
+    color: #666;
+    line-height: 1.6;
+    margin: 5px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Media queries for responsiveness */
+
+/* For small screens (mobile devices) */
+@media (max-width: 768px) {
+    .education {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .education h2 {
+        font-size: 1.2em;
+    }
+
+    .education-item h3 {
+        font-size: 1em;
+    }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .education {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .education h2 {
+        font-size: 1.3em;
+    }
+
+    .education-item h3 {
+        font-size: 1.1em;
+    }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+    .education {
+        max-width: 1400px; /* Increase max width for large screens */
+    }
+
+    .education h2 {
+        font-size: 1.5em;
+    }
+
+    .education-item h3 {
+        font-size: 1.2em;
+    }
+}
+

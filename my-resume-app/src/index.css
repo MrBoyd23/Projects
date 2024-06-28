@@ -1,0 +1,173 @@
+/* Import Google Fonts and basic resets */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&family=Merriweather:wght@400;700&display=swap');
+
+/* General container style */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: flex-start;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #800; /* White background for the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 8px; /* Rounded corners */
+  margin: 20px auto; /* Center the container */
+}
+
+/* Stylish header */
+header {
+  width: 100%;
+  text-align: left;
+  padding: 20px 0;
+  background: #ffff00; /* Dark red background color */
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-bottom: none; /* Ensure there's no border-bottom */
+  margin: 0; /* Remove any margin that could cause spacing issues */
+}
+
+/* Section headings */
+h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #000;
+  border-bottom: 2px solid #8b0000; /* Accent color underline */
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Main content area */
+main {
+  display: flex;
+  flex-wrap: wrap; /* Enable wrapping for responsiveness */
+  justify-content: space-around; /* Evenly distribute items across the container */
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Footer style */
+footer {
+  width: 100%;
+  text-align: left;
+  padding: 10px 0;
+  background: #282c34;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9em;
+}
+
+/* Button style */
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  background-color: #61dafb;
+  color: #282c34;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 5px; /* Rounded corners */
+}
+
+button:hover {
+  background-color: #21a1f1;
+}
+
+/* List styles */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 5px 0;
+  padding-left: 20px;
+  text-indent: -20px;
+}
+
+ul li::before {
+  content: '•';
+  color: #61dafb; /* Accent color for bullets */
+  display: inline-block;
+  width: 20px;
+}
+
+/* Paragraph styles */
+p {
+  color: #666;
+  line-height: 1.6;
+  margin: 10px 0;
+  font-family: 'Playfair Display', Arial;
+}
+
+/* Media queries for responsiveness */
+
+/* For small screens (mobile devices) */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  header, footer {
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  button {
+    width: 100%;
+    font-size: 0.9em;
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 15px;
+    margin: 15px;
+  }
+
+  header, footer {
+    text-align: center;
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  button {
+    width: auto;
+    font-size: 1em;
+  }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+  .container {
+    max-width: 1400px; /* Increase max width for large screens */
+  }
+
+  header, footer {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  button {
+    width: auto;
+    font-size: 1em;
+  }
+}
+

@@ -1,0 +1,130 @@
+/* Reset default styles and apply base styles */
+
+/* General container style */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #800; /* White background for the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 8px; /* Rounded corners */
+  margin: 20px auto; /* Center the container */
+  margin-top: 70px; /* Ensure no content goes behind the header */
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #ffff00; /* Sets the font color to white (#ffff00) */
+}
+
+/* Header styles */
+.header {
+  background-color: #800;
+  color: #ff0;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.header h2 {
+  margin: 5px 0 0;
+  font-size: 1.5rem;
+}
+
+/* Container for main content */
+.container {
+  max-width: 1200px; /* Consistent with index.css */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Section styles */
+.experience,
+.skills,
+.education,
+.certifications {
+  margin-bottom: 30px;
+}
+
+/* Job entry styles */
+.job {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.job .job-details {
+  /* Ensure job details take full width */
+}
+
+.job h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.job p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #f00;
+}
+
+.job ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.job ul li {
+  margin-bottom: 5px;
+}
+
+/* Skills and certifications list styles */
+.skills ul,
+.certifications ul {
+  padding-left: 20px;
+}
+
+/* Education section styles */
+.education p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Additional styles */
+.container h2 {
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.container p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* App.css */
+.issuer a {
+    color: #40e0d0; /* Turquoise color */
+    text-decoration: none; /* Remove underline */
+}
+
+.issuer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+

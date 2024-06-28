@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.certifications {
+    padding: 20px;
+    background: #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px auto;
+}
+
+.heading {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #ff0;
+    border-bottom: 2px solid #61dafb;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.certificationItem {
+    margin-bottom: 20px;
+}
+
+.certificationTitle {
+    font-size: 1.2em;
+    color: #8b0000;
+    margin-bottom: 5px;
+}
+
+.issueDate, .issuer {
+    color: #ff0;
+    line-height: 1.6;
+    margin: 5px 0;
+    font-family: 'Playfair Display', Arial;
+}
+
+/* Media queries for responsiveness */
+
+/* For small screens (mobile devices) */
+@media (max-width: 768px) {
+    .certifications {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .heading {
+        font-size: 1.2em;
+    }
+
+    .certificationTitle {
+        font-size: 1em;
+    }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .certifications {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .heading {
+        font-size: 1.3em;
+    }
+
+    .certificationTitle {
+        font-size: 1.1em;
+    }
+}
+
+/* For large screens (desktops) */
+@media (min-width: 1025px) {
+    .certifications {
+        max-width: 1400px;
+    }
+
+    .heading {
+        font-size: 1.5em;
+    }
+
+    .certificationTitle {
+        font-size: 1.2em;
+    }
+}
+
+/* Certifications.module.css */
+.issuer a {
+    color: #40e0d0; /* Turquoise color */
+    text-decoration: none; /* Remove underline */
+}
+
+.issuer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+

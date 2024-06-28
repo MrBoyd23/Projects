@@ -1,0 +1,54 @@
+/* Header.module.css */
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #8b0000; /* Dark red background color */
+    color: #ff0;
+    font-family: 'Playfair Display', Arial;
+    z-index: 1; /* Lower z-index for the header */
+    position: relative; /* Create stacking context */
+}
+
+.header h1 {
+    font-size: 1.5em; /* Adjusted font size for h1 */
+    margin: 0;
+}
+
+.header h2 {
+    font-size: 1em; /* Adjusted font size for h2 */
+    margin: 0;
+}
+
+.navList {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0; /* Add margin to separate the nav from the headings */
+}
+
+.navItem {
+    display: inline;
+    margin: 0 10px;
+}
+
+.navItem::before {
+    content: '•'; /* Bullet point content */
+    color: black; /* Black color for bullet points */
+    display: inline-block;
+    width: 10px; /* Adjust width of bullet point if needed */
+    margin-right: 5px; /* Adjust spacing between bullet point and text */
+}
+
+.navLink {
+    text-decoration: none;
+    color: #ff0; /* Yellow text color */
+    font-family: 'Playfair Display', serif;
+    font-weight: bold; /* Bold text */
+    font-size: 1em; /* Adjusted font size for nav links */
+}
+
+.navLink:hover {
+    text-decoration: underline;
+    color: #00ffff; /* Turquoise color on hover */
+}
+

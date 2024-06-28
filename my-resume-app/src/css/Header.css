@@ -1,0 +1,33 @@
+/* src/components/Header.css */
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #8b0000; /* Dark red background color */
+    color: #fff;
+    font-family: 'Playfair Display', Arial;
+    z-index: 10; /* Ensure the header is above the sidebar */
+    position: relative; /* Create stacking context */
+}
+
+.header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.header nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.header nav ul li a {
+    text-decoration: none;
+    color: #ff0; /* White text color */
+    font-family: 'Playfair Display', serif;
+    font-weight: bold; /* Bold text */
+    font-size: 1.2em; /* Larger font size */
+}
+
+.header nav ul li a:hover {
+    text-decoration: underline;
+}
+
