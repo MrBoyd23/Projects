@@ -16,6 +16,7 @@ function show_spinner() {
 }
 
 # Run git fetch in the background and show a spinner
+echo
 echo "Fetching Latest Changes From Remote Repository..."
 git fetch &
 show_spinner $!
