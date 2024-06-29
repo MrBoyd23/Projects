@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const JavaScript = () => {
     const [files, setFiles] = useState([]);
@@ -12,7 +14,6 @@ const JavaScript = () => {
                 const response = await fetch(repositoryUrl);
                 if (response.ok) {
                     const filesData = await response.json();
-                    // Filter out folders and get only files
                     const filesFiltered = filesData.filter(item => item.type === 'file');
                     setFiles(filesFiltered);
                 } else {
@@ -33,7 +34,6 @@ const JavaScript = () => {
                 const response = await fetch(skillsFolderUrl);
                 if (response.ok) {
                     const skillsFilesData = await response.json();
-                    // Filter out folders and get only files
                     const skillsFilesFiltered = skillsFilesData.filter(item => item.type === 'file');
                     setSkillsFiles(skillsFilesFiltered);
                 } else {
@@ -88,7 +88,11 @@ const JavaScript = () => {
             {selectedFileContent && (
                 <div>
                     <h3>Selected File Content</h3>
-                    <pre className="code-block">{selectedFileContent}</pre>
+                    <div className="code-block">
+                        <SyntaxHighlighter language="javascript" style={atomDark}>
+                            {selectedFileContent}
+                        </SyntaxHighlighter>
+                    </div>
                 </div>
             )}
         </div>
