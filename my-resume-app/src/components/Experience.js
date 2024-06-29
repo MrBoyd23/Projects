@@ -12,18 +12,28 @@ const Experience = () => {
                     <p>Jul 2021 - Present · 3 yrs</p>
                     <p>Remote</p>
                     <ul>
-                        <li>Incident Management & Alert monitoring on 100K+ server network</li>
-                        <li>Identify Trending Incidents, Perform Root Cause Analysis & Implement Process Changes To Reduce/Eliminate Recurrence</li>
-                        <li>Apache and IIS Troubleshooting</li>
+                        <li>Developed Remediation Scripting For Troubleshooting Server Environment</li>
+	    		<li>Utilized CMDB (Configuration Management Database) with ServiceNow</li>
+	                <li>Incident Management & Alert Monitoring On 100K+ Server Network</li>
+                        <li>Subject Matter Expect On WordPress Server Configuration & Remediation</li>
+			<li>Monitored Network For DDOS Attacks Against Different Environments</li>
+			<li>Engaged with Kentick Software To Track Trends In Network Traffic</li>
+	    		<li>Mitigated Attacks Against Servers</li>
+    			    <ul>
+                                <li>Network Level Blocking</li>
+        			<li>Network Swings</li>
+        			<li>NetScout</li>
+        			<li>iptables</li>
+    			    </ul>  
+	                <li>Identify Trending Incidents, Perform Root Cause Analysis & Implement Process Changes To Reduce/Eliminate Recurrence</li>
+                        <li>Apache & IIS Troubleshooting</li>
                         <li>Setup/Configure Services In WHM/cPanel & Plesk/Remote Desktop</li>
                         <li>MYSQL/MSSQL Database Troubleshooting</li>
-                        <li>Experienced In Website Migration</li>
-                        <li>Experienced With DNS/Email Configuration Setup</li>
+                        <li>Conducted Website & Content Migratioans</li>
+                        <li>DNS & Email Configuration Setup</li>
                         <li>Assisted Legal Team In Making Data Archives</li>
-                        <li>Utilized Confluence/Jira For Document Tracking & Versioning</li>
-                        <li>Determined Cost-Saving Strategies By Publicizing Internal & New Documentation</li>
-                        <li>Understanding Best Security Principles & Practices</li>
-                        <li>Implemented Fixes On Misconfigured Security Plans via API</li>
+                        <li>Utilized Confluence & Jira For Document Tracking & Versioning</li>
+                        <li>Completed Training To Keep Up With Best Security Principles & Practices</li>
                     </ul>
                 </div>
             </div>
@@ -37,20 +47,20 @@ const Experience = () => {
                     <p>Remote</p>
                     <ul>
                         <li>Incident Management & Alert Monitoring On 100K+ Server Network</li>
-                        <li>Identify Trending Incidents, Perform Root Cause Analysis & Implement Process Changes To Reduce/Eliminate Recurrence</li>
-                        <li>Utilize Splunk Servers/Command-Line To Review Relayed Email</li>
+                        <li>Identify Trending Incidents, Perform Root Cause Analysis & Implement Process Changes To Reduce & Eliminate Recurrence</li>
+                        <li>Utilize Splunk Software & Command-Line To Review Relayed Email</li>
                         <li>Coordinated With Tier 2 Agent To Assist In Providing First Contact Resolution</li>
                         <li>Apache & IIS Troubleshooting</li>
-                        <li>Managed/Issued Network Violations For Users Abusing Network Services</li>
-                        <li>Website/Server Restoration</li>
+                        <li>Managed & Issued Network Violations For Users Abusing Network & Hardware Services</li>
+                        <li>Website & Server Restorations</li>
                         <li>MYSQL/MSSQL Database Troubleshooting</li>
                         <li>Assist Office of the CEO & Management with Escalated Matters In The Environment</li>
                         <li>Website Security Review/Configuration/Analysis</li>
                         <li>Properly Identify and Remove Malware From Compromised Websites</li>
                         <li>Coordinated with Tier 2 Level Teams On How To Correct Issues with New Tools</li>
-                        <li>Used Documented Issues To Have Dev Create Tools To Fix Common Issues</li>
+                        <li>Used Documented Issues To Have Developers Create Tools To Fix Common Issues</li>
                         <li>Created Technical Documentation for Tier 1 & 2 For Best Practices When Configuring Services</li>
-                        <li>Setup of A HelpBot (LiveEngage), This Is An Automated Bot That Provides Answers To Agents Based On Common Issues In The Environment</li>
+                        <li>Setup of A HelpBot (LiveEngage), Automated Bot That Provides Answers To Agents Based On Common Issues In The Environment</li>
                     </ul>
                 </div>
             </div>
