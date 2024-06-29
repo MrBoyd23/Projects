@@ -61,7 +61,7 @@ const Experience = () => {
                     <h3>Hosting Technical Lead</h3>
                     <p><b>GoDaddy</b></p>
                     <p>Feb 2016 - Nov 2018 · 2 yrs 10 mos</p>
-                    <p>Phoenix, Arizona Area</p>
+                    <p>Scottsdale, Arizona | Remote</p>
                     <ul>
                         <li>Worked Server/Managed Services Incident Queue</li>
                         <li>Website Security Reviews/Configuration/Analysis</li>
@@ -84,7 +84,7 @@ const Experience = () => {
                     <h3>Subject Matter Expert | Website Security</h3>
                     <p><b>GoDaddy | Sucuri</b></p>
                     <p>Aug 2015 - Present</p>
-                    <p>Phoenix, Arizona Area</p>
+                    <p>Scottsdale, Arizona</p>
                     <ul>
                         <li>Determined Cost-saving Strategies By Publicizing Internal & New Documentation</li>
                         <li>Subject Matter Expert (Website Security | Sucuri)</li>
@@ -106,7 +106,7 @@ const Experience = () => {
                     <h3>Advanced Hosting IV</h3>
                     <p><b>GoDaddy</b></p>
                     <p>Nov 2013 - Jan 2016 · 2 yrs 3 mos</p>
-                    <p>Phoenix, Arizona Area</p>
+                    <p>Scottsdale, Arizona</p>
                     <ul>
                         <li>Tested cPanel And Plesk Release For Shared Hosting Environment</li>
                         <li>Created Supporting Documentation/help Articles For Customers/agents</li>
@@ -123,7 +123,7 @@ const Experience = () => {
                     <h3>Hosting Online Support Team</h3>
                     <p><b>GoDaddy</b></p>
                     <p>Feb 2008 - Oct 2013 · 5 yrs 9 mos</p>
-                    <p>Phoenix, Arizona Area</p>
+                    <p>Scottsdale, Arizona </p>
                     <ul>
                         <li>Instrumental In The Creation Of A Team Dedicated To Hosting Support</li>
                         <li>Piloted The Server Support Chat Team</li>
