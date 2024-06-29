@@ -63,7 +63,7 @@ const GitHubCodeViewer = () => {
                 </button>
                 {showCode1 && (
                     <div style={{ marginTop: '10px' }}>
-                        <h3>Code 1</h3>
+                        <h3>Resume Header CSS</h3>
                         <SyntaxHighlighter language="jsx" style={atomDark}>
                             {code1}
                         </SyntaxHighlighter>
@@ -78,7 +78,7 @@ const GitHubCodeViewer = () => {
                 </button>
                 {showCode2 && (
                     <div style={{ marginTop: '10px' }}>
-                        <h3>Code 2</h3>
+                        <h3>Resume Skills CSS</h3>
                         <SyntaxHighlighter language="jsx" style={atomDark}>
                             {code2}
                         </SyntaxHighlighter>
@@ -93,7 +93,7 @@ const GitHubCodeViewer = () => {
                 </button>
                 {showCode3 && (
                     <div style={{ marginTop: '10px' }}>
-                        <h3>Code 3</h3>
+                        <h3>Resume Styles CSS Code</h3>
                         <SyntaxHighlighter language="jsx" style={atomDark}>
                             {code3}
                         </SyntaxHighlighter>

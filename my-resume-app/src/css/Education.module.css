@@ -9,7 +9,7 @@
 .education h2 {
     font-size: 1.5em;
     margin-bottom: 20px;
-    color: #ff0;
+    color: #fff;
     border-bottom: 2px solid #61dafb;
     display: inline-block;
     padding-bottom: 5px;
@@ -26,7 +26,7 @@
 }
 
 .educationItem p {
-    color: #ff0;
+    color: #fff;
     line-height: 1.6;
     margin: 5px 0;
     font-family: 'Playfair Display', Arial;

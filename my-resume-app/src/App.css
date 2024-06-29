@@ -22,13 +22,13 @@ body {
   margin: 0;
   padding: 0;
   background-color: #000000;
-  color: #ffff00; /* Sets the font color to Dark Yellow (#ffff00) */
+  color: #ffffff; /* Sets the font color to White (#ffffff) */
 }
 
 /* Header styles */
 .header {
   background-color: #800;
-  color: #ff0;
+  color: #fff;
   text-align: center;
   padding: 1rem 0;
 }

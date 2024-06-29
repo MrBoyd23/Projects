@@ -7,7 +7,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #000;
-  color: #ffff00; /* Sets the font color to Dark Yellow (#ffff00) */
+  color: #ffffff; /* Sets the font color to Dark Yellow (#ffff00) */
 }
 
 /* General container style */
@@ -56,7 +56,7 @@ h2, .container h2 {
   font-family: 'Merriweather', serif;
   font-size: 1.5em;
   margin-bottom: 10px;
-  color: #ff0;
+  color: #fff;
   border-bottom: 2px solid #8b0000;
   display: inline-block;
   padding-bottom: 5px;
@@ -120,7 +120,7 @@ ul li::before {
 
 /* Paragraph styles */
 p, .container p {
-  color: #ff0;
+  color: #fff;
   line-height: 1.6;
   margin: 10px 0;
   font-family: 'Playfair Display', Arial;
@@ -274,7 +274,7 @@ a {
 .certifications .heading {
     font-size: 1.5em;
     margin-bottom: 20px;
-    color: #ffff00; /* Yellow color for heading */
+    color: #ffffff; /* Yellow color for heading */
     border-bottom: 2px solid #61dafb;
     display: inline-block;
     padding-bottom: 5px;
@@ -292,7 +292,7 @@ a {
 
 .certifications .issueDate, 
 .certifications .issuer {
-    color: #ff0; /* Yellow for issue date and issuer */
+    color: #fff; /* Yellow for issue date and issuer */
     line-height: 1.6;
     margin: 5px 0;
     font-family: 'Playfair Display', Arial;
@@ -351,3 +351,68 @@ a {
     }
 }
 
+/* Content for Code Blocks */
+.content-section {
+    max-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Apply a max-width and center the content */
+.github-code-viewer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Ensure the code sections are responsive */
+.code-section {
+    margin-bottom: 14px;
+    overflow-x: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .code-block {
+        font-size: 14px; /* Example adjustment for smaller screens */
+    }
+}
+
+/* Configuration for JavaScript Container */
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.files-grid, .skills-files {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Remove button background color */
+
+button:hover {
+    background-color: #e0e0e0;
+}
+
+pre {
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+/* Style the code block */
+.code-block {
+    background-color: #000000; /* Style the code block */
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+}

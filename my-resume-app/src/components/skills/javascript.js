@@ -63,11 +63,11 @@ const JavaScript = () => {
     };
 
     return (
-        <div>
+        <div className="content-container">
             <h2>JavaScript Code</h2>
-	    <p><em>The Following Content Consists Of The Pages That Make Up This Resume</em></p>
-	    
-            <p>Main Pages:</p>
+            <p><em>The Following Content Consists Of The Pages That Make Up This Resume</em></p>
+
+            <h3>Main Pages:</h3>
             <div className="files-grid">
                 {files.map((file, index) => (
                     <button key={index} onClick={() => handleFileClick(file)}>
@@ -76,7 +76,7 @@ const JavaScript = () => {
                 ))}
             </div>
             <div>
-                <h3>Expirience Pages:</h3>
+                <h3>Experience Pages:</h3>
                 <div className="skills-files">
                     {skillsFiles.map((file, index) => (
                         <button key={index} onClick={() => handleFileClick(file)}>
@@ -88,7 +88,7 @@ const JavaScript = () => {
             {selectedFileContent && (
                 <div>
                     <h3>Selected File Content</h3>
-                    <pre>{selectedFileContent}</pre>
+                    <pre className="code-block">{selectedFileContent}</pre>
                 </div>
             )}
         </div>

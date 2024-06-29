@@ -26,7 +26,7 @@
 }
 
 .issueDate, .issuer {
-    color: #ff0;
+    color: #fff;
     line-height: 1.6;
     margin: 5px 0;
     font-family: 'Playfair Display', Arial;  /* Ensure consistency */

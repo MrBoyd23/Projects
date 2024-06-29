@@ -4,7 +4,7 @@
     text-align: center;
     padding: 20px;
     background-color: #8b0000; /* Dark red background color */
-    color: #ff0;
+    color: #fff;
     font-family: 'Playfair Display', Arial;
     z-index: 1; /* Lower z-index for the header */
     position: relative; /* Create stacking context */
@@ -42,7 +42,7 @@
 
 .navLink {
     text-decoration: none;
-    color: #ff0; /* Yellow text color */
+    color: #fff; /* Yellow text color */
     font-family: 'Playfair Display', serif;
     font-weight: bold; /* Bold text */
     font-size: .6em; /* Adjusted font size for nav links */

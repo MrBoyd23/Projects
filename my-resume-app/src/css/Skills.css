@@ -14,7 +14,7 @@
     margin-bottom: 20px;
     font-size: 2.5em; /* Increased heading font size */
     color: #333;
-    font-family: 'Poppins', sans-serif; /* Changed font family */
+    font-family: 'Playfair Display', Arial; /* Changed font family */
     text-decoration: underline; /* Added underline */
 }
 
@@ -28,7 +28,7 @@
 
 .skill-bubble {
     background: linear-gradient(to right, black, red); /* Adjusted gradient direction */
-    color: yellow;
+    color: white;
     padding: 8px 10px; /* Decreased padding to make bubbles smaller */
     border-radius: 20px; /* Increased border-radius */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
