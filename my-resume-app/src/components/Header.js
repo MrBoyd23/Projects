@@ -13,6 +13,7 @@ const Header = () => {
                     <li className={styles.navItem}><Link to="/" className={styles.navLink}>Home</Link></li>
                     <li className={styles.navItem}><Link to="/Experience" className={styles.navLink}>Experience</Link></li>
                     <li className={styles.navItem}><Link to="/Education" className={styles.navLink}>Education</Link></li>
+                    <li className={styles.navItem}><a href="https://github.com/MrBoyd23/Projects" className={styles.navLink} target="_blank" rel="noopener noreferrer">GitHub Repos</a></li>
                 </ul>
             </nav>
         </header>

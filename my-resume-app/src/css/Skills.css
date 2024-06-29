@@ -37,8 +37,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Poppins', sans-serif; /* Changed font family */
-    transition: transform 0.3s ease;
+    font-family: 'Playfair Display', Arial; /* Changed font family */
+    transition: transform 0.1s ease;
     min-height: 40px; /* Adjusted minimum height */
     white-space: nowrap;
     font-weight: bold; /* Bold text */
@@ -52,7 +52,7 @@
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
     .skills-page h1 {
-        font-size: 1.8em; /* Adjusted heading for mobile */
+        font-size: 1em; /* Adjusted heading for mobile */
     }
 
     .skill-bubble {

@@ -5,7 +5,7 @@
     background-color: transparent;
     padding: 20px;
     position: fixed; /* Fixed position to ensure it stays in place */
-    top: 0; /* Align with the top of the viewport */
+    top: 60px; /* Adjust this value to match the height of your header */
     right: 0; /* Align with the right side of the viewport */
     z-index: 10; /* Higher z-index for the sidebar */
     font-family: 'Playfair Display', Arial;
@@ -23,7 +23,7 @@
 
 .sidebarList li::before {
     content: '•'; /* Bullet point content */
-    color: black; /* Black color for bullet points */
+    color: yellow; /* Yellow color for bullet points */
     display: inline-block;
     width: 10px; /* Adjust width of bullet point if needed */
     margin-right: 5px; /* Adjust spacing between bullet point and text */
@@ -51,6 +51,9 @@
         width: 100%; /* Full width on small screens */
         border-right: none; /* Remove border on small screens */
         border-bottom: 1px solid #ccc; /* Add bottom border for separation */
+        top: 60px; /* Adjust this value to match the height of your header */
+        left: 0; /* Align with the left side of the viewport */
+        right: 0; /* Ensure the sidebar spans the full width */
     }
 }
 

@@ -22,7 +22,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #000000;
-  color: #ffff00; /* Sets the font color to white (#ffff00) */
+  color: #ffff00; /* Sets the font color to Dark Yellow (#ffff00) */
 }
 
 /* Header styles */
@@ -33,14 +33,14 @@ body {
   padding: 1rem 0;
 }
 
-.header h1 {
+.header h2 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
-.header h2 {
+.header h3 {
   margin: 5px 0 0;
-  font-size: 1.5rem;
+  font-size: .8rem;
 }
 
 /* Container for main content */

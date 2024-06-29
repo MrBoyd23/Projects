@@ -11,19 +11,20 @@
 }
 
 .header h1 {
-    font-size: 1.5em; /* Adjusted font size for h1 */
+    font-size: 1em; /* Adjusted font size for h1 */
     margin: 0;
 }
 
 .header h2 {
-    font-size: 1em; /* Adjusted font size for h2 */
+    font-size: .7em; /* Adjusted font size for h2 */
     margin: 0;
+    color: #000
 }
 
 .navList {
     list-style-type: none;
     padding: 0;
-    margin: 20px 0 0; /* Add margin to separate the nav from the headings */
+    margin: 6px 0 0; /* Add margin to separate the nav from the headings */
 }
 
 .navItem {
@@ -44,7 +45,7 @@
     color: #ff0; /* Yellow text color */
     font-family: 'Playfair Display', serif;
     font-weight: bold; /* Bold text */
-    font-size: 1em; /* Adjusted font size for nav links */
+    font-size: .6em; /* Adjusted font size for nav links */
 }
 
 .navLink:hover {

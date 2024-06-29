@@ -1,0 +1,353 @@
+/* Import Google Fonts and basic resets */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&family=Merriweather:wght@400;700&display=swap');
+
+/* General resets and base styles */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #ffff00; /* Sets the font color to Dark Yellow (#ffff00) */
+}
+
+/* General container style */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #000; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+/* Stylish header */
+header, .header {
+  width: 100%;
+  text-align: left;
+  padding: 14px 0;
+  background: #ff0000; 
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-bottom: none;
+  margin: 0;
+  text-align: center;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: .5rem;
+}
+
+.header h3 {
+  margin: 5px 0 0;
+  font-size: .5rem;
+}
+
+/* Section headings */
+h2, .container h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #ff0;
+  border-bottom: 2px solid #8b0000;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Main content area */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Footer style */
+footer {
+  width: 100%;
+  text-align: left;
+  padding: 10px 0;
+  background: #282c34;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9em;
+}
+
+/* Button style */
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  background-color: #61dafb;
+  color: #282c34;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #21a1f1;
+}
+
+/* List styles */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 5px 0;
+  padding-left: 20px;
+  text-indent: -20px;
+}
+
+ul li::before {
+  content: '•';
+  color: #61dafb;
+  display: inline-block;
+  width: 20px;
+}
+
+/* Paragraph styles */
+p, .container p {
+  color: #ff0;
+  line-height: 1.6;
+  margin: 10px 0;
+  font-family: 'Playfair Display', Arial;
+}
+
+/* Experience, Skills, Education, Certifications section styles */
+.experience, .skills, .education, .certifications {
+  margin-bottom: 30px;
+}
+
+/* Job entry styles */
+.job {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.job .job-details {
+}
+
+.job h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.job p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #f00;
+}
+
+.job ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.job ul li {
+  margin-bottom: 5px;
+}
+
+/* Skills and certifications list styles */
+.skills ul, .certifications ul {
+  padding-left: 20px;
+}
+
+/* Education section styles */
+.education p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Additional styles */
+.container h2 {
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.container p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  header, footer {
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  button {
+    width: 100%;
+    font-size: 0.9em;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 15px;
+    margin: 15px;
+  }
+
+  header, footer {
+    text-align: center;
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  button {
+    width: auto;
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 1025px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  header, footer {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  button {
+    width: auto;
+    font-size: 1em;
+  }
+}
+
+a {
+  color: turquoise;
+}
+
+.issuer a {
+    color: #40e0d0;
+    text-decoration: none;
+}
+
+.issuer a:hover {
+    text-decoration: underline;
+}
+
+/* Certifications Section */
+.certifications {
+    padding: 20px;
+    background: #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px auto;
+}
+
+.certifications .heading {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #ffff00; /* Yellow color for heading */
+    border-bottom: 2px solid #61dafb;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.certifications .certificationItem {
+    margin-bottom: 20px;
+}
+
+.certifications .certificationTitle {
+    font-size: 1.2em;
+    color: #8b0000; /* Dark red for certification title */
+    margin-bottom: 5px;
+}
+
+.certifications .issueDate, 
+.certifications .issuer {
+    color: #ff0; /* Yellow for issue date and issuer */
+    line-height: 1.6;
+    margin: 5px 0;
+    font-family: 'Playfair Display', Arial;
+}
+
+.certifications .issuer a {
+    color: #40e0d0; /* Turquoise color */
+    text-decoration: none;
+}
+
+.certifications .issuer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .certifications {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .certifications .heading {
+        font-size: 1.2em;
+    }
+
+    .certifications .certificationTitle {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .certifications {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .certifications .heading {
+        font-size: 1.3em;
+    }
+
+    .certifications .certificationTitle {
+        font-size: 1.1em;
+    }
+}
+
+@media (min-width: 1025px) {
+    .certifications {
+        max-width: 1400px;
+    }
+
+    .certifications .heading {
+        font-size: 1.5em;
+    }
+
+    .certifications .certificationTitle {
+        font-size: 1.2em;
+    }
+}
+
