@@ -63,12 +63,12 @@ const JavaScript = () => {
     };
 
     return (
-        <div className="content-container">
+        <div className="github-code-viewer">
             <h2>JavaScript Code</h2>
             <p><em>The Following Content Consists Of The Pages That Make Up This Resume</em></p>
 
             <h3>Main Pages:</h3>
-            <div className="files-grid">
+            <div className="code-section">
                 {files.map((file, index) => (
                     <button key={index} onClick={() => handleFileClick(file)}>
                         {file.name}
@@ -77,7 +77,7 @@ const JavaScript = () => {
             </div>
             <div>
                 <h3>Experience Pages:</h3>
-                <div className="skills-files">
+                <div className="code-section">
                     {skillsFiles.map((file, index) => (
                         <button key={index} onClick={() => handleFileClick(file)}>
                             {file.name}
@@ -88,7 +88,7 @@ const JavaScript = () => {
             {selectedFileContent && (
                 <div>
                     <h3>Selected File Content</h3>
-                    <div className="code-block">
+                    <div className="code-wrapper">
                         <SyntaxHighlighter language="javascript" style={atomDark}>
                             {selectedFileContent}
                         </SyntaxHighlighter>

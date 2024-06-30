@@ -19,7 +19,7 @@ body {
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
-  background: #000; 
+  background: #000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   margin: 20px auto;
@@ -31,7 +31,7 @@ header, .header {
   width: 100%;
   text-align: left;
   padding: 14px 0;
-  background: #ff0000; 
+  background: #ff0000;
   color: white;
   font-family: 'Roboto', sans-serif;
   font-size: 1em;
@@ -85,8 +85,9 @@ footer {
 
 /* Button style */
 button {
-  padding: 10px 20px;
-  font-size: 1em;
+  padding: 5px 10px; /* Smaller padding for smaller buttons */
+  font-size: 0.8em; /* Smaller font size */
+  margin: 5px; /* Add space between buttons */
   border: none;
   background-color: #61dafb;
   color: #282c34;
@@ -97,6 +98,41 @@ button {
 
 button:hover {
   background-color: #21a1f1;
+}
+
+/* Add space between buttons */
+.playbooks-grid {
+  display: flex;
+  flex-wrap: wrap; /* Allow the buttons to wrap to the next line */
+  justify-content: center; /* Add space around the buttons */
+  gap: 10px; /* Add space between the buttons */
+  margin-bottom: 20px; /* Add space below the container */
+}
+
+.playbook-button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.playbook-button:hover {
+ background-color: #21a1f1;
+}
+
+.playbook-button {
+ font-size: 0.8rem;
+ padding: 8px 16px;
+}
+
+/* Container for the overall content */
+.content-container {
+  padding: 10px;
 }
 
 /* List styles */
@@ -254,165 +290,157 @@ a {
 }
 
 .issuer a {
-    color: #40e0d0;
-    text-decoration: none;
+  color: #40e0d0;
+  text-decoration: none;
 }
 
 .issuer a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* Certifications Section */
 .certifications {
-    padding: 20px;
-    background: #000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin: 20px auto;
+  padding: 20px;
+  background: #000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 20px auto;
 }
 
 .certifications .heading {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    color: #ffffff; /* Yellow color for heading */
-    border-bottom: 2px solid #61dafb;
-    display: inline-block;
-    padding-bottom: 5px;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #ffffff; /* Yellow color for heading */
+  border-bottom: 2px solid #61dafb;
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
 .certifications .certificationItem {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .certifications .certificationTitle {
-    font-size: 1.2em;
-    color: #8b0000; /* Dark red for certification title */
-    margin-bottom: 5px;
+  font-size: 1.2em;
+  color: #8b0000; /* Dark red for certification title */
+  margin-bottom: 5px;
 }
 
-.certifications .issueDate, 
+.certifications .issueDate,
 .certifications .issuer {
-    color: #fff; /* Yellow for issue date and issuer */
-    line-height: 1.6;
-    margin: 5px 0;
-    font-family: 'Playfair Display', Arial;
+  color: #fff; /* Yellow for issue date and issuer */
+  line-height: 1.6;
+  margin: 5px 0;
+  font-family: 'Playfair Display', Arial;
 }
 
 .certifications .issuer a {
-    color: #40e0d0; /* Turquoise color */
-    text-decoration: none;
+  color: #40e0d0; /* Turquoise color */
+  text-decoration: none;
 }
 
 .certifications .issuer a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
-    .certifications {
-        padding: 10px;
-        margin: 10px;
-    }
+  .certifications {
+    padding: 10px;
+    margin: 10px;
+  }
 
-    .certifications .heading {
-        font-size: 1.2em;
-    }
+  .certifications .heading {
+    font-size: 1.2em;
+  }
 
-    .certifications .certificationTitle {
-        font-size: 1em;
-    }
+  .certifications .certificationTitle {
+    font-size: 1em;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-    .certifications {
-        padding: 15px;
-        margin: 15px;
-    }
+  .certifications {
+    padding: 15px;
+    margin: 15px;
+  }
 
-    .certifications .heading {
-        font-size: 1.3em;
-    }
+  .certifications .heading {
+    font-size: 1.3em;
+  }
 
-    .certifications .certificationTitle {
-        font-size: 1.1em;
-    }
+  .certifications .certificationTitle {
+    font-size: 1.1em;
+  }
 }
 
 @media (min-width: 1025px) {
-    .certifications {
-        max-width: 1400px;
-    }
+  .certifications {
+    max-width: 1400px;
+  }
 
-    .certifications .heading {
-        font-size: 1.5em;
-    }
+  .certifications .heading {
+    font-size: 1.5em;
+  }
 
-    .certifications .certificationTitle {
-        font-size: 1.2em;
-    }
+  .certifications .certificationTitle {
+    font-size: 1.2em;
+  }
 }
 
 /* Content for Code Blocks */
 .content-section {
-    max-width: 100%;
-    padding: 0 10px;
-    box-sizing: border-box;
+  background: #000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.code-block {
+  width: 100%; /* Ensure the code block takes full width */
+  min-height: 400px; /* Adjust this value as needed to make the box longer */
+  max-height: 2000px; /* Optional: to limit the maximum height */
+  overflow-y: auto; /* Allow vertical scrolling if the content exceeds the max-height */
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+  padding: 15px; /* Optional: add some padding for better readability */
+  background-color: #282c34; /* Ensure background color for readability */
+  border-radius: 8px; /* Optional: for rounded corners */
+  margin: 20px 0; /* Add some margin to separate from other elements */
+  box-sizing: border-box; /* Ensure padding is included in the total width/height */
+  white-space: pre-wrap; /* Allow line breaks within words */
+  word-wrap: break-word; /* Break long words to fit within the container */
+}
+
+.code-block pre {
+  margin: 0;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .code-block {
+    min-height: 200px; /* Adjust the minimum height for smaller screens */
+    padding: 10px; /* Adjust padding for smaller screens */
+    font-size: 0.9em; /* Reduce font size for better readability on small screens */
+  }
 }
 
 /* Apply a max-width and center the content */
 .github-code-viewer {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Ensure the code sections are responsive */
-.code-section {
-    margin-bottom: 14px;
-    overflow-x: auto;
+/* Additional Tweaks for Various Elements */
+.experience .job h3,
+.education h3 {
+  font-size: 1.5rem;
+  color: #fff;
 }
 
-@media screen and (max-width: 768px) {
-    .code-block {
-        font-size: 14px; /* Example adjustment for smaller screens */
-    }
+.job-details p,
+.skills ul li,
+.certifications ul li,
+.education p {
+  color: #f00;
 }
 
-/* Configuration for JavaScript Container */
-.content-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 10px;
-    box-sizing: border-box;
-}
-
-.files-grid, .skills-files {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-button {
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-/* Remove button background color */
-
-button:hover {
-    background-color: #e0e0e0;
-}
-
-pre {
-    padding: 10px;
-    border-radius: 4px;
-    overflow-x: auto;
-}
-
-/* Style the code block */
-.code-block {
-    background-color: #000000; /* Style the code block */
-    padding: 10px;
-    border-radius: 4px;
-    overflow-x: auto;
-}

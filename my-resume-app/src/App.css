@@ -1,4 +1,6 @@
 /* Reset default styles and apply base styles */
+/* Import Google Fonts and basic resets */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&family=Merriweather:wght@400;700&display=swap');
 
 /* General container style */
 .container {
@@ -18,7 +20,7 @@
 
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Playfair Display', Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #000000;

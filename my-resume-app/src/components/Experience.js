@@ -9,7 +9,7 @@ const Experience = () => {
                 <div className="job-details">
                     <h3>System Engineer II</h3>
                     <p><b>GoDaddy</b></p>
-                    <p>Jul 2021 - Present · 3 yrs</p>
+                    <p>July 2021 - Present</p>
                     <p>Remote</p>
                     <ul>
                         <li>Developed Remediation Scripting For Troubleshooting Server Environment</li>
@@ -43,7 +43,7 @@ const Experience = () => {
                 <div className="job-details">
                     <h3>System Engineer I</h3>
                     <p><b>GoDaddy</b></p>
-                    <p>November 2018 - July 2021 · 2 years 8 months</p>
+                    <p>November 2018 - July 2021</p>
                     <p>Remote</p>
                     <ul>
                         <li>Incident Management & Alert Monitoring On 100K+ Server Network</li>
@@ -70,7 +70,7 @@ const Experience = () => {
                 <div className="job-details">
                     <h3>Hosting Technical Lead</h3>
                     <p><b>GoDaddy</b></p>
-                    <p>Feb 2016 - Nov 2018 · 2 yrs 10 mos</p>
+                    <p>February 2016 - November 2018</p>
                     <p>Scottsdale, Arizona | Remote</p>
                     <ul>
                         <li>Worked Server/Managed Services Incident Queue</li>
@@ -93,7 +93,7 @@ const Experience = () => {
                 <div className="job-details">
                     <h3>Subject Matter Expert | Website Security</h3>
                     <p><b>GoDaddy | Sucuri</b></p>
-                    <p>Aug 2015 - Present</p>
+                    <p>August 2015 - November 2018</p>
                     <p>Scottsdale, Arizona</p>
                     <ul>
                         <li>Determined Cost-saving Strategies By Publicizing Internal & New Documentation</li>
@@ -115,7 +115,7 @@ const Experience = () => {
                 <div className="job-details">
                     <h3>Advanced Hosting IV</h3>
                     <p><b>GoDaddy</b></p>
-                    <p>Nov 2013 - Jan 2016 · 2 yrs 3 mos</p>
+                    <p>November 2013 - January 2016</p>
                     <p>Scottsdale, Arizona</p>
                     <ul>
                         <li>Tested cPanel And Plesk Release For Shared Hosting Environment</li>
@@ -132,7 +132,7 @@ const Experience = () => {
                 <div className="job-details">
                     <h3>Hosting Online Support Team</h3>
                     <p><b>GoDaddy</b></p>
-                    <p>Feb 2008 - Oct 2013 · 5 yrs 9 mos</p>
+                    <p>February 2008 - October 2013</p>
                     <p>Scottsdale, Arizona </p>
                     <ul>
                         <li>Instrumental In The Creation Of A Team Dedicated To Hosting Support</li>

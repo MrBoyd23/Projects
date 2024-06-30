@@ -1,7 +1,7 @@
 /* Updated Skills.css */
 
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+https://fonts.googleapis.com/css2?family=Playfair;:wght@400;600&display=swap%27
 
 /* Styles for the skills section */
 .skills-page {
@@ -32,7 +32,7 @@
     padding: 8px 10px; /* Decreased padding to make bubbles smaller */
     border-radius: 20px; /* Increased border-radius */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
-    font-size: 0.8em; /* Further decreased font size */
+    font-size: 0.5em; /* Further decreased font size */
     text-align: center;
     display: inline-flex;
     align-items: center;
@@ -90,3 +90,9 @@
     }
 }
 
+/* New class for larger bubbles in Skills component */
+.skill-bubble-large {
+  font-size: calc(var(--base-font-size) + 10 * 2rem); /* Double the recent increase */
+  padding: 20px; /* Adjust padding if needed to maintain the bubble size */
+  border-radius: 8px; /* Adjust the border radius if needed */
+}
