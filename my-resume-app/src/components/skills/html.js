@@ -124,7 +124,7 @@ const ContactForm = () => {
                 </div>
                 <div className="form-group">
                     <ReCAPTCHA
-                        sitekey="your_site_key_here"
+                        sitekey="6LcgkwQqAAAAAO3T_gqCxCez3HkN1RN-BXa4EaP4"
                         onChange={handleCaptchaChange}
                     />
                 </div>
