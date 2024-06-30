@@ -101,6 +101,7 @@ const WeatherDisplay = () => {
 
 const IMDbTopMovies = () => {
   const [movies, setMovies] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const moviesPerPage = 6;
 
@@ -121,9 +122,14 @@ const IMDbTopMovies = () => {
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
-      setMovies(data);
+      if (data.message) {
+        setErrorMessage(data.message);
+      } else {
+        setMovies(data);
+      }
     } catch (error) {
       console.error('Error fetching movies:', error);
+      setErrorMessage('An error occurred while fetching movie data.');
     }
   };
 
@@ -136,25 +142,31 @@ const IMDbTopMovies = () => {
   return (
     <div>
       <h2>IMDb Top 100 Movies</h2>
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
-        {currentMovies.map((movie, index) => (
-          <li key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '20px', borderBottom: '1px solid #ccc', paddingBottom: '10px' }}>
-            <img src={movie.thumbnail} alt={movie.title} style={{ maxWidth: '200px', marginRight: '20px' }} />
-            <div>
-              <h3 style={{ marginTop: '10px', marginBottom: '5px' }}>
-                {movie.title}
-                <span style={{ fontSize: '0.9em', color: '#666' }}>
-                  {' '}| Rating: {movie.rating} | Year: {movie.year} |{' '}
-                  <a href={movie.imdb_link} target="_blank" rel="noopener noreferrer" style={{ color: '#8b0000', textDecoration: 'none' }}>
-                    IMDb Link
-                  </a>
-                </span>
-              </h3>
-              <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '10px' }}>{movie.description}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+      {errorMessage ? (
+        <div style={{ color: 'red' }}>
+          <p>{errorMessage}</p>
+        </div>
+      ) : (
+        <ul style={{ listStyleType: 'none', padding: 0 }}>
+          {currentMovies.map((movie, index) => (
+            <li key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '20px', borderBottom: '1px solid #ccc', paddingBottom: '10px' }}>
+              <img src={movie.thumbnail} alt={movie.title} style={{ maxWidth: '200px', marginRight: '20px' }} />
+              <div>
+                <h3 style={{ marginTop: '10px', marginBottom: '5px' }}>
+                  {movie.title}
+                  <span style={{ fontSize: '0.9em', color: '#666' }}>
+                    {' '}| Rating: {movie.rating} | Year: {movie.year} |{' '}
+                    <a href={movie.imdb_link} target="_blank" rel="noopener noreferrer" style={{ color: '#8b0000', textDecoration: 'none' }}>
+                      IMDb Link
+                    </a>
+                  </span>
+                </h3>
+                <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '10px' }}>{movie.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
         {Array.from({ length: Math.ceil(movies.length / moviesPerPage) }, (_, index) => (
           <button key={index + 1} onClick={() => paginate(index + 1)} style={{ margin: '0 5px' }}>
@@ -168,11 +180,11 @@ const IMDbTopMovies = () => {
 
 const App = () => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <div style={{ marginRight: '20px' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', padding: '10px' }}>
+      <div style={{ marginRight: '20px', flex: '1 1 100%', maxWidth: 'calc(50% - 20px)', padding: '10px' }}>
         <IMDbTopMovies />
       </div>
-      <div style={{ marginLeft: '20px' }}>
+      <div style={{ marginLeft: '20px', flex: '1 1 100%', maxWidth: 'calc(50% - 20px)', padding: '10px' }}>
         <WeatherDisplay />
       </div>
     </div>
