@@ -9,10 +9,11 @@ const ContactForm = () => {
         phone: '',
         subject: '',
         message: '',
-        inquiryType: 'General Request',
+        inquiryType: 'Praise Submission',
         attachment: null // Assuming you want to handle file attachment
     });
     const [captchaToken, setCaptchaToken] = useState('');
+    const [submitting, setSubmitting] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -23,23 +24,38 @@ const ContactForm = () => {
         setCaptchaToken(token);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Implement your form submission logic here
-        console.log('Form submitted:', formData);
-        console.log('CAPTCHA token:', captchaToken);
-        // Reset form after submission
-        setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            subject: '',
-            message: '',
-            inquiryType: 'Praise Submission',
-            attachment: null
-        });
-        // Reset CAPTCHA
-        setCaptchaToken('');
+        setSubmitting(true);
+
+        if (!captchaToken) {
+            alert('Please complete the CAPTCHA');
+            setSubmitting(false);
+            return;
+        }
+
+        try {
+            // Implement your form submission logic here
+            console.log('Form submitted:', formData);
+            alert('Form submitted successfully!');
+            // Reset form after submission
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                subject: '',
+                message: '',
+                inquiryType: 'Praise Submission',
+                attachment: null
+            });
+            // Reset CAPTCHA
+            setCaptchaToken('');
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('Failed to submit form. Please try again.');
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     return (
@@ -107,10 +123,10 @@ const ContactForm = () => {
                         value={formData.inquiryType}
                         onChange={handleChange}
                     >
-                        <option value="General Request">General Request</option>
-	        	<option value="Praise Submission">Praise Submission</option>
+                        <option value="Praise Submission">Praise Submission</option>
                         <option value="Technical">Technical</option>
                         <option value="Resume Inquiry">Resume Inquiry</option>
+                        <option value="General Request">General Request</option>
                     </select>
                 </div>
                 <div className="form-group">
@@ -124,12 +140,14 @@ const ContactForm = () => {
                 </div>
                 <div className="form-group">
                     <ReCAPTCHA
-                        sitekey="6LcgkwQqAAAAAO3T_gqCxCez3HkN1RN-BXa4EaP4"
+                        sitekey="your_site_key_here"
                         onChange={handleCaptchaChange}
                     />
                 </div>
                 <div className="form-group">
-                    <button type="submit">Submit</button>
+                    <button type="submit" disabled={submitting}>
+                        {submitting ? 'Submitting...' : 'Submit'}
+                    </button>
                 </div>
             </form>
         </div>
