@@ -4,7 +4,7 @@ const CPanel = () => {
     return (
         <div>
             <h2>cPanel Details</h2>
-            <p>Details about cPanel...</p>
+            <p>Example Data Coming Soon For cPanel...</p>
         </div>
     );
 };

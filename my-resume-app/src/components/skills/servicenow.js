@@ -4,7 +4,7 @@ const ServiceNow = () => {
     return (
         <div>
             <h2>ServiceNow Details</h2>
-            <p>Details about ServiceNow...</p>
+            <p>Example Data Coming Soon For ServiceNow...</p>
         </div>
     );
 };

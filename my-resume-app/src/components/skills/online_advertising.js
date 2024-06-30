@@ -4,7 +4,7 @@ const Online_Advertising = () => {
     return (
         <div>
             <h2>Online_Advertising Details</h2>
-            <p>Details about Online_Advertising...</p>
+            <p>Example Data Coming Soon For Online_Advertising...</p>
         </div>
     );
 };

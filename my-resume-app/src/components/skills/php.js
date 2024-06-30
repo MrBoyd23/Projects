@@ -4,7 +4,7 @@ const PHP = () => {
     return (
         <div>
             <h2>PHP Details</h2>
-            <p>Details about PHP...</p>
+            <p>Example Data Coming Soon For PHP...</p>
         </div>
     );
 };

@@ -4,7 +4,7 @@ const Python = () => {
     return (
         <div>
             <h2>Python Details</h2>
-            <p>Details about Python...</p>
+            <p>Example Data Coming Soon For Python...</p>
         </div>
     );
 };

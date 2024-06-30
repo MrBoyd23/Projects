@@ -4,7 +4,7 @@ const Apache = () => {
     return (
         <div>
             <h2>Apache Details</h2>
-            <p>Details about Apache...</p>
+            <p>Example Data Coming Soon For Apache...</p>
         </div>
     );
 };

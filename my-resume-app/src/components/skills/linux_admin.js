@@ -4,7 +4,7 @@ const Linux_Admin = () => {
     return (
         <div>
             <h2>Linux_Admin Details</h2>
-            <p>Details about Linux_Admin...</p>
+            <p>Example Data Coming Soon For Linux_Admin...</p>
         </div>
     );
 };

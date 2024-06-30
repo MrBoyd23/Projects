@@ -4,7 +4,7 @@ const PhpMyAdmin = () => {
     return (
         <div>
             <h2>phpMyAdmin Details</h2>
-            <p>Details about phpMyAdmin...</p>
+            <p>Example Data Coming Soon For phpMyAdmin...</p>
         </div>
     );
 };

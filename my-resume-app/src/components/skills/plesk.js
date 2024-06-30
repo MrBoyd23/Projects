@@ -4,7 +4,7 @@ const Plesk = () => {
     return (
         <div>
             <h2>Plesk Details</h2>
-            <p>Details about Plesk...</p>
+            <p>Example Data Coming Soon For Plesk...</p>
         </div>
     );
 };

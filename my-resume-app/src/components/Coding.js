@@ -6,7 +6,6 @@ import '../css/Skills.css';
 import PHP from './skills/php';
 import CSS from './skills/css';
 import API from './skills/api';
-import SEO from './skills/seo';
 import AWS from './skills/aws';
 import HTML from './skills/html';
 import Linux from './skills/linux';
@@ -28,7 +27,6 @@ const Coding = () => {
         <Link to="/php" className="skill-bubble">PHP</Link>
         <Link to="/css" className="skill-bubble">CSS</Link>
         <Link to="/api" className="skill-bubble">API</Link>
-        <Link to="/seo" className="skill-bubble">SEO</Link>
         <Link to="/aws" className="skill-bubble">AWS</Link>
         <Link to="/html" className="skill-bubble">HTML</Link>
         <Link to="/linux" className="skill-bubble">Linux</Link>
@@ -49,7 +47,6 @@ const Coding = () => {
           <Route path="/php" element={<PHP />} />
           <Route path="/css" element={<CSS />} />
           <Route path="/api" element={<API />} />
-          <Route path="/seo" element={<SEO />} />
           <Route path="/aws" element={<AWS />} />
           <Route path="/html" element={<HTML />} />
           <Route path="/linux" element={<Linux />} />

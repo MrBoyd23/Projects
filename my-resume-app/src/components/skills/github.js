@@ -4,7 +4,7 @@ const GitHub = () => {
     return (
         <div>
             <h2>GitHub Details</h2>
-            <p>Details about GitHub...</p>
+            <p>Example Data Coming Soon For GitHub...</p>
         </div>
     );
 };

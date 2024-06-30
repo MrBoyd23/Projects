@@ -8,6 +8,7 @@ import CPanel from './skills/cpanel';
 import Plesk from './skills/plesk';
 import Jira from './skills/jira';
 import GitHub from './skills/github';
+import SEO from './skills/seo';
 import Grafana from './skills/grafana';
 import Prometheus from './skills/prometheus';
 import ServiceNow from './skills/servicenow';
@@ -28,6 +29,7 @@ const Applications = () => {
         <Link to="/apache" className="skill-bubble">Apache</Link>
         <Link to="/cpanel" className="skill-bubble">cPanel</Link>
         <Link to="/plesk" className="skill-bubble">Plesk</Link>
+        <Link to="/seo" className="skill-bubble">SEO</Link>	  
         <Link to="/jira" className="skill-bubble">Jira</Link>
         <Link to="/github" className="skill-bubble">GitHub</Link>
         <Link to="/grafana" className="skill-bubble">Grafana</Link>
@@ -49,6 +51,7 @@ const Applications = () => {
           <Route path="/apache" element={<Apache />} />
           <Route path="/cpanel" element={<CPanel />} />
           <Route path="/plesk" element={<Plesk />} />
+          <Route path="/seo" element={<SEO />} />	  
           <Route path="/jira" element={<Jira />} />
           <Route path="/github" element={<GitHub />} />
           <Route path="/grafana" element={<Grafana />} />

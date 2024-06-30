@@ -4,7 +4,7 @@ const Node = () => {
     return (
         <div>
             <h2>Node Details</h2>
-            <p>Details about Node...</p>
+            <p>Example Data Coming Soon For Node...</p>
         </div>
     );
 };

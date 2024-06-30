@@ -4,7 +4,7 @@ const SEO = () => {
     return (
         <div>
             <h2>SEO Details</h2>
-            <p>Details about SEO...</p>
+            <p>Example Data Coming Soon For SEO...</p>
         </div>
     );
 };

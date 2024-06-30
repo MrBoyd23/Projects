@@ -4,7 +4,7 @@ const ECommerce = () => {
     return (
         <div>
             <h2>E-Commerce Details</h2>
-            <p>Details about E-Commerce...</p>
+            <p>Example Data Coming Soon For E-Commerce...</p>
         </div>
     );
 };

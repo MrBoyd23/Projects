@@ -4,7 +4,7 @@ const Grafana = () => {
     return (
         <div>
             <h2>Grafana Details</h2>
-            <p>Details about Grafana...</p>
+            <p>Example Data Coming Soon For Grafana...</p>
         </div>
     );
 };

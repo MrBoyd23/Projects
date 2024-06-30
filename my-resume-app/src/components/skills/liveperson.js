@@ -4,7 +4,7 @@ const LivePerson = () => {
     return (
         <div>
             <h2>LivePerson Details</h2>
-            <p>Details about LivePerson...</p>
+            <p>Example Data Coming Soon For LivePerson...</p>
         </div>
     );
 };

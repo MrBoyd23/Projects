@@ -4,7 +4,7 @@ const WordPress = () => {
     return (
         <div>
             <h2>WordPress Details</h2>
-            <p>Details about WordPress...</p>
+            <p>Example Data Coming Soon For WordPress...</p>
         </div>
     );
 };

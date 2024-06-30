@@ -4,7 +4,7 @@ const Prometheus = () => {
     return (
         <div>
             <h2>Prometheus Details</h2>
-            <p>Details about Prometheus...</p>
+            <p>Example Data Coming Soon For Prometheus...</p>
         </div>
     );
 };

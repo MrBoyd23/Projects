@@ -4,7 +4,7 @@ const Linux = () => {
     return (
         <div>
             <h2>Linux Details</h2>
-            <p>Details about Linux...</p>
+            <p>Example Data Coming Soon For Linux...</p>
         </div>
     );
 };

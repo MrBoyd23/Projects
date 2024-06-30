@@ -62,7 +62,7 @@ function App() {
 			<Route path="/php/*" element={<><Coding /><PHP /></>} />
 			<Route path="/css/*" element={<><Coding /><CSS /></>} />
 			<Route path="/api/*" element={<><Coding /><API /></>} />
-			<Route path="/seo/*" element={<><Coding /><SEO /></>} />
+			<Route path="/seo/*" element={<><Applications /><SEO /></>} />
 			<Route path="/aws/*" element={<><Coding /><AWS /></>} />
 			<Route path="/html/*" element={<><Coding /><HTML /></>} />
 			<Route path="/linux/*" element={<><Coding /><Linux /></>} />

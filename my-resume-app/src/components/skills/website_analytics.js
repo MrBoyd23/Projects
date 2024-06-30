@@ -4,7 +4,7 @@ const Website_Analytics = () => {
     return (
         <div>
             <h2>Website_Analytics Details</h2>
-            <p>Details about Website_Analytics...</p>
+            <p>Example Data Coming Soon For Website_Analytics...</p>
         </div>
     );
 };

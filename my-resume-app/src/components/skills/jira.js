@@ -4,7 +4,7 @@ const Jira = () => {
     return (
         <div>
             <h2>Jira Details</h2>
-            <p>Details about Jira...</p>
+            <p>Example Data Coming Soon For Jira...</p>
         </div>
     );
 };
