@@ -4,20 +4,20 @@ import '../css/Skills.css';
 
 // Importing the components
 import Coding from './Coding';
-import Applications from './Applications';
+import Software from './Software';
 
 const Skills = () => {
   return (
     <div className="skills-page">
       <div className="skills-list">
         <Link to="/coding" className="skill-bubble skill-bubble-large">Coding</Link>
-        <Link to="/applications" className="skill-bubble skill-bubble-large">Applications</Link>
+        <Link to="/software" className="skill-bubble skill-bubble-large">Software</Link>
       </div>
 
       <div className="skills-container">
         <Routes>
           <Route path="/coding/*" element={<Coding />} />
-          <Route path="/applications/*" element={<Applications />} />
+          <Route path="/software/*" element={<Software />} />
         </Routes>
       </div>
     </div>

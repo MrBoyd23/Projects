@@ -3,7 +3,6 @@ import { Link, Route, Routes } from 'react-router-dom';
 import '../css/Skills.css';
 
 // Import skill detail components
-import Apache from './skills/apache';
 import CPanel from './skills/cpanel';
 import Plesk from './skills/plesk';
 import Jira from './skills/jira';
@@ -18,15 +17,16 @@ import ECommerce from './skills/e-commerce';
 import LinuxAdmin from './skills/linux_admin';
 import WebsiteAnalytics from './skills/website_analytics';
 import OnlineMarketing from './skills/online_marketing';
-import OnlineAdvertising from './skills/online_advertising';
 import DataAnalytics from './skills/data_analytics';
-import DigitalMarketing from './skills/digital_marketing';
+// eslint-disable-next-line
+{/*import OnlineAdvertising from './skills/online_advertising'; */}
+// eslint-disable-next-line
+{/* import DigitalMarketing from './skills/digital_marketing';  */}
 
 const Applications = () => {
   return (
     <div className="skills-page">
       <div className="skills-list">
-        <Link to="/apache" className="skill-bubble">Apache</Link>
         <Link to="/cpanel" className="skill-bubble">cPanel</Link>
         <Link to="/plesk" className="skill-bubble">Plesk</Link>
         <Link to="/seo" className="skill-bubble">SEO</Link>	  
@@ -41,14 +41,13 @@ const Applications = () => {
         <Link to="/linux_admin" className="skill-bubble">Linux Admin</Link>
         <Link to="/website_analytics" className="skill-bubble">Website Analytics</Link>
         <Link to="/online_marketing" className="skill-bubble">Online Marketing</Link>
-        <Link to="/online_advertising" className="skill-bubble">Online Advertising</Link>
+{/*        <Link to="/online_advertising" className="skill-bubble">Online Advertising</Link> */}
         <Link to="/data_analytics" className="skill-bubble">Data Analytics</Link>
-        <Link to="/digital_marketing" className="skill-bubble">Digital Marketing</Link>
+{/*        <Link to="/digital_marketing" className="skill-bubble">Digital Marketing</Link>  */}
       </div>
 
       <div className="skills-container">
         <Routes>
-          <Route path="/apache" element={<Apache />} />
           <Route path="/cpanel" element={<CPanel />} />
           <Route path="/plesk" element={<Plesk />} />
           <Route path="/seo" element={<SEO />} />	  
@@ -63,9 +62,9 @@ const Applications = () => {
           <Route path="/linux_admin" element={<LinuxAdmin />} />
           <Route path="/website_analytics" element={<WebsiteAnalytics />} />
           <Route path="/online_marketing" element={<OnlineMarketing />} />
-          <Route path="/online_advertising" element={<OnlineAdvertising />} />
+{/*          <Route path="/online_advertising" element={<OnlineAdvertising />} /> */}
           <Route path="/data_analytics" element={<DataAnalytics />} />
-          <Route path="/digital_marketing" element={<DigitalMarketing />} />
+{/*          <Route path="/digital_marketing" element={<DigitalMarketing />} />  */}
         </Routes>
       </div>
     </div>

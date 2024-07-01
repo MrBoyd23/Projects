@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Skills from './components/Skills';
 import Coding from './components/Coding'; // Adjust the path based on your project structure
-import Applications from './components/Applications'; // Adjust the path based on your project structure
+import Software from './components/Software'; // Adjust the path based on your project structure
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
@@ -55,45 +55,45 @@ function App() {
                 <div className="container">
                     <Routes>
                         <Route exact path="/" element={<Experience />} />
-	      		<Route path="/Experience/*" element={<Skills />} />
-			<Route path="/Education/*" element={<><Education /><Certifications /></>} />
-			<Route path="/coding/*" element={<Coding />} />
-			<Route path="/applications/*" element={<Applications />} />
-			<Route path="/php/*" element={<><Coding /><PHP /></>} />
-			<Route path="/css/*" element={<><Coding /><CSS /></>} />
-			<Route path="/api/*" element={<><Coding /><API /></>} />
-			<Route path="/seo/*" element={<><Applications /><SEO /></>} />
-			<Route path="/aws/*" element={<><Coding /><AWS /></>} />
-			<Route path="/html/*" element={<><Coding /><HTML /></>} />
-			<Route path="/linux/*" element={<><Coding /><Linux /></>} />
-			<Route path="/mysql/*" element={<><Coding /><MySQL /></>} />
-			<Route path="/apache/*" element={<><Applications /><Apache /></>} />
-			<Route path="/cpanel/*" element={<><Applications /><CPanel /></>} />
-			<Route path="/plesk/*" element={<><Applications /><Plesk /></>} />
-			<Route path="/ansible/*" element={<><Coding /><Ansible /></>} />
-			<Route path="/python/*" element={<><Coding /><Python /></>} />
-			<Route path="/node/*" element={<><Coding /><NodeJS /></>} />
-			<Route path="/react/*" element={<><Coding /><ReactJS /></>} />
-			<Route path="/javascript/*" element={<><Coding /><JavaScript /></>} />
-			<Route path="/jira/*" element={<><Applications /><Jira /></>} />
-			<Route path="/github/*" element={<><Applications /><GitHub /></>} />
-			<Route path="/grafana/*" element={<><Applications /><Grafana /></>} />
-			<Route path="/prometheus/*" element={<><Applications /><Prometheus /></>} />
-			<Route path="/servicenow/*" element={<><Applications /><ServiceNow /></>} />
-			<Route path="/liveperson/*" element={<><Applications /><LivePerson /></>} />
-			<Route path="/wordpress/*" element={<><Applications /><WordPress /></>} />
-			<Route path="/phpmyadmin/*" element={<><Coding /><PhpMyAdmin /></>} />
-			<Route path="/e-commerce/*" element={<><Applications /><ECommerce /></>} />
-			<Route path="/web_design/*" element={<><Coding /><WebDesign /></>} />
-			<Route path="/linux_admin/*" element={<><Applications /><LinuxAdmin /></>} />
-			<Route path="/node_package_name/*" element={<><Coding /><NodePackageName /></>} />
-			<Route path="/website_analytics/*" element={<><Applications /><WebsiteAnalytics /></>} />
-			<Route path="/online_marketing/*" element={<><Applications /><OnlineMarketing /></>} />
-			<Route path="/online_advertising/*" element={<><Applications /><OnlineAdvertising /></>} />
-			<Route path="/data_analytics/*" element={<><Applications /><DataAnalytics /></>} />
-			<Route path="/digital_marketing/*" element={<><Applications /><DigitalMarketing /></>} />
-			<Route path="/bash_scripting/*" element={<><Coding /><BashScripting /></>} />
-	            </Routes>
+                        <Route path="/Experience/*" element={<Skills />} />
+                        <Route path="/Education/*" element={<><Education /><Certifications /></>} />
+                        <Route path="/coding/*" element={<Coding />} />
+                        <Route path="/Software/*" element={<Software />} />
+                        <Route path="/php/*" element={<><Coding /><PHP /></>} />
+                        <Route path="/css/*" element={<><Coding /><CSS /></>} />
+                        <Route path="/api/*" element={<><Coding /><API /></>} />
+                        <Route path="/seo/*" element={<><Software /><SEO /></>} />
+                        <Route path="/aws/*" element={<><Coding /><AWS /></>} />
+                        <Route path="/html/*" element={<><Coding /><HTML /></>} />
+                        <Route path="/linux/*" element={<><Coding /><Linux /></>} />
+                        <Route path="/mysql/*" element={<><Coding /><MySQL /></>} />
+                        <Route path="/apache/*" element={<><Software /><Apache /></>} />
+                        <Route path="/cpanel/*" element={<><Software /><CPanel /></>} />
+                        <Route path="/plesk/*" element={<><Software /><Plesk /></>} />
+                        <Route path="/ansible/*" element={<><Coding /><Ansible /></>} />
+                        <Route path="/python/*" element={<><Coding /><Python /></>} />
+                        <Route path="/node/*" element={<><Coding /><NodeJS /></>} />
+                        <Route path="/react/*" element={<><Coding /><ReactJS /></>} />
+                        <Route path="/javascript/*" element={<><Coding /><JavaScript /></>} />
+                        <Route path="/jira/*" element={<><Software /><Jira /></>} />
+                        <Route path="/github/*" element={<><Software /><GitHub /></>} />
+                        <Route path="/grafana/*" element={<><Software /><Grafana /></>} />
+                        <Route path="/prometheus/*" element={<><Software /><Prometheus /></>} />
+                        <Route path="/servicenow/*" element={<><Software /><ServiceNow /></>} />
+                        <Route path="/liveperson/*" element={<><Software /><LivePerson /></>} />
+                        <Route path="/wordpress/*" element={<><Software /><WordPress /></>} />
+                        <Route path="/phpmyadmin/*" element={<><Coding /><PhpMyAdmin /></>} />
+                        <Route path="/e-commerce/*" element={<><Software /><ECommerce /></>} />
+                        <Route path="/web_design/*" element={<><Coding /><WebDesign /></>} />
+                        <Route path="/linux_admin/*" element={<><Software /><LinuxAdmin /></>} />
+                        <Route path="/node_package_name/*" element={<><Coding /><NodePackageName /></>} />
+                        <Route path="/website_analytics/*" element={<><Software /><WebsiteAnalytics /></>} />
+                        <Route path="/online_marketing/*" element={<><Software /><OnlineMarketing /></>} />
+                        <Route path="/online_advertising/*" element={<><Software /><OnlineAdvertising /></>} />
+                        <Route path="/data_analytics/*" element={<><Software /><DataAnalytics /></>} />
+                        <Route path="/digital_marketing/*" element={<><Software /><DigitalMarketing /></>} />
+                        <Route path="/bash_scripting/*" element={<><Coding /><BashScripting /></>} />
+                    </Routes>
                 </div>
             </div>
         </Router>
