@@ -1,12 +1,10 @@
 #!/bin/bash
-#Script Build To Scan Journal Logs For Users Triggering Invalid User Response; 
-#Any Resposnes That Appear More Then 10 Times Get Added To nftables
 
 # Run Command To Find IP Addresses With Invalid User Attempts Via SSH
 invalid_ips=$(journalctl _COMM=sshd --since "1 month ago" | grep "Invalid user" | awk '{print $(NF-2)}' | sort | uniq -c | sort -nr)
 
 # Define A Threshold For Subnet Block (More Than 10 Occurrences)
-threshold=10
+threshold=5
 
 # Flag To Track If Any New Subnets Are Found
 new_subnets_found=false
@@ -39,13 +37,19 @@ if grep -q "# Drop traffic from specific subnets" /etc/nftables.conf; then
         fi
     done <<< "$invalid_ips"
 else
-    echo "Comment line '# Drop traffic from specific subnets' not found in /etc/nftables.conf"
+    echo
+    echo "Comment Line '# Drop Traffic From Specific Subnets' Not Found In /etc/nftables.conf"
+    echo
 fi
 
 # Apply Changes To Nftables Configuration If New Subnets Were Found
 if [ "$new_subnets_found" = true ]; then
-    echo "Applying new rules to nftables..."
+    echo
+    echo "Applying New Rules To nftables..."
     nft -f /etc/nftables.conf
+    echo
 else
+    echo
     echo "No New Subnets Found. Not Applying Any Changes To nftables."
+    echo
 fi
