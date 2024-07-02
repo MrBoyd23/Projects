@@ -23,13 +23,16 @@ import DataAnalytics from './skills/data_analytics';
 // eslint-disable-next-line
 {/* import DigitalMarketing from './skills/digital_marketing';  */}
 
-const Applications = () => {
+const Software = () => {
   return (
     <div className="skills-page">
+      <p className="centered-paragraph">
+        THIS PAGE IS STILL UNDER CONSTRUCTION.<br />The Links Below Showcase My Proficiency With Different Software Applications. 
+      </p>
       <div className="skills-list">
         <Link to="/cpanel" className="skill-bubble">cPanel</Link>
         <Link to="/plesk" className="skill-bubble">Plesk</Link>
-        <Link to="/seo" className="skill-bubble">SEO</Link>	  
+        <Link to="/seo" className="skill-bubble">SEO</Link>
         <Link to="/jira" className="skill-bubble">Jira</Link>
         <Link to="/github" className="skill-bubble">GitHub</Link>
         <Link to="/grafana" className="skill-bubble">Grafana</Link>
@@ -41,16 +44,16 @@ const Applications = () => {
         <Link to="/linux_admin" className="skill-bubble">Linux Admin</Link>
         <Link to="/website_analytics" className="skill-bubble">Website Analytics</Link>
         <Link to="/online_marketing" className="skill-bubble">Online Marketing</Link>
-{/*        <Link to="/online_advertising" className="skill-bubble">Online Advertising</Link> */}
+        {/* <Link to="/online_advertising" className="skill-bubble">Online Advertising</Link> */}
         <Link to="/data_analytics" className="skill-bubble">Data Analytics</Link>
-{/*        <Link to="/digital_marketing" className="skill-bubble">Digital Marketing</Link>  */}
+        {/* <Link to="/digital_marketing" className="skill-bubble">Digital Marketing</Link> */}
       </div>
 
       <div className="skills-container">
         <Routes>
           <Route path="/cpanel" element={<CPanel />} />
           <Route path="/plesk" element={<Plesk />} />
-          <Route path="/seo" element={<SEO />} />	  
+          <Route path="/seo" element={<SEO />} />
           <Route path="/jira" element={<Jira />} />
           <Route path="/github" element={<GitHub />} />
           <Route path="/grafana" element={<Grafana />} />
@@ -62,14 +65,14 @@ const Applications = () => {
           <Route path="/linux_admin" element={<LinuxAdmin />} />
           <Route path="/website_analytics" element={<WebsiteAnalytics />} />
           <Route path="/online_marketing" element={<OnlineMarketing />} />
-{/*          <Route path="/online_advertising" element={<OnlineAdvertising />} /> */}
+          {/* <Route path="/online_advertising" element={<OnlineAdvertising />} /> */}
           <Route path="/data_analytics" element={<DataAnalytics />} />
-{/*          <Route path="/digital_marketing" element={<DigitalMarketing />} />  */}
+          {/* <Route path="/digital_marketing" element={<DigitalMarketing />} /> */}
         </Routes>
       </div>
     </div>
   );
 };
 
-export default Applications;
+export default Software;
 

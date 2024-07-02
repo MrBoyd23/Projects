@@ -1,11 +1,14 @@
 /* Updated Skills.css */
 
 /* Import Google Fonts */
-https://fonts.googleapis.com/css2?family=Playfair;:wght@400;600&display=swap%27
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
 
 /* Styles for the skills section */
 .skills-page {
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    align-items: center;
     padding: 20px;
     margin-bottom: 20px; /* Added margin-bottom to create space between Skills and content */
 }
@@ -96,3 +99,12 @@ https://fonts.googleapis.com/css2?family=Playfair;:wght@400;600&display=swap%27
   padding: 20px; /* Adjust padding if needed to maintain the bubble size */
   border-radius: 8px; /* Adjust the border radius if needed */
 }
+
+.centered-paragraph {
+    max-width: 800px;
+    text-align: center;
+    margin: 20px 0;
+    font-size: .9em; /* Adjust this value to increase or decrease the font size */
+    font-weight: bold
+}
+

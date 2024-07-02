@@ -9,6 +9,10 @@ import Software from './Software';
 const Skills = () => {
   return (
     <div className="skills-page">
+      <p className="centered-paragraph">
+        Explore My Coding And Software Applications Experience By Clicking The Buttons Below. Each Button Will Take You To An Overview Of My Skills And Projects, Showcasing My Expertise In Various Technologies And Programming Languages.
+      </p>
+      
       <div className="skills-list">
         <Link to="/coding" className="skill-bubble skill-bubble-large">Coding</Link>
         <Link to="/software" className="skill-bubble skill-bubble-large">Software</Link>
