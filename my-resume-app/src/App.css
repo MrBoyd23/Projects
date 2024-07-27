@@ -11,13 +11,12 @@
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
-  background: #800; /* White background for the container */
+  background: #800; /* Red background for the container */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   border-radius: 8px; /* Rounded corners */
   margin: 20px auto; /* Center the container */
   margin-top: 70px; /* Ensure no content goes behind the header */
 }
-
 
 body {
   font-family: 'Playfair Display', Arial, sans-serif;
@@ -122,11 +121,43 @@ body {
 
 /* App.css */
 .issuer a {
-    color: #40e0d0; /* Turquoise color */
-    text-decoration: none; /* Remove underline */
+  color: #40e0d0; /* Turquoise color */
+  text-decoration: none; /* Remove underline */
 }
 
 .issuer a:hover {
-    text-decoration: underline; /* Underline on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+    margin-top: 50px; /* Reduce top margin on mobile */
+  }
+
+  .header h2 {
+    font-size: 0.8rem;
+  }
+
+  .header h3 {
+    font-size: 0.7rem;
+  }
+
+  .job h3 {
+    font-size: 1.2rem;
+  }
+
+  .job p {
+    font-size: 0.8rem;
+  }
+
+  .container h2 {
+    font-size: 1.2rem;
+  }
+
+  .container p {
+    font-size: 0.9rem;
+  }
 }
 
