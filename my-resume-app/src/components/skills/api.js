@@ -7,23 +7,18 @@ const ACCESS_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNDY1ODYzZGU4NmJkNjI2ODc0Z
 // SearchBar Component
 const SearchBar = ({ onSearch, onClear, onCategoryChange, selectedCategory }) => {
   const [query, setQuery] = useState('');
-
+  
   const handleSearch = (e) => {
     e.preventDefault();
     onSearch(query, selectedCategory);
   };
 
   return (
-    <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <img
-        src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg"
-        alt="TMDb Logo"
-        style={{ width: '100px', marginRight: '20px' }}
-      />
-      <form onSubmit={handleSearch} style={{ display: 'flex', alignItems: 'center' }}>
+    <div style={{ textAlign: 'center' }}>
+      <form onSubmit={handleSearch}>
         <input
           type="text"
-          placeholder="Search for Movies or TV Shows"
+          placeholder="Search for Movies or TV shows"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           style={{ fontSize: '1.2em', padding: '10px', width: '80%', maxWidth: '600px' }}
@@ -257,9 +252,9 @@ const TheMovieDBTopTVShows = ({ searchQuery }) => {
     }
   }, [searchQuery, tvShows, handleSearch]);
 
-  const indexOfLastTVShow = currentPage * tvShowsPerPage;
-  const indexOfFirstTVShow = indexOfLastTVShow - tvShowsPerPage;
-  const currentTVShows = searchResults.slice(indexOfFirstTVShow, indexOfLastTVShow);
+  const indexOfLastShow = currentPage * tvShowsPerPage;
+  const indexOfFirstShow = indexOfLastShow - tvShowsPerPage;
+  const currentTvShows = searchResults.slice(indexOfFirstShow, indexOfLastShow);
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
@@ -274,25 +269,25 @@ const TheMovieDBTopTVShows = ({ searchQuery }) => {
         </div>
       ) : (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-          {currentTVShows.map((tvShow) => (
-            <div key={tvShow.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '200px' }}>
-              <img src={`https://image.tmdb.org/t/p/w200${tvShow.poster_path}`} alt={tvShow.name} style={{ width: '100%', marginBottom: '10px' }} />
+          {currentTvShows.map((show) => (
+            <div key={show.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '200px' }}>
+              <img src={`https://image.tmdb.org/t/p/w200${show.poster_path}`} alt={show.name} style={{ width: '100%', marginBottom: '10px' }} />
               <div style={{ textAlign: 'center', color: 'white' }}>
                 <h3 style={{ margin: '0' }}>
-                  {tvShow.name}
+                  {show.name}
                   <span style={{ fontSize: '0.9em', color: '#ccc' }}>
-                    {' '}| Rating: {tvShow.vote_average} | Year: {new Date(tvShow.first_air_date).getFullYear()} |{' '}
-                    <a href={`https://www.themoviedb.org/tv/${tvShow.id}`} target="_blank" rel="noopener noreferrer" style={{ color: '#8b0000', textDecoration: 'none' }}>
+                    {' '}| Rating: {show.vote_average} | Year: {new Date(show.first_air_date).getFullYear()} |{' '}
+                    <a href={`https://www.themoviedb.org/tv/${show.id}`} target="_blank" rel="noopener noreferrer" style={{ color: '#8b0000', textDecoration: 'none' }}>
                       TMDB Link
                     </a>
                   </span>
                 </h3>
-                <p style={{ fontSize: '0.9em', color: '#ccc', marginTop: '5px' }}>{tvShow.overview}</p>
+                <p style={{ fontSize: '0.9em', color: '#ccc', marginTop: '5px' }}>{show.overview}</p>
                 <p style={{ fontSize: '0.9em', color: '#ccc', marginTop: '5px' }}>
-                  Certification: {tvShow.certification || 'N/A'}
+                  Certification: {show.certification || 'N/A'}
                 </p>
                 <p style={{ fontSize: '0.9em', color: '#ccc', marginTop: '5px' }}>
-                  Top Billed Actors: {tvShow.actors?.join(', ') || 'N/A'}
+                  Top Billed Actors: {show.actors?.join(', ') || 'N/A'}
                 </p>
               </div>
             </div>
@@ -312,10 +307,151 @@ const TheMovieDBTopTVShows = ({ searchQuery }) => {
   );
 };
 
+// TheMovieDBTopActors Component
+const TheMovieDBTopActors = ({ searchQuery, onActorClick }) => {
+  const [actors, setActors] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [actorsPerPage] = useState(5);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const fetchActors = useCallback(async () => {
+    try {
+      const response = await fetch(`https://api.themoviedb.org/3/person/popular?api_key=${API_KEY}`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${ACCESS_TOKEN}`,
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      if (data.errors) {
+        setErrorMessage(data.errors.join(', '));
+      } else {
+        setActors(data.results);
+        setSearchResults(data.results);
+      }
+    } catch (error) {
+      console.error('Error fetching actors:', error);
+      setErrorMessage('An error occurred while fetching actor data.');
+    }
+  }, []);
+
+  const handleSearch = useCallback(async (query) => {
+    try {
+      const response = await fetch(`https://api.themoviedb.org/3/search/person?api_key=${API_KEY}&query=${query}`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${ACCESS_TOKEN}`,
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      if (data.errors) {
+        setErrorMessage(data.errors.join(', '));
+      } else {
+        setSearchResults(data.results);
+      }
+    } catch (error) {
+      console.error('Error searching actors:', error);
+      setErrorMessage('An error occurred while searching for actors.');
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchActors();
+  }, [fetchActors]);
+
+  useEffect(() => {
+    if (!searchQuery) {
+      setSearchResults(actors);
+    } else {
+      handleSearch(searchQuery);
+    }
+  }, [searchQuery, actors, handleSearch]);
+
+  const indexOfLastActor = currentPage * actorsPerPage;
+  const indexOfFirstActor = indexOfLastActor - actorsPerPage;
+  const currentActors = searchResults.slice(indexOfFirstActor, indexOfLastActor);
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+
+  const handleActorClick = async (actorId) => {
+    try {
+      const response = await fetch(`https://api.themoviedb.org/3/person/${actorId}/combined_credits?api_key=${API_KEY}`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${ACCESS_TOKEN}`,
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      if (data.errors) {
+        setErrorMessage(data.errors.join(', '));
+      } else {
+        onActorClick(data.cast); // Pass the top 10 movies or TV shows to the parent component
+      }
+    } catch (error) {
+      console.error('Error fetching actor details:', error);
+      setErrorMessage('An error occurred while fetching actor details.');
+    }
+  };
+
+  return (
+    <div style={{ marginTop: '20px' }}>
+      {searchQuery && <h2>Search Results for Actors</h2>}
+      {searchQuery && searchResults.length === 0 && <p>No results found.</p>}
+      {!searchQuery && <h2>Top Rated Actors</h2>}
+      {errorMessage ? (
+        <div style={{ color: 'red' }}>
+          <p>{errorMessage}</p>
+        </div>
+      ) : (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+          {currentActors.map((actor) => (
+            <div key={actor.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '200px' }}>
+              <img
+                src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+                alt={actor.name}
+                style={{ width: '100%', cursor: 'pointer', marginBottom: '10px' }}
+                onClick={() => handleActorClick(actor.id)}
+              />
+              <div style={{ textAlign: 'center', color: 'white' }}>
+                <h3 style={{ margin: '0' }}>
+                  {actor.name}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      {!searchQuery && (
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+          {Array.from({ length: Math.ceil(actors.length / actorsPerPage) }, (_, index) => (
+            <button key={index + 1} onClick={() => paginate(index + 1)} style={{ margin: '0 5px' }}>
+              {index + 1}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 // Main App Component
 const App = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('movie');
+  const [actorTopMovies, setActorTopMovies] = useState([]);
 
   const handleSearch = (query, category) => {
     setSearchQuery(query);
@@ -324,23 +460,50 @@ const App = () => {
 
   const handleClear = () => {
     setSearchQuery('');
+    setSelectedCategory('movie');
   };
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
+    setSearchQuery('');
+  };
+
+  const handleActorClick = (topMovies) => {
+    setActorTopMovies(topMovies.slice(0, 12)); // Set top 12 movies or TV shows
   };
 
   return (
-    <div style={{ padding: '20px', backgroundColor: '#000', color: '#fff' }}>
-      <h1 style={{ textAlign: 'center' }}>Search Movies and TV Shows</h1>
-      <SearchBar
-        onSearch={handleSearch}
-        onClear={handleClear}
-        onCategoryChange={handleCategoryChange}
-        selectedCategory={selectedCategory}
-      />
+    <div style={{ backgroundColor: '#000', color: '#fff', minHeight: '100vh', padding: '20px' }}>
+      <SearchBar onSearch={handleSearch} onClear={handleClear} onCategoryChange={handleCategoryChange} selectedCategory={selectedCategory} />
       {selectedCategory === 'movie' && <TheMovieDBTopMovies searchQuery={searchQuery} />}
       {selectedCategory === 'tv' && <TheMovieDBTopTVShows searchQuery={searchQuery} />}
+      {selectedCategory === 'actor' && <TheMovieDBTopActors searchQuery={searchQuery} onActorClick={handleActorClick} />}
+      {actorTopMovies.length > 0 && (
+        <div style={{ marginTop: '20px' }}>
+          <h2>Top Movies or TV Shows for Selected Actor</h2>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+            {actorTopMovies.map((item) => (
+              <div key={item.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '200px' }}>
+                <img src={`https://image.tmdb.org/t/p/w200${item.poster_path}`} alt={item.title || item.name} style={{ width: '100%', marginBottom: '10px' }} />
+                <div style={{ textAlign: 'center', color: 'white' }}>
+                  <h3 style={{ margin: '0' }}>
+                    {item.title || item.name}
+                    <span style={{ fontSize: '0.9em', color: '#ccc' }}>
+                      {' '}| Rating: {item.vote_average} | Year: {item.release_date ? new Date(item.release_date).getFullYear() : 'N/A'} |{' '}
+                      <a href={`https://www.themoviedb.org/${item.media_type}/${item.id}`} target="_blank" rel="noopener noreferrer" style={{ color: '#8b0000', textDecoration: 'none' }}>
+                        TMDB Link
+                      </a>
+                    </span>
+                  </h3>
+                  <p style={{ fontSize: '0.9em', color: '#ccc', marginTop: '5px' }}>
+                    Description: {item.overview || 'N/A'}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
