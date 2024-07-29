@@ -83,14 +83,50 @@ const TheMovieDBTopMovies = ({ searchQuery }) => {
       if (data.errors) {
         setErrorMessage(data.errors.join(', '));
       } else {
-        setMovies(data.results);
-        setSearchResults(data.results);
+        const moviesWithDetails = await Promise.all(data.results.map(async (movie) => {
+          const certification = await fetchMovieCertification(movie.id);
+          const actors = await fetchMovieActors(movie.id);
+          return { ...movie, certification, actors };
+        }));
+        setMovies(moviesWithDetails);
+        setSearchResults(moviesWithDetails);
       }
     } catch (error) {
       console.error('Error fetching movies:', error);
       setErrorMessage('An error occurred while fetching movie data.');
     }
   }, []);
+
+  const fetchMovieCertification = async (movieId) => {
+    try {
+      const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/release_dates?api_key=${API_KEY}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      const usRelease = data.results.find(release => release.iso_3166_1 === 'US');
+      const certification = usRelease?.release_dates[0]?.certification || 'N/A';
+      return certification;
+    } catch (error) {
+      console.error('Error fetching movie certification:', error);
+      return 'N/A';
+    }
+  };
+
+  const fetchMovieActors = async (movieId) => {
+    try {
+      const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      const actors = data.cast.slice(0, 5).map(actor => ({ name: actor.name, character: actor.character })); // get top 5 actors
+      return actors;
+    } catch (error) {
+      console.error('Error fetching movie actors:', error);
+      return [];
+    }
+  };
 
   const handleSearch = useCallback(async (query) => {
     try {
@@ -108,7 +144,12 @@ const TheMovieDBTopMovies = ({ searchQuery }) => {
       if (data.errors) {
         setErrorMessage(data.errors.join(', '));
       } else {
-        setSearchResults(data.results);
+        const moviesWithDetails = await Promise.all(data.results.map(async (movie) => {
+          const certification = await fetchMovieCertification(movie.id);
+          const actors = await fetchMovieActors(movie.id);
+          return { ...movie, certification, actors };
+        }));
+        setSearchResults(moviesWithDetails);
       }
     } catch (error) {
       console.error('Error searching movies:', error);
@@ -159,11 +200,18 @@ const TheMovieDBTopMovies = ({ searchQuery }) => {
                   </span>
                 </h3>
                 <p style={{ fontSize: '0.9em', color: '#ccc', marginTop: '5px' }}>{movie.overview}</p>
+                <hr style={{ width: '100%', borderColor: '#8b0000' }} />
                 <p style={{ fontSize: '0.9em', color: '#ccc', marginTop: '5px' }}>
-                  Certification: {movie.certification || 'N/A'}
+                  Certification: {movie.certification}
                 </p>
+                <hr style={{ width: '100%', borderColor: '#8b0000' }} />
                 <p style={{ fontSize: '0.9em', color: '#ccc', marginTop: '5px' }}>
-                  Top Billed Actors: {movie.actors?.join(', ') || 'N/A'}
+                  Top Billed Actors:<br />
+                  {movie.actors?.map(actor => (
+                    <React.Fragment key={actor.name}>
+                      {actor.name} | {actor.character}<br />
+                    </React.Fragment>
+                  )) || 'N/A'}
                 </p>
               </div>
             </div>
@@ -207,14 +255,50 @@ const TheMovieDBTopTVShows = ({ searchQuery }) => {
       if (data.errors) {
         setErrorMessage(data.errors.join(', '));
       } else {
-        setTvShows(data.results);
-        setSearchResults(data.results);
+        const showsWithDetails = await Promise.all(data.results.map(async (show) => {
+          const certification = await fetchShowCertification(show.id);
+          const actors = await fetchShowActors(show.id);
+          return { ...show, certification, actors };
+        }));
+        setTvShows(showsWithDetails);
+        setSearchResults(showsWithDetails);
       }
     } catch (error) {
       console.error('Error fetching TV shows:', error);
       setErrorMessage('An error occurred while fetching TV show data.');
     }
   }, []);
+
+  const fetchShowCertification = async (showId) => {
+    try {
+      const response = await fetch(`https://api.themoviedb.org/3/tv/${showId}/content_ratings?api_key=${API_KEY}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      const usRating = data.results.find(rating => rating.iso_3166_1 === 'US');
+      const certification = usRating?.rating || 'N/A';
+      return certification;
+    } catch (error) {
+      console.error('Error fetching show certification:', error);
+      return 'N/A';
+    }
+  };
+
+  const fetchShowActors = async (showId) => {
+    try {
+      const response = await fetch(`https://api.themoviedb.org/3/tv/${showId}/credits?api_key=${API_KEY}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      const actors = data.cast.slice(0, 5).map(actor => ({ name: actor.name, character: actor.character })); // get top 5 actors
+      return actors;
+    } catch (error) {
+      console.error('Error fetching show actors:', error);
+      return [];
+    }
+  };
 
   const handleSearch = useCallback(async (query) => {
     try {
@@ -232,7 +316,12 @@ const TheMovieDBTopTVShows = ({ searchQuery }) => {
       if (data.errors) {
         setErrorMessage(data.errors.join(', '));
       } else {
-        setSearchResults(data.results);
+        const showsWithDetails = await Promise.all(data.results.map(async (show) => {
+          const certification = await fetchShowCertification(show.id);
+          const actors = await fetchShowActors(show.id);
+          return { ...show, certification, actors };
+        }));
+        setSearchResults(showsWithDetails);
       }
     } catch (error) {
       console.error('Error searching TV shows:', error);
@@ -252,9 +341,9 @@ const TheMovieDBTopTVShows = ({ searchQuery }) => {
     }
   }, [searchQuery, tvShows, handleSearch]);
 
-  const indexOfLastShow = currentPage * tvShowsPerPage;
-  const indexOfFirstShow = indexOfLastShow - tvShowsPerPage;
-  const currentTvShows = searchResults.slice(indexOfFirstShow, indexOfLastShow);
+  const indexOfLastTvShow = currentPage * tvShowsPerPage;
+  const indexOfFirstTvShow = indexOfLastTvShow - tvShowsPerPage;
+  const currentTvShows = searchResults.slice(indexOfFirstTvShow, indexOfLastTvShow);
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
@@ -283,11 +372,18 @@ const TheMovieDBTopTVShows = ({ searchQuery }) => {
                   </span>
                 </h3>
                 <p style={{ fontSize: '0.9em', color: '#ccc', marginTop: '5px' }}>{show.overview}</p>
+                <hr style={{ width: '100%', borderColor: '#8b0000' }} />
                 <p style={{ fontSize: '0.9em', color: '#ccc', marginTop: '5px' }}>
-                  Certification: {show.certification || 'N/A'}
+                  Certification: {show.certification}
                 </p>
+                <hr style={{ width: '100%', borderColor: '#8b0000' }} />
                 <p style={{ fontSize: '0.9em', color: '#ccc', marginTop: '5px' }}>
-                  Top Billed Actors: {show.actors?.join(', ') || 'N/A'}
+                  Top Billed Actors:<br />
+                  {show.actors?.map(actor => (
+                    <React.Fragment key={actor.name}>
+                      {actor.name} | {actor.character}<br />
+                    </React.Fragment>
+                  )) || 'N/A'}
                 </p>
               </div>
             </div>
