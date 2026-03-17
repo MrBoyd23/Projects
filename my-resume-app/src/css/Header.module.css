@@ -1,55 +1,188 @@
-/* Header.module.css */
+/* Header.module.css — Sticky header with elaborate nav buttons */
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;600&display=swap');
+
+/* ── Outer header ──────────────────────────────────────────── */
 .header {
-    text-align: center;
-    padding: 20px;
-    background-color: #8b0000; /* Dark red background color */
-    color: #fff;
-    font-family: 'Playfair Display', Arial;
-    z-index: 1; /* Lower z-index for the header */
-    position: relative; /* Create stacking context */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  text-align: center;
+  padding: 14px 30px 16px;
+  background: linear-gradient(160deg, #5a0000 0%, #8b0000 45%, #6b0000 100%);
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.4),
+    0 4px 24px rgba(139, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+/* Inner shimmer overlay */
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ── Brand block ───────────────────────────────────────────── */
+.headerBrand { position: relative; z-index: 1; }
+
 .header h1 {
-    font-size: 1em; /* Adjusted font size for h1 */
-    margin: 0;
+  font-size: 1.9rem;
+  margin: 0 0 2px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .header h2 {
-    font-size: .7em; /* Adjusted font size for h2 */
-    margin: 0;
-    color: #000
+  font-size: 0.72rem;
+  margin: 0 0 14px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Poppins', sans-serif;
 }
 
+/* ── Nav list ──────────────────────────────────────────────── */
 .navList {
-    list-style-type: none;
-    padding: 0;
-    margin: 6px 0 0; /* Add margin to separate the nav from the headings */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
 .navItem {
-    display: inline;
-    margin: 0 10px;
+  display: inline-flex;
+  align-items: center;
 }
 
+/* Kill any inherited bullet / pseudo on ALL nav items */
 .navItem::before {
-    content: '•'; /* Bullet point content */
-    color: black; /* Black color for bullet points */
-    display: inline-block;
-    width: 10px; /* Adjust width of bullet point if needed */
-    margin-right: 5px; /* Adjust spacing between bullet point and text */
+  content: none;
 }
 
+/* Slim separator between adjacent items (overrides the rule above) */
+.navItem + .navItem::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-right: 5px;
+  align-self: center;
+}
+
+/* ── Nav buttons ───────────────────────────────────────────── */
 .navLink {
-    text-decoration: none;
-    color: #fff; /* Yellow text color */
-    font-family: 'Playfair Display', serif;
-    font-weight: bold; /* Bold text */
-    font-size: .6em; /* Adjusted font size for nav links */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+
+  /* Slightly rounded rectangle — more button-like than full pill */
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+
+  /* Layered dark-glass background */
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 100%),
+    rgba(0, 0, 0, 0.2);
+
+  transition: all 0.22s ease;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
+/* Top-edge highlight stripe */
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 10%; right: 10%; top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  pointer-events: none;
+}
+
+/* ── Icon and label inside buttons ─────────────────────────── */
+.navIcon {
+  font-style: normal;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  line-height: 1;
+  position: relative;
+  top: 0.5px;
+}
+
+.navLabel {
+  position: relative;
+  top: 0.5px;
+}
+
+.navExternalDot {
+  font-size: 0.6rem;
+  opacity: 0.5;
+  margin-left: -2px;
+}
+
+/* ── Hover state ───────────────────────────────────────────── */
 .navLink:hover {
-    text-decoration: underline;
-    color: #00ffff; /* Turquoise color on hover */
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%),
+    rgba(139, 0, 0, 0.35);
+  border-color: rgba(200, 0, 0, 0.55);
+  border-bottom-color: #cc0000;
+  box-shadow:
+    0 4px 18px rgba(139, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
+/* ── Active / current route ─────────────────────────────────── */
+.navLinkActive {
+  color: #fff !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.14) 0%, transparent 100%),
+    rgba(160, 0, 0, 0.6) !important;
+  border-color: rgba(220, 40, 40, 0.7) !important;
+  border-bottom-color: #ff4444 !important;
+  box-shadow:
+    0 4px 22px rgba(139, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 0 0 1px rgba(200, 0, 0, 0.2) !important;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .header { padding: 10px 14px 12px; }
+  .header h1 { font-size: 1.25rem; letter-spacing: 1px; }
+  .header h2 { font-size: 0.62rem; letter-spacing: 2.5px; margin-bottom: 10px; }
+  .navLink { font-size: 0.62rem; padding: 6px 11px; gap: 4px; letter-spacing: 1.1px; }
+  .navItem + .navItem::before { display: none; }
+}
+
+@media (max-width: 380px) {
+  .navIcon { display: none; }
+}

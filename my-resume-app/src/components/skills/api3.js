@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-// Constants for API
-const API_KEY = '3465863de86bd626874e9db8a6286623';
-const ACCESS_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNDY1ODYzZGU4NmJkNjI2ODc0ZTlkYjhhNjI4NjYyMyIsIm5iZiI6MTcyMjAyOTIzNi4wMzQ0MDcsInN1YiI6IjY2YTQxM2RhODQwYzRiMDU4OTc2Njc1YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Fo8FaKSTktFYFgo0V6KDwf41l6hmN0jggCdsgpeF5LQ';
+// API credentials loaded from environment variables (never hardcode secrets)
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+const ACCESS_TOKEN = process.env.REACT_APP_TMDB_ACCESS_TOKEN;
 
 // SearchBar Component
 const SearchBar = ({ onSearch, onClear, onCategoryChange, selectedCategory }) => {
@@ -67,27 +67,43 @@ const TheMovieDBTopMovies = ({ searchQuery }) => {
   const [moviesPerPage] = useState(5);
   const [errorMessage, setErrorMessage] = useState('');
 
+  // Fetches certification + cast for a movie in ONE request using append_to_response
+  // This replaces the previous N+1 pattern of 2 separate calls per movie
+  const fetchMovieDetails = async (movieId) => {
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${movieId}?append_to_response=release_dates,credits&api_key=${API_KEY}`,
+        { headers: { Authorization: `Bearer ${ACCESS_TOKEN}` } }
+      );
+      if (!response.ok) return { certification: 'N/A', actors: [] };
+      const detail = await response.json();
+      const usRelease = detail.release_dates?.results?.find(r => r.iso_3166_1 === 'US');
+      const certification = usRelease?.release_dates[0]?.certification || 'N/A';
+      const actors = (detail.credits?.cast || []).slice(0, 5).map(a => ({ name: a.name, character: a.character }));
+      return { certification, actors };
+    } catch (error) {
+      console.error('Error fetching movie details:', error);
+      return { certification: 'N/A', actors: [] };
+    }
+  };
+
   const fetchMovies = useCallback(async () => {
     try {
       const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${ACCESS_TOKEN}`,
-          'Content-Type': 'application/json;charset=utf-8'
-        },
+        headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
       });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+      if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
       if (data.errors) {
         setErrorMessage(data.errors.join(', '));
       } else {
-        const moviesWithDetails = await Promise.all(data.results.map(async (movie) => {
-          const certification = await fetchMovieCertification(movie.id);
-          const actors = await fetchMovieActors(movie.id);
-          return { ...movie, certification, actors };
-        }));
+        // All detail fetches run in parallel — one request per movie instead of two
+        const moviesWithDetails = await Promise.all(
+          data.results.map(async (movie) => {
+            const { certification, actors } = await fetchMovieDetails(movie.id);
+            return { ...movie, certification, actors };
+          })
+        );
         setMovies(moviesWithDetails);
         setSearchResults(moviesWithDetails);
       }
@@ -97,58 +113,22 @@ const TheMovieDBTopMovies = ({ searchQuery }) => {
     }
   }, []);
 
-  const fetchMovieCertification = async (movieId) => {
-    try {
-      const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/release_dates?api_key=${API_KEY}`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      const usRelease = data.results.find(release => release.iso_3166_1 === 'US');
-      const certification = usRelease?.release_dates[0]?.certification || 'N/A';
-      return certification;
-    } catch (error) {
-      console.error('Error fetching movie certification:', error);
-      return 'N/A';
-    }
-  };
-
-  const fetchMovieActors = async (movieId) => {
-    try {
-      const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      const actors = data.cast.slice(0, 5).map(actor => ({ name: actor.name, character: actor.character })); // get top 5 actors
-      return actors;
-    } catch (error) {
-      console.error('Error fetching movie actors:', error);
-      return [];
-    }
-  };
-
   const handleSearch = useCallback(async (query) => {
     try {
       const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${ACCESS_TOKEN}`,
-          'Content-Type': 'application/json;charset=utf-8'
-        },
+        headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
       });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+      if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
       if (data.errors) {
         setErrorMessage(data.errors.join(', '));
       } else {
-        const moviesWithDetails = await Promise.all(data.results.map(async (movie) => {
-          const certification = await fetchMovieCertification(movie.id);
-          const actors = await fetchMovieActors(movie.id);
-          return { ...movie, certification, actors };
-        }));
+        const moviesWithDetails = await Promise.all(
+          data.results.map(async (movie) => {
+            const { certification, actors } = await fetchMovieDetails(movie.id);
+            return { ...movie, certification, actors };
+          })
+        );
         setSearchResults(moviesWithDetails);
       }
     } catch (error) {
@@ -239,27 +219,42 @@ const TheMovieDBTopTVShows = ({ searchQuery }) => {
   const [tvShowsPerPage] = useState(5);
   const [errorMessage, setErrorMessage] = useState('');
 
+  // Fetches content rating + cast for a TV show in ONE request using append_to_response
+  const fetchShowDetails = async (showId) => {
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/tv/${showId}?append_to_response=content_ratings,credits&api_key=${API_KEY}`,
+        { headers: { Authorization: `Bearer ${ACCESS_TOKEN}` } }
+      );
+      if (!response.ok) return { certification: 'N/A', actors: [] };
+      const detail = await response.json();
+      const usRating = detail.content_ratings?.results?.find(r => r.iso_3166_1 === 'US');
+      const certification = usRating?.rating || 'N/A';
+      const actors = (detail.credits?.cast || []).slice(0, 5).map(a => ({ name: a.name, character: a.character }));
+      return { certification, actors };
+    } catch (error) {
+      console.error('Error fetching show details:', error);
+      return { certification: 'N/A', actors: [] };
+    }
+  };
+
   const fetchTvShows = useCallback(async () => {
     try {
       const response = await fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${ACCESS_TOKEN}`,
-          'Content-Type': 'application/json;charset=utf-8'
-        },
+        headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
       });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+      if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
       if (data.errors) {
         setErrorMessage(data.errors.join(', '));
       } else {
-        const showsWithDetails = await Promise.all(data.results.map(async (show) => {
-          const certification = await fetchShowCertification(show.id);
-          const actors = await fetchShowActors(show.id);
-          return { ...show, certification, actors };
-        }));
+        // All detail fetches run in parallel — one request per show instead of two
+        const showsWithDetails = await Promise.all(
+          data.results.map(async (show) => {
+            const { certification, actors } = await fetchShowDetails(show.id);
+            return { ...show, certification, actors };
+          })
+        );
         setTvShows(showsWithDetails);
         setSearchResults(showsWithDetails);
       }
@@ -269,58 +264,22 @@ const TheMovieDBTopTVShows = ({ searchQuery }) => {
     }
   }, []);
 
-  const fetchShowCertification = async (showId) => {
-    try {
-      const response = await fetch(`https://api.themoviedb.org/3/tv/${showId}/content_ratings?api_key=${API_KEY}`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      const usRating = data.results.find(rating => rating.iso_3166_1 === 'US');
-      const certification = usRating?.rating || 'N/A';
-      return certification;
-    } catch (error) {
-      console.error('Error fetching show certification:', error);
-      return 'N/A';
-    }
-  };
-
-  const fetchShowActors = async (showId) => {
-    try {
-      const response = await fetch(`https://api.themoviedb.org/3/tv/${showId}/credits?api_key=${API_KEY}`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      const actors = data.cast.slice(0, 5).map(actor => ({ name: actor.name, character: actor.character })); // get top 5 actors
-      return actors;
-    } catch (error) {
-      console.error('Error fetching show actors:', error);
-      return [];
-    }
-  };
-
   const handleSearch = useCallback(async (query) => {
     try {
       const response = await fetch(`https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&query=${query}`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${ACCESS_TOKEN}`,
-          'Content-Type': 'application/json;charset=utf-8'
-        },
+        headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
       });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+      if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
       if (data.errors) {
         setErrorMessage(data.errors.join(', '));
       } else {
-        const showsWithDetails = await Promise.all(data.results.map(async (show) => {
-          const certification = await fetchShowCertification(show.id);
-          const actors = await fetchShowActors(show.id);
-          return { ...show, certification, actors };
-        }));
+        const showsWithDetails = await Promise.all(
+          data.results.map(async (show) => {
+            const { certification, actors } = await fetchShowDetails(show.id);
+            return { ...show, certification, actors };
+          })
+        );
         setSearchResults(showsWithDetails);
       }
     } catch (error) {
@@ -414,11 +373,7 @@ const TheMovieDBTopActors = ({ searchQuery, onActorClick }) => {
   const fetchActors = useCallback(async () => {
     try {
       const response = await fetch(`https://api.themoviedb.org/3/person/popular?api_key=${API_KEY}`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${ACCESS_TOKEN}`,
-          'Content-Type': 'application/json;charset=utf-8'
-        },
+        headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
       });
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -439,11 +394,7 @@ const TheMovieDBTopActors = ({ searchQuery, onActorClick }) => {
   const handleSearch = useCallback(async (query) => {
     try {
       const response = await fetch(`https://api.themoviedb.org/3/search/person?api_key=${API_KEY}&query=${query}`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${ACCESS_TOKEN}`,
-          'Content-Type': 'application/json;charset=utf-8'
-        },
+        headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
       });
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -481,11 +432,7 @@ const TheMovieDBTopActors = ({ searchQuery, onActorClick }) => {
   const handleActorClick = async (actorId) => {
     try {
       const response = await fetch(`https://api.themoviedb.org/3/person/${actorId}/combined_credits?api_key=${API_KEY}`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${ACCESS_TOKEN}`,
-          'Content-Type': 'application/json;charset=utf-8'
-        },
+        headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
       });
       if (!response.ok) {
         throw new Error('Network response was not ok');

@@ -7,9 +7,24 @@ const Experience = () => {
             {/* Job 1 */}
             <div className="job">
                 <div className="job-details">
+                    <h3>System Engineer III</h3>
+                    <p><b>GoDaddy</b></p>
+                    <p>February 2024 - Present</p>
+                    <p>Remote</p>
+                    <ul>
+                        <li>&nbsp;</li>
+                        <li>&nbsp;</li>
+                        <li>&nbsp;</li>
+                    </ul>
+                </div>
+            </div>
+
+            {/* Job 2 */}
+            <div className="job">
+                <div className="job-details">
                     <h3>System Engineer II</h3>
                     <p><b>GoDaddy</b></p>
-                    <p>July 2021 - Present</p>
+                    <p>July 2021 - February 2024</p>
                     <p>Remote</p>
                     <ul>
                         <li>Developed Remediation Scripting For Troubleshooting Server Environment</li>
@@ -38,7 +53,7 @@ const Experience = () => {
                 </div>
             </div>
 
-            {/* Job 2 */}
+            {/* Job 3 */}
             <div className="job">
                 <div className="job-details">
                     <h3>System Engineer I</h3>
@@ -65,7 +80,7 @@ const Experience = () => {
                 </div>
             </div>
 
-            {/* Job 3 */}
+            {/* Job 4 */}
             <div className="job">
                 <div className="job-details">
                     <h3>Hosting Technical Lead</h3>
@@ -88,7 +103,7 @@ const Experience = () => {
                 </div>
             </div>
 
-            {/* Job 4 */}
+            {/* Job 5 */}
             <div className="job">
                 <div className="job-details">
                     <h3>Subject Matter Expert | Website Security</h3>
@@ -110,7 +125,7 @@ const Experience = () => {
                 </div>
             </div>
 
-            {/* Job 5 */}
+            {/* Job 6 */}
             <div className="job">
                 <div className="job-details">
                     <h3>Advanced Hosting IV</h3>
@@ -127,7 +142,7 @@ const Experience = () => {
                 </div>
             </div>
 
-            {/* Job 6 */}
+            {/* Job 7 */}
             <div className="job">
                 <div className="job-details">
                     <h3>Hosting Online Support Team</h3>
@@ -145,7 +160,7 @@ const Experience = () => {
                 </div>
             </div>
 
-            {/* Add more job entries similarly if needed */}
+            {/* Add more job entries as needed */}
         </div>
     );
 };

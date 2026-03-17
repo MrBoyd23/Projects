@@ -1,446 +1,366 @@
-/* Import Google Fonts and basic resets */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&family=Merriweather:wght@400;700&display=swap');
+/* ============================================================
+   styles.css  —  Global styles for Brandon's Resume
+   Color palette: #000 bg | #8b0000 dark-red | #fff text
+                  #40e0d0 turquoise links | #61dafb cyan accents
+                  #282c34 code bg
+   ============================================================ */
 
-/* General resets and base styles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap');
+
+/* ── Resets & base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #000;
-  color: #ffffff; /* Sets the font color to Dark Yellow (#ffff00) */
+  color: #fff;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* General container style */
+/* ── Layout container ──────────────────────────────────────── */
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: flex-start;
   width: 100%;
-  padding: 20px;
+  padding: 30px 40px;
   box-sizing: border-box;
   background: #000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin: 20px auto;
+  margin: 0 auto;
   max-width: 1200px;
 }
 
-/* Stylish header */
-header, .header {
-  width: 100%;
-  text-align: left;
-  padding: 14px 0;
-  background: #ff0000;
-  color: white;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1em;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-bottom: none;
-  margin: 0;
-  text-align: center;
+/* ── Typography ────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  margin-top: 0;
 }
 
-.header h2 {
-  margin: 0;
-  font-size: .5rem;
-}
-
-.header h3 {
-  margin: 5px 0 0;
-  font-size: .5rem;
-}
-
-/* Section headings */
 h2, .container h2 {
-  font-family: 'Merriweather', serif;
-  font-size: 1.5em;
-  margin-bottom: 10px;
+  font-size: 1.6rem;
+  margin-bottom: 14px;
   color: #fff;
   border-bottom: 2px solid #8b0000;
   display: inline-block;
-  padding-bottom: 5px;
+  padding-bottom: 6px;
+  letter-spacing: 0.5px;
 }
 
-/* Main content area */
-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-/* Footer style */
-footer {
-  width: 100%;
-  text-align: left;
-  padding: 10px 0;
-  background: #282c34;
-  color: white;
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.9em;
-}
-
-/* Button style */
-button {
-  padding: 5px 10px; /* Smaller padding for smaller buttons */
-  font-size: 0.8em; /* Smaller font size */
-  margin: 5px; /* Add space between buttons */
-  border: none;
-  background-color: #61dafb;
-  color: #282c34;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: #21a1f1;
-}
-
-/* Add space between buttons */
-.playbooks-grid {
-  display: flex;
-  flex-wrap: wrap; /* Allow the buttons to wrap to the next line */
-  justify-content: center; /* Add space around the buttons */
-  gap: 10px; /* Add space between the buttons */
-  margin-bottom: 20px; /* Add space below the container */
-}
-
-.playbook-button {
-  font-size: 1rem;
-  padding: 10px 20px;
-  margin: 5px;
-  background-color: #61dafb;
-  color: #282c34;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.playbook-button:hover {
- background-color: #21a1f1;
-}
-
-.playbook-button {
- font-size: 0.8rem;
- padding: 8px 16px;
-}
-
-/* Container for the overall content */
-.content-container {
-  padding: 10px;
-}
-
-/* List styles */
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-ul li {
-  margin: 5px 0;
-  padding-left: 20px;
-  text-indent: -20px;
-}
-
-ul li::before {
-  content: '•';
-  color: #61dafb;
-  display: inline-block;
-  width: 20px;
-}
-
-/* Paragraph styles */
 p, .container p {
-  color: #fff;
-  line-height: 1.6;
-  margin: 10px 0;
-  font-family: 'Playfair Display', Arial;
-}
-
-/* Experience, Skills, Education, Certifications section styles */
-.experience, .skills, .education, .certifications {
-  margin-bottom: 30px;
-}
-
-/* Job entry styles */
-.job {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-}
-
-.job .job-details {
-}
-
-.job h3 {
-  margin-top: 0;
-  font-size: 1.5rem;
-}
-
-.job p {
-  margin: 5px 0;
-  font-size: 0.9rem;
-  color: #f00;
-}
-
-.job ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-top: 5px;
-}
-
-.job ul li {
-  margin-bottom: 5px;
-}
-
-/* Skills and certifications list styles */
-.skills ul, .certifications ul {
-  padding-left: 20px;
-}
-
-/* Education section styles */
-.education p {
-  margin: 5px 0;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* Additional styles */
-.container h2 {
-  border-bottom: 2px solid #333;
-  padding-bottom: 5px;
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-.container p {
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-  .container {
-    padding: 10px;
-    margin: 10px;
-  }
-
-  header, footer {
-    text-align: center;
-    font-size: 1.5em;
-  }
-
-  h2 {
-    font-size: 1.2em;
-  }
-
-  button {
-    width: 100%;
-    font-size: 0.9em;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .container {
-    padding: 15px;
-    margin: 15px;
-  }
-
-  header, footer {
-    text-align: center;
-    font-size: 1.8em;
-  }
-
-  h2 {
-    font-size: 1.3em;
-  }
-
-  button {
-    width: auto;
-    font-size: 1em;
-  }
-}
-
-@media (min-width: 1025px) {
-  .container {
-    max-width: 1400px;
-  }
-
-  header, footer {
-    font-size: 2em;
-  }
-
-  h2 {
-    font-size: 1.5em;
-  }
-
-  button {
-    width: auto;
-    font-size: 1em;
-  }
+  color: #ddd;
+  line-height: 1.75;
+  margin: 8px 0;
+  font-family: 'Poppins', Arial;
+  font-size: 0.92rem;
 }
 
 a {
-  color: turquoise;
-}
-
-.issuer a {
   color: #40e0d0;
-  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover { color: #7fffd4; }
+
+/* ── Buttons ───────────────────────────────────────────────── */
+button {
+  padding: 8px 16px;
+  font-size: 0.82rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  margin: 5px;
+  border: 1px solid #8b0000;
+  background: linear-gradient(135deg, #1a0000, #2d0000);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-radius: 6px;
+  letter-spacing: 0.3px;
 }
 
-.issuer a:hover {
-  text-decoration: underline;
+button:hover {
+  background: linear-gradient(135deg, #8b0000, #cc0000);
+  border-color: #cc0000;
+  box-shadow: 0 2px 12px rgba(139,0,0,0.4);
+  transform: translateY(-1px);
 }
 
-/* Certifications Section */
-.certifications {
-  padding: 20px;
-  background: #000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin: 20px auto;
-}
-
-.certifications .heading {
-  font-size: 1.5em;
+/* ── Playbook / code viewer buttons ────────────────────────── */
+.playbooks-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
   margin-bottom: 20px;
-  color: #ffffff; /* Yellow color for heading */
+}
+
+.playbook-button {
+  font-size: 0.82rem;
+  padding: 8px 16px;
+  margin: 0;
+}
+
+/* ── Lists ─────────────────────────────────────────────────── */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+}
+
+ul li {
+  margin: 6px 0;
+  padding-left: 22px;
+  text-indent: -22px;
+  color: #ddd;
+  font-size: 0.9rem;
+}
+
+ul li::before {
+  content: '▸';
+  color: #61dafb;
+  display: inline-block;
+  width: 22px;
+  font-size: 0.75rem;
+}
+
+/* ── Experience section ────────────────────────────────────── */
+.experience {
+  width: 100%;
+  position: relative;
+  padding-left: 20px;
+}
+
+/* Vertical timeline line */
+.experience::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(to bottom, #8b0000, #3d0000);
+  border-radius: 2px;
+}
+
+/* ── Job cards ─────────────────────────────────────────────── */
+.job {
+  position: relative;
+  background: #0d0d0d;
+  border: 1px solid #1e1e1e;
+  border-left: 3px solid #8b0000;
+  border-radius: 0 10px 10px 0;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  transition: border-left-color 0.25s, box-shadow 0.25s;
+}
+
+.job:hover {
+  border-left-color: #cc0000;
+  box-shadow: 0 4px 24px rgba(139,0,0,0.18);
+}
+
+/* Timeline dot */
+.job::before {
+  content: '';
+  position: absolute;
+  left: -29px;
+  top: 28px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #8b0000;
+  border: 2px solid #000;
+  box-shadow: 0 0 0 2px #8b0000;
+}
+
+.job h3 {
+  margin: 0 0 4px;
+  font-size: 1.35rem;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+
+.job-details p {
+  margin: 3px 0;
+  font-size: 0.875rem;
+  color: #cc3333;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Bold company name stays white */
+.job-details p b {
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.job ul {
+  margin-top: 12px;
+}
+
+.job ul li {
+  margin-bottom: 6px;
+  line-height: 1.65;
+}
+
+.job ul ul {
+  margin-top: 4px;
+  padding-left: 18px;
+}
+
+.job ul ul li::before {
+  content: '◦';
+  color: #8b0000;
+}
+
+/* ── Education & Certifications ─────────────────────────────── */
+.education, .certifications {
+  margin-bottom: 30px;
+  padding: 24px;
+  background: #0d0d0d;
+  border: 1px solid #1e1e1e;
+  border-left: 3px solid #8b0000;
+  border-radius: 0 10px 10px 0;
+}
+
+.education p, .certifications p {
+  color: #ddd;
+}
+
+.certifications .heading,
+.education .heading {
+  font-size: 1.5rem;
+  color: #fff;
   border-bottom: 2px solid #61dafb;
   display: inline-block;
   padding-bottom: 5px;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
 }
 
 .certifications .certificationItem {
   margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.certifications .certificationItem:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
 }
 
 .certifications .certificationTitle {
-  font-size: 1.2em;
-  color: #8b0000; /* Dark red for certification title */
-  margin-bottom: 5px;
+  font-size: 1.05rem;
+  color: #cc3333;
+  margin-bottom: 4px;
+  font-weight: 500;
 }
 
 .certifications .issueDate,
 .certifications .issuer {
-  color: #fff; /* Yellow for issue date and issuer */
-  line-height: 1.6;
-  margin: 5px 0;
-  font-family: 'Playfair Display', Arial;
+  color: #bbb;
+  font-size: 0.875rem;
+  margin: 3px 0;
 }
 
-.certifications .issuer a {
-  color: #40e0d0; /* Turquoise color */
-  text-decoration: none;
-}
+.certifications .issuer a { color: #40e0d0; }
+.certifications .issuer a:hover { text-decoration: underline; }
 
-.certifications .issuer a:hover {
-  text-decoration: underline;
-}
+.issuer a { color: #40e0d0; text-decoration: none; }
+.issuer a:hover { text-decoration: underline; }
 
-@media (max-width: 768px) {
-  .certifications {
-    padding: 10px;
-    margin: 10px;
-  }
-
-  .certifications .heading {
-    font-size: 1.2em;
-  }
-
-  .certifications .certificationTitle {
-    font-size: 1em;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .certifications {
-    padding: 15px;
-    margin: 15px;
-  }
-
-  .certifications .heading {
-    font-size: 1.3em;
-  }
-
-  .certifications .certificationTitle {
-    font-size: 1.1em;
-  }
-}
-
-@media (min-width: 1025px) {
-  .certifications {
-    max-width: 1400px;
-  }
-
-  .certifications .heading {
-    font-size: 1.5em;
-  }
-
-  .certifications .certificationTitle {
-    font-size: 1.2em;
-  }
-}
-
-/* Content for Code Blocks */
-.content-section {
-  background: #000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* ── Code blocks ───────────────────────────────────────────── */
+.code-block, .code-content, .code-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 600px;
+  background: #282c34;
   border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 30px;
+  padding: 16px;
+  margin: 16px 0;
+  box-sizing: border-box;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  border: 1px solid #333;
 }
 
-.code-block {
-  width: 100%; /* Ensure the code block takes full width */
-  min-height: 400px; /* Adjust this value as needed to make the box longer */
-  max-height: 2000px; /* Optional: to limit the maximum height */
-  overflow-y: auto; /* Allow vertical scrolling if the content exceeds the max-height */
-  overflow-x: auto; /* Allow horizontal scrolling if needed */
-  padding: 15px; /* Optional: add some padding for better readability */
-  background-color: #282c34; /* Ensure background color for readability */
-  border-radius: 8px; /* Optional: for rounded corners */
-  margin: 20px 0; /* Add some margin to separate from other elements */
-  box-sizing: border-box; /* Ensure padding is included in the total width/height */
-  white-space: pre-wrap; /* Allow line breaks within words */
-  word-wrap: break-word; /* Break long words to fit within the container */
+.code-block pre { margin: 0; }
+
+.code-section {
+  margin-bottom: 16px;
 }
 
-.code-block pre {
-  margin: 0;
-}
-
-/* Media query for mobile devices */
-@media (max-width: 768px) {
-  .code-block {
-    min-height: 200px; /* Adjust the minimum height for smaller screens */
-    padding: 10px; /* Adjust padding for smaller screens */
-    font-size: 0.9em; /* Reduce font size for better readability on small screens */
-  }
-}
-
-/* Apply a max-width and center the content */
+/* GitHub code viewer wrapper */
 .github-code-viewer {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 10px 0;
 }
 
-/* Additional Tweaks for Various Elements */
+.github-code-viewer h2 {
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  border-bottom: 2px solid #8b0000;
+  padding-bottom: 6px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.github-code-viewer p { color: #bbb; }
+
+.content-section {
+  background: #0d0d0d;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 28px;
+  border: 1px solid #1e1e1e;
+}
+
+.content-container { padding: 10px; }
+
+/* ── Job details color overrides (non-p elements) ──────────── */
 .experience .job h3,
 .education h3 {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   color: #fff;
 }
 
-.job-details p,
 .skills ul li,
-.certifications ul li,
-.education p {
-  color: #f00;
+.certifications ul li {
+  color: #ddd;
 }
 
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px 18px;
+  }
+
+  .experience {
+    padding-left: 14px;
+  }
+
+  .job {
+    padding: 18px 16px;
+  }
+
+  .job h3 { font-size: 1.1rem; }
+
+  h2, .container h2 { font-size: 1.3rem; }
+
+  button { width: 100%; font-size: 0.85rem; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container { padding: 20px 28px; }
+  h2, .container h2 { font-size: 1.45rem; }
+  button { width: auto; font-size: 0.88rem; }
+}
+
+@media (min-width: 1025px) {
+  .container { max-width: 1400px; }
+  h2, .container h2 { font-size: 1.6rem; }
+  button { width: auto; }
+}

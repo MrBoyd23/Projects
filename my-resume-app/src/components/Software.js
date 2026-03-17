@@ -1,78 +1,22 @@
 import React from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
-import '../css/Skills.css';
+import { Link } from 'react-router-dom';
+import styles from '../css/Skills.module.css';
+import { softwareSkills } from '../data/skillsConfig';
 
-// Import skill detail components
-import CPanel from './skills/cpanel';
-import Plesk from './skills/plesk';
-import Jira from './skills/jira';
-import GitHub from './skills/github';
-import SEO from './skills/seo';
-import Grafana from './skills/grafana';
-import Prometheus from './skills/prometheus';
-import ServiceNow from './skills/servicenow';
-import LivePerson from './skills/liveperson';
-import WordPress from './skills/wordpress';
-import ECommerce from './skills/e-commerce';
-import LinuxAdmin from './skills/linux_admin';
-import WebsiteAnalytics from './skills/website_analytics';
-import OnlineMarketing from './skills/online_marketing';
-import DataAnalytics from './skills/data_analytics';
-// eslint-disable-next-line
-{/*import OnlineAdvertising from './skills/online_advertising'; */}
-// eslint-disable-next-line
-{/* import DigitalMarketing from './skills/digital_marketing';  */}
-
-const Software = () => {
-  return (
-    <div className="skills-page">
-      <p className="centered-paragraph">
-        THIS PAGE IS STILL UNDER CONSTRUCTION.<br />The Links Below Showcase My Proficiency With Different Software Applications. 
-      </p>
-      <div className="skills-list">
-        <Link to="/cpanel" className="skill-bubble">cPanel</Link>
-        <Link to="/plesk" className="skill-bubble">Plesk</Link>
-        <Link to="/seo" className="skill-bubble">SEO</Link>
-        <Link to="/jira" className="skill-bubble">Jira</Link>
-        <Link to="/github" className="skill-bubble">GitHub</Link>
-        <Link to="/grafana" className="skill-bubble">Grafana</Link>
-        <Link to="/prometheus" className="skill-bubble">Prometheus</Link>
-        <Link to="/servicenow" className="skill-bubble">ServiceNow</Link>
-        <Link to="/liveperson" className="skill-bubble">LivePerson</Link>
-        <Link to="/wordpress" className="skill-bubble">WordPress</Link>
-        <Link to="/e-commerce" className="skill-bubble">ECommerce</Link>
-        <Link to="/linux_admin" className="skill-bubble">Linux Admin</Link>
-        <Link to="/website_analytics" className="skill-bubble">Website Analytics</Link>
-        <Link to="/online_marketing" className="skill-bubble">Online Marketing</Link>
-        {/* <Link to="/online_advertising" className="skill-bubble">Online Advertising</Link> */}
-        <Link to="/data_analytics" className="skill-bubble">Data Analytics</Link>
-        {/* <Link to="/digital_marketing" className="skill-bubble">Digital Marketing</Link> */}
-      </div>
-
-      <div className="skills-container">
-        <Routes>
-          <Route path="/cpanel" element={<CPanel />} />
-          <Route path="/plesk" element={<Plesk />} />
-          <Route path="/seo" element={<SEO />} />
-          <Route path="/jira" element={<Jira />} />
-          <Route path="/github" element={<GitHub />} />
-          <Route path="/grafana" element={<Grafana />} />
-          <Route path="/prometheus" element={<Prometheus />} />
-          <Route path="/servicenow" element={<ServiceNow />} />
-          <Route path="/liveperson" element={<LivePerson />} />
-          <Route path="/wordpress" element={<WordPress />} />
-          <Route path="/e-commerce" element={<ECommerce />} />
-          <Route path="/linux_admin" element={<LinuxAdmin />} />
-          <Route path="/website_analytics" element={<WebsiteAnalytics />} />
-          <Route path="/online_marketing" element={<OnlineMarketing />} />
-          {/* <Route path="/online_advertising" element={<OnlineAdvertising />} /> */}
-          <Route path="/data_analytics" element={<DataAnalytics />} />
-          {/* <Route path="/digital_marketing" element={<DigitalMarketing />} /> */}
-        </Routes>
-      </div>
+/**
+ * Software — nav bar shown above each software skill detail page.
+ * Skills driven by softwareSkills in src/data/skillsConfig.js.
+ */
+const Software = () => (
+  <div className={styles.skillsPage}>
+    <p className={styles.centeredParagraph}>🛠 Software &amp; Tools — select a skill</p>
+    <div className={styles.skillsList}>
+      {softwareSkills.map(({ id, label }) => (
+        <Link key={id} to={`/${id}`} className={styles.skillBubble}>{label}</Link>
+      ))}
     </div>
-  );
-};
+  </div>
+);
 
 export default Software;
 

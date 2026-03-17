@@ -9,7 +9,7 @@ const Ansible = () => {
 
     useEffect(() => {
         const fetchPlaybooks = async () => {
-            const playbooksUrl = 'https://api.github.com/repos/MrBoyd23/Projects/contents/scripts/Ansible/playbooks';
+            const playbooksUrl = `${process.env.REACT_APP_GITHUB_API_BASE}/repos/${process.env.REACT_APP_GITHUB_REPO}/contents/scripts/Ansible/playbooks`;
             try {
                 const response = await fetch(playbooksUrl);
                 if (response.ok) {

@@ -1,0 +1,322 @@
+/* SkillPage.module.css — Shared styles for all skill detail pages */
+
+/* ── Page wrapper ──────────────────────────────────────────── */
+.skillPage {
+  width: 100%;
+  padding: 0 0 40px;
+  color: #fff;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* ── Hero banner ───────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, #0d0000 0%, #1a0000 50%, #0d0000 100%);
+  border: 1px solid #2d0000;
+  border-left: 4px solid #cc0000;
+  border-radius: 0 10px 10px 0;
+  padding: 28px 32px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,0,0,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+  letter-spacing: 0.5px;
+}
+
+.heroTagline {
+  font-size: 0.88rem;
+  color: #cc3333;
+  margin: 0 0 12px;
+  font-style: italic;
+  letter-spacing: 0.3px;
+}
+
+.heroBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(139,0,0,0.25);
+  border: 1px solid #8b0000;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  color: #ff9999;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ── Content sections ──────────────────────────────────────── */
+.section {
+  background: #0d0d0d;
+  border: 1px solid #1e1e1e;
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-bottom: 22px;
+  transition: border-color 0.25s;
+}
+
+.section:hover {
+  border-color: #3d0000;
+}
+
+.sectionTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: #fff;
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #2d0000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sectionTitle::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 1.2em;
+  background: linear-gradient(to bottom, #cc0000, #8b0000);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.sectionText {
+  color: #ccc;
+  font-size: 0.91rem;
+  line-height: 1.8;
+  margin: 0 0 12px;
+}
+
+/* ── Two-column grid ───────────────────────────────────────── */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+
+@media (max-width: 768px) {
+  .twoCol { grid-template-columns: 1fr; }
+}
+
+/* ── Code block wrapper ────────────────────────────────────── */
+.codeWrapper {
+  margin: 16px 0 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.codeLabel {
+  background: #1e1e1e;
+  color: #888;
+  font-size: 0.72rem;
+  font-family: 'Fira Code', monospace;
+  padding: 6px 14px;
+  border-bottom: 1px solid #333;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.codeLabel::before {
+  content: '●';
+  color: #8b0000;
+  font-size: 0.9em;
+}
+
+/* ── Tip / note box ────────────────────────────────────────── */
+.tipBox {
+  background: rgba(97, 218, 251, 0.06);
+  border: 1px solid rgba(97, 218, 251, 0.2);
+  border-left: 3px solid #61dafb;
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 0.875rem;
+  color: #b0eaff;
+  line-height: 1.65;
+}
+
+.tipBox strong {
+  color: #61dafb;
+  font-weight: 600;
+}
+
+/* ── Live data section ─────────────────────────────────────── */
+.liveSection {
+  border: 1px solid #1e1e1e;
+  background: #0d0d0d;
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-bottom: 22px;
+}
+
+.liveSectionTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.liveDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #40e0d0;
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.liveSubtitle {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0 0 18px;
+  font-style: italic;
+}
+
+/* ── Cards grid (for live API results) ─────────────────────── */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: #111;
+  border: 1px solid #2d0000;
+  border-radius: 8px;
+  padding: 14px 16px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  border-color: #8b0000;
+  transform: translateY(-2px);
+}
+
+.cardTitle {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardMeta {
+  font-size: 0.76rem;
+  color: #777;
+  margin: 2px 0;
+}
+
+.cardLink {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.76rem;
+  color: #40e0d0;
+  text-decoration: none;
+}
+
+.cardLink:hover { text-decoration: underline; }
+
+.cardStar {
+  color: #ffcc00;
+  font-size: 0.76rem;
+}
+
+/* ── Loading / error states ────────────────────────────────── */
+.loading {
+  color: #666;
+  font-size: 0.85rem;
+  font-style: italic;
+  padding: 10px 0;
+}
+
+.error {
+  color: #cc3333;
+  font-size: 0.85rem;
+  padding: 10px 14px;
+  background: rgba(139,0,0,0.1);
+  border-radius: 6px;
+  border: 1px solid #3d0000;
+}
+
+/* ── Stat blocks ───────────────────────────────────────────── */
+.statsRow {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 14px 0;
+}
+
+.statBlock {
+  background: #111;
+  border: 1px solid #2d0000;
+  border-radius: 8px;
+  padding: 14px 20px;
+  min-width: 100px;
+  text-align: center;
+}
+
+.statNum {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #cc3333;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.2;
+}
+
+.statLabel {
+  font-size: 0.72rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 2px;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero { padding: 20px 18px; }
+  .heroTitle { font-size: 1.5rem; }
+  .section { padding: 18px 16px; }
+  .liveSection { padding: 18px 16px; }
+  .cardsGrid { grid-template-columns: 1fr; }
+}
