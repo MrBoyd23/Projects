@@ -1,92 +1,125 @@
+/* Certifications.module.css — Timeline-style certification cards */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ── Page wrapper ─────────────────────────────────────────── */
 .certifications {
-    padding: 20px;
-    background: #000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin: 20px auto;
+  width: 100%;
+  position: relative;
+  padding-left: 24px;
+  margin-top: 36px;
 }
 
+/* ── Page heading ─────────────────────────────────────────── */
 .heading {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    color: #000;
-    border-bottom: 2px solid #61dafb;
-    display: inline-block;
-    padding-bottom: 5px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+  margin-bottom: 28px;
+  display: inline-block;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #8b0000;
 }
 
+/* ── Vertical timeline line ───────────────────────────────── */
+.certifications::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 60px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(to bottom, #8b0000, #3d0000, transparent);
+  border-radius: 2px;
+}
+
+/* ── Certification card ──────────────────────────────────── */
 .certificationItem {
-    margin-bottom: 20px;
+  position: relative;
+  background: #0d0d0d;
+  border: 1px solid #1e1e1e;
+  border-left: 3px solid #8b0000;
+  border-radius: 0 12px 12px 0;
+  padding: 24px 32px;
+  margin-bottom: 24px;
+  transition: border-left-color 0.25s, box-shadow 0.25s;
 }
 
+.certificationItem:hover {
+  border-left-color: #cc0000;
+  box-shadow: 0 6px 28px rgba(139, 0, 0, 0.2);
+}
+
+/* Timeline dot */
+.certificationItem::before {
+  content: '';
+  position: absolute;
+  left: -33px;
+  top: 28px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #8b0000;
+  border: 2px solid #000;
+  box-shadow: 0 0 0 2px #8b0000;
+}
+
+/* ── Certification title ─────────────────────────────────── */
 .certificationTitle {
-    font-size: 1.2em;
-    color: #8b0000;
-    margin-bottom: 5px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 8px;
+  letter-spacing: 0.3px;
 }
 
-.issueDate, .issuer {
-    color: #fff;
-    line-height: 1.6;
-    margin: 5px 0;
-    font-family: 'Playfair Display', Arial;  /* Ensure consistency */
+/* ── Issue date badge ────────────────────────────────────── */
+.issueDate {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #40e0d0;
+  background: rgba(64, 224, 208, 0.08);
+  border: 1px solid rgba(64, 224, 208, 0.2);
+  padding: 2px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
 }
 
-/* Media queries for responsiveness */
-
-/* For small screens (mobile devices) */
-@media (max-width: 768px) {
-    .certifications {
-        padding: 10px;
-        margin: 10px;
-    }
-
-    .heading {
-        font-size: 1.2em;
-    }
-
-    .certificationTitle {
-        font-size: 1em;
-    }
-}
-
-/* For medium screens (tablets) */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .certifications {
-        padding: 15px;
-        margin: 15px;
-    }
-
-    .heading {
-        font-size: 1.3em;
-    }
-
-    .certificationTitle {
-        font-size: 1.1em;
-    }
-}
-
-/* For large screens (desktops) */
-@media (min-width: 1025px) {
-    .certifications {
-        max-width: 1400px;
-    }
-
-    .heading {
-        font-size: 1.5em;
-    }
-
-    .certificationTitle {
-        font-size: 1.2em;
-    }
+/* ── Issuer link ─────────────────────────────────────────── */
+.issuer {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  color: #999;
+  margin: 0;
 }
 
 .issuer a {
-    color: #40e0d0; /* Turquoise color */
-    text-decoration: none; /* Remove underline */
+  color: #40e0d0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
 .issuer a:hover {
-    text-decoration: underline; /* Underline on hover */
+  color: #7fffd4;
+  text-decoration: underline;
 }
 
+/* Override global bullet styles */
+.certificationItem li::before {
+  content: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .certificationItem { padding: 20px 22px; }
+  .certificationTitle { font-size: 1.05rem; }
+  .certifications { padding-left: 18px; }
+  .certificationItem::before { left: -27px; }
+}

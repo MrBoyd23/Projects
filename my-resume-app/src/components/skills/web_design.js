@@ -97,12 +97,10 @@ const gridLayoutCode = `/* monitoring-dashboard.css — Responsive grid layout *
 }`;
 
 const sites = [
-  { name: 'BrandonABoyd.com', url: 'http://brandonaboyd.com/', desc: 'Personal portfolio and resume site — React SPA hosted on AWS S3 + CloudFront.' },
-  { name: 'RachelIGarcia.com', url: 'http://racheligarcia.com/', desc: 'Professional portfolio site built on WordPress with custom theme development.' },
-  { name: 'WTFIsCrackin.com', url: 'https://wtfiscrackin.com/', desc: 'Entertainment/content site on WordPress — optimized for performance and SEO.' },
-  { name: 'Dev.BrandonABoyd.com', url: 'http://dev.brandonaboyd.com/', desc: 'Development and staging environment for testing new features before production.' },
-  { name: 'PhoenixAZEvents.com', url: 'http://phoenixazevents.com/', desc: 'Local event discovery site for the Phoenix, AZ area — WordPress with custom event listings.' },
-  { name: 'RJPJ2020.com', url: 'http://rjpj2020.com/', desc: 'Custom WordPress site — designed and built from the ground up.' },
+  { name: 'PhoenixAZEvents.com', url: 'http://phoenixazevents.com/', desc: 'Local event discovery site for the Phoenix, AZ area — WordPress with custom event listings.', thumb: 'https://image.thum.io/get/width/600/http://phoenixazevents.com/' },
+  { name: 'RJPJ2020.com', url: 'http://rjpj2020.com/', desc: 'Wedding website celebrating the union of Richard & Polli Jones.', thumb: 'https://image.thum.io/get/width/600/http://rjpj2020.com/' },
+  { name: 'BrandonABoyd.com', url: 'http://brandonaboyd.com/', desc: 'A family website bringing together moments, memories, and milestones shared with my kids.', thumb: 'https://image.thum.io/get/width/600/http://brandonaboyd.com/' },
+  { name: 'RachelIGarcia.com', url: 'http://racheligarcia.com/', desc: 'A heartfelt tribute dedicated to the life and legacy of Rachel Irene Garcia.', thumb: 'https://image.thum.io/get/width/600/http://racheligarcia.com/' },
 ];
 
 const WebDesign = () => {
@@ -157,6 +155,34 @@ const WebDesign = () => {
       </div>
 
       <div className={styles.section}>
+        <h2 className={styles.sectionTitle}>Sites I've Built</h2>
+        <p className={styles.sectionText}>
+          A selection of sites I've designed and built from the ground up, spanning WordPress and React architectures.
+        </p>
+        <div className={styles.cardsGrid}>
+          {sites.map(site => (
+            <div key={site.name} className={styles.card} style={{ padding: 0, overflow: 'hidden' }}>
+              <a href={site.url} target="_blank" rel="noopener noreferrer" style={{ display: 'block' }}>
+                <img
+                  src={site.thumb}
+                  alt={`${site.name} screenshot`}
+                  loading="lazy"
+                  style={{ width: '100%', height: 140, objectFit: 'cover', objectPosition: 'top', display: 'block', borderBottom: '1px solid #2d0000' }}
+                />
+              </a>
+              <div style={{ padding: '14px 16px 16px' }}>
+                <div className={styles.cardTitle}>{site.name}</div>
+                <p className={styles.cardMeta} style={{ color: '#aaa', fontSize: '0.82rem', lineHeight: 1.5 }}>{site.desc}</p>
+                <a href={site.url} target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
+                  Visit site →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Real-World Use Case — Responsive Monitoring Dashboard Grid</h2>
         <p className={styles.sectionText}>
           This CSS Grid layout pattern is what I use for internal monitoring dashboards — a named grid-areas approach
@@ -168,24 +194,6 @@ const WebDesign = () => {
           <SyntaxHighlighter language="css" style={vscDarkPlus} showLineNumbers>
             {gridLayoutCode}
           </SyntaxHighlighter>
-        </div>
-      </div>
-
-      <div className={styles.section}>
-        <h2 className={styles.sectionTitle}>Sites I've Built</h2>
-        <p className={styles.sectionText}>
-          A selection of sites I've designed and built from the ground up, spanning WordPress and React architectures.
-        </p>
-        <div className={styles.cardsGrid}>
-          {sites.map(site => (
-            <div key={site.name} className={styles.card}>
-              <div className={styles.cardTitle}>{site.name}</div>
-              <p className={styles.cardMeta} style={{ color: '#aaa', fontSize: '0.82rem', lineHeight: 1.5 }}>{site.desc}</p>
-              <a href={site.url} target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
-                Visit site →
-              </a>
-            </div>
-          ))}
         </div>
       </div>
     </div>

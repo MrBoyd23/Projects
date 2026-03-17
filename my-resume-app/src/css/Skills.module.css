@@ -176,6 +176,75 @@
 
 .skillsContainer { width: 100%; }
 
+/* ── Sites I've Built section ─────────────────────────────── */
+.sitesSection {
+  width: 100%;
+  margin-top: 28px;
+}
+
+.sitesHeading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 18px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #8b0000;
+  display: inline-block;
+  letter-spacing: 0.5px;
+}
+
+.sitesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.siteCard {
+  background: #0d0d0d;
+  border: 1px solid #1e1e1e;
+  border-top: 3px solid #8b0000;
+  border-radius: 0 0 10px 10px;
+  padding: 18px 20px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.siteCard:hover {
+  border-color: #3d0000;
+  border-top-color: #cc0000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 0, 0, 0.2);
+}
+
+.siteCardName {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 6px;
+}
+
+.siteCardDesc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  color: #aaa;
+  line-height: 1.55;
+  margin: 0 0 10px;
+}
+
+.siteCardLink {
+  font-size: 0.76rem;
+  color: #40e0d0;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+.siteCardLink:hover {
+  text-decoration: underline;
+  color: #7fffd4;
+}
+
 /* ── Mobile ────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .skillsList {

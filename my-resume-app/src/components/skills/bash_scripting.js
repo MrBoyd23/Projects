@@ -120,86 +120,73 @@ fi
                 </div>
             </div>
 
-            {/* Live Section */}
+            {/* Live Section — header */}
             <div className={styles.liveSection}>
                 <h2 className={styles.liveSectionTitle}>
                     <span className={styles.liveDot}></span>
                     Live: Bash Scripts from GitHub
                 </h2>
-                <p className={styles.liveSubtitle}>Click to view scripts from MrBoyd23/Projects</p>
+                <p className={styles.liveSubtitle}>Click any script below to view the source from MrBoyd23/Projects</p>
+            </div>
 
-                <div className="github-code-viewer">
-                    <h2>Bash Script Examples</h2>
-                    <p><em>Click On The Options Below To View</em></p>
-
-                    {/* Code 1 */}
-                    <div className="code-section">
-                        <button onClick={() => toggleCodeVisibility(1)}>
-                            {showCode1 ? 'Hide Code' : 'Update Yaml File Name Section'}
-                        </button>
-                        {showCode1 && (
-                            <div className="code-content">
-                                <h3>Update Yaml File Name Section</h3>
-                                <div className="code-wrapper">
-                                    <SyntaxHighlighter language="bash" style={atomDark} className="code-block">
-                                        {code1}
-                                    </SyntaxHighlighter>
-                                </div>
-                            </div>
-                        )}
+            {/* Script 1 */}
+            <div className={styles.section}>
+                <button onClick={() => toggleCodeVisibility(1)} style={{ marginBottom: showCode1 ? 14 : 0 }}>
+                    {showCode1 ? 'Hide Code' : 'Update Yaml File Name Section'}
+                </button>
+                {showCode1 && (
+                    <div className={styles.codeWrapper}>
+                        <span className={styles.codeLabel}>Update Yaml File Name Section</span>
+                        <SyntaxHighlighter language="bash" style={atomDark}>
+                            {code1}
+                        </SyntaxHighlighter>
                     </div>
+                )}
+            </div>
 
-                    {/* Code 2 */}
-                    <div className="code-section">
-                        <button onClick={() => toggleCodeVisibility(2)}>
-                            {showCode2 ? 'Hide Code' : 'Update Bash Titles To Uppercase'}
-                        </button>
-                        {showCode2 && (
-                            <div className="code-content">
-                                <h3>Update Bash Titles To Uppercase</h3>
-                                <div className="code-wrapper">
-                                    <SyntaxHighlighter language="bash" style={atomDark} className="code-block">
-                                        {code2}
-                                    </SyntaxHighlighter>
-                                </div>
-                            </div>
-                        )}
+            {/* Script 2 */}
+            <div className={styles.section}>
+                <button onClick={() => toggleCodeVisibility(2)} style={{ marginBottom: showCode2 ? 14 : 0 }}>
+                    {showCode2 ? 'Hide Code' : 'Update Bash Titles To Uppercase'}
+                </button>
+                {showCode2 && (
+                    <div className={styles.codeWrapper}>
+                        <span className={styles.codeLabel}>Update Bash Titles To Uppercase</span>
+                        <SyntaxHighlighter language="bash" style={atomDark}>
+                            {code2}
+                        </SyntaxHighlighter>
                     </div>
+                )}
+            </div>
 
-                    {/* Code 3 */}
-                    <div className="code-section">
-                        <button onClick={() => toggleCodeVisibility(3)}>
-                            {showCode3 ? 'Hide Code' : 'Journal Logs | NFTables Block'}
-                        </button>
-                        {showCode3 && (
-                            <div className="code-content">
-                                <h3>Journal Logs | NFTables Block</h3>
-                                <div className="code-wrapper">
-                                    <SyntaxHighlighter language="bash" style={atomDark} className="code-block">
-                                        {code3}
-                                    </SyntaxHighlighter>
-                                </div>
-                            </div>
-                        )}
+            {/* Script 3 */}
+            <div className={styles.section}>
+                <button onClick={() => toggleCodeVisibility(3)} style={{ marginBottom: showCode3 ? 14 : 0 }}>
+                    {showCode3 ? 'Hide Code' : 'Journal Logs | NFTables Block'}
+                </button>
+                {showCode3 && (
+                    <div className={styles.codeWrapper}>
+                        <span className={styles.codeLabel}>Journal Logs | NFTables Block</span>
+                        <SyntaxHighlighter language="bash" style={atomDark}>
+                            {code3}
+                        </SyntaxHighlighter>
                     </div>
+                )}
+            </div>
 
-                    {/* Code 4 */}
-                    <div className="code-section">
-                        <button onClick={() => toggleCodeVisibility(4)}>
-                            {showCode4 ? 'Hide Code' : 'GITHUB Auto Commit'}
-                        </button>
-                        {showCode4 && (
-                            <div className="code-content">
-                                <h3>GITHUB Auto Commit</h3>
-                                <div className="code-wrapper">
-                                    <SyntaxHighlighter language="bash" style={atomDark} className="code-block">
-                                        {code4}
-                                    </SyntaxHighlighter>
-                                </div>
-                            </div>
-                        )}
+            {/* Script 4 */}
+            <div className={styles.section}>
+                <button onClick={() => toggleCodeVisibility(4)} style={{ marginBottom: showCode4 ? 14 : 0 }}>
+                    {showCode4 ? 'Hide Code' : 'GitHub Auto Commit'}
+                </button>
+                {showCode4 && (
+                    <div className={styles.codeWrapper}>
+                        <span className={styles.codeLabel}>GitHub Auto Commit</span>
+                        <SyntaxHighlighter language="bash" style={atomDark}>
+                            {code4}
+                        </SyntaxHighlighter>
                     </div>
-                </div>
+                )}
             </div>
 
         </div>

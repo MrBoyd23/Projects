@@ -8,7 +8,7 @@ const NAV_ITEMS = [
     { to: '/Experience', label: 'Experience',   icon: '◈', end: false, external: false },
     { to: '/Education',  label: 'Education',    icon: '◆', end: false, external: false },
     {
-        href: 'https://github.com/MrBoyd23/Projects',
+        href: `https://github.com/${process.env.REACT_APP_GITHUB_REPO}`,
         label: 'GitHub Repos',
         icon: '⎇',
         external: true,

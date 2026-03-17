@@ -16,6 +16,7 @@ const cities = [
 const WeatherComponent = () => {
   const [weatherData, setWeatherData] = useState([]);
   const [error, setError] = useState('');
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useEffect(() => {
     const fetchWeatherData = async () => {
@@ -60,7 +61,20 @@ const WeatherComponent = () => {
   };
 
   if (error) {
-    return <p style={{ color: '#cc3333', padding: '10px' }}>{error}</p>;
+    return (
+      <div style={{
+        background: '#1a0000',
+        border: '1px solid #3d0000',
+        borderLeft: '3px solid #8b0000',
+        borderRadius: '8px',
+        padding: '14px 18px',
+        color: '#ff4444',
+        fontSize: '0.9rem',
+        maxWidth: '400px',
+      }}>
+        {error}
+      </div>
+    );
   }
 
   return (
@@ -73,36 +87,68 @@ const WeatherComponent = () => {
       alignItems: 'center',
     }}>
       <div style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '10px',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))',
+        gap: '14px',
         padding: '10px',
         maxWidth: '1200px',
         width: '100%',
+        boxSizing: 'border-box',
       }}>
         {weatherData.map((city, index) => (
-          <div key={index} style={{
-            backgroundColor: '#1a1a1a',
-            border: '1px solid #2d0000',
-            borderTop: '3px solid #8b0000',
-            padding: '12px',
-            borderRadius: '8px',
-            flex: '1 1 calc(20% - 10px)',
-            boxSizing: 'border-box',
-            minWidth: '160px',
-          }}>
-            <h2 style={{ margin: '0 0 2px', fontSize: '1rem', whiteSpace: 'nowrap' }}>
-              {iconEmoji(city.icon)} {city.display}
+          <div
+            key={index}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            style={{
+              background: '#0d0d0d',
+              border: '1px solid #1e1e1e',
+              borderTop: '3px solid #8b0000',
+              borderLeft: hoveredIndex === index ? '3px solid #40e0d0' : '1px solid #1e1e1e',
+              borderRadius: '10px',
+              padding: '20px',
+              boxSizing: 'border-box',
+              transition: 'all 0.2s',
+            }}
+          >
+            <div style={{ fontSize: '1.8rem', marginBottom: '6px' }}>
+              {iconEmoji(city.icon)}
+            </div>
+            <h2 style={{
+              margin: '0 0 4px',
+              fontSize: '1.15rem',
+              fontFamily: "'Playfair Display', serif",
+              fontWeight: 600,
+              color: '#ffffff',
+              whiteSpace: 'nowrap',
+            }}>
+              {city.display}
             </h2>
-            <p style={{ margin: '0 0 6px', fontSize: '0.72rem', color: '#888' }}>
+            <p style={{
+              margin: '0 0 12px',
+              fontSize: '0.65rem',
+              color: '#888',
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+            }}>
               {city.state} · {city.conditions}
             </p>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem' }}>
+            <div style={{
+              textAlign: 'center',
+              fontSize: '1.6rem',
+              fontWeight: '700',
+              color: '#40e0d0',
+              marginBottom: '6px',
+            }}>
+              {city.temp}°F
+            </div>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              fontSize: '0.78rem',
+            }}>
               <span style={{ color: '#ff6666' }}>↑ {city.tempmax}°F</span>
               <span style={{ color: '#66aaff' }}>↓ {city.tempmin}°F</span>
-            </div>
-            <div style={{ textAlign: 'center', fontSize: '1.1rem', fontWeight: '600', marginTop: '4px', color: '#40e0d0' }}>
-              {city.temp}°F
             </div>
           </div>
         ))}
