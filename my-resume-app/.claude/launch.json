@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "React Dev Server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "port": 3500,
+      "env": { "PORT": "3500" }
+    },
+    {
+      "name": "Express Server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "server"],
+      "port": 3001
+    }
+  ]
+}

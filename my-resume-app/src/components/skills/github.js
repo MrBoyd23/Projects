@@ -87,7 +87,7 @@ jobs:
             --paths "/*"
 
       - name: Deployment summary
-        run: echo "Deployed commit \${{ github.sha }} to https://brandonaboyd.com"`;
+        run: echo "Deployed commit \${{ github.sha }} to https://resume.brandonaboyd.com"`;
 
 const GitHub = () => {
   const [repos, setRepos] = useState([]);

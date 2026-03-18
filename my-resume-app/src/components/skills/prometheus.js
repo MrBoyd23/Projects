@@ -58,7 +58,7 @@ scrape_configs:
 
 const nodeExporterCode = `#!/bin/bash
 # onboard_server.sh — Deploy node_exporter on a new Linux server
-# Part of the server provisioning runbook at GoDaddy
+# Part of a server provisioning runbook
 
 SERVER="$1"
 NODE_EXPORTER_VERSION="1.7.0"
@@ -242,7 +242,7 @@ const Prometheus = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>How I Use It Daily</h2>
           <p className={styles.sectionText}>
-            Prometheus is the metrics backbone behind GoDaddy's observability platform. I manage scrape configurations
+            Prometheus is a key part of the observability stack I work with. I manage scrape configurations
             to onboard new servers as they're provisioned, write PromQL queries for SLO monitoring and incident analysis,
             configure Alertmanager routing rules to ensure alerts reach the right teams, and maintain recording rules
             to pre-compute expensive queries that run frequently in dashboards.

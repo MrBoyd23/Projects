@@ -91,7 +91,7 @@ const Apache = () => {
       <div className={styles.hero}>
         <h1 className={styles.heroTitle}>Apache HTTP Server</h1>
         <p className={styles.heroTagline}>
-          The backbone of GoDaddy's shared hosting infrastructure — and my daily workbench
+          The backbone of large-scale shared hosting — and my daily workbench
         </p>
         <div className={styles.heroBadges}>
           {['mod_rewrite','mod_ssl','VirtualHost','PHP-FPM','.htaccess','mod_deflate'].map(b => (

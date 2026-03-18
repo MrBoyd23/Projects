@@ -82,7 +82,7 @@ const CPanel = () => {
     <div className={styles.skillPage}>
       <div className={styles.hero}>
         <h1 className={styles.heroTitle}>cPanel / WHM</h1>
-        <p className={styles.heroTagline}>The control panel behind millions of GoDaddy-managed hosting accounts</p>
+        <p className={styles.heroTagline}>The control panel behind millions of managed hosting accounts</p>
         <div className={styles.heroBadges}>
           {['WHM', 'cPanel', 'DNS', 'SSL', 'Backups', 'Email', 'MySQL', 'API'].map(b => (
             <span key={b} className={styles.heroBadge}>{b}</span>
@@ -94,7 +94,7 @@ const CPanel = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>How I Use It Daily</h2>
           <p className={styles.sectionText}>
-            cPanel and WHM are the operating environment for GoDaddy's shared and managed hosting platform. I work in WHM
+            cPanel and WHM are core tools in the shared and managed hosting environments I support. I work in WHM
             daily — creating and terminating accounts, managing DNS zones, installing and renewing SSL certificates,
             configuring email routing and filtering rules, and running account backups before migrations or risky changes.
           </p>

@@ -138,7 +138,7 @@ const Linux_Admin = () => {
             <code> iptables</code>/<code>nftables</code> firewall rules, manage LVM volumes, and harden SSH access.
           </p>
           <p className={styles.sectionText}>
-            I work primarily on RHEL/CentOS and Ubuntu/Debian variants across GoDaddy's infrastructure. The specific
+            I work primarily on RHEL/CentOS and Ubuntu/Debian variants across enterprise hosting infrastructure. The specific
             distro matters less than understanding the underlying systems — init system, package manager, filesystem
             hierarchy, and networking stack.
           </p>

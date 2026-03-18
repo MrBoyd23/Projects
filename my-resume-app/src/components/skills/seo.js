@@ -3,7 +3,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import styles from '../../css/SkillPage.module.css';
 
-const robotsTxtCode = `# robots.txt — brandonaboyd.com
+const robotsTxtCode = `# robots.txt — resume.brandonaboyd.com
 # Instructs crawlers on what to index and what to skip
 
 User-agent: *
@@ -24,7 +24,7 @@ Allow: *.js$
 Allow: *.css$
 
 # Sitemap location — must match canonical domain (HTTPS)
-Sitemap: https://brandonaboyd.com/sitemap.xml
+Sitemap: https://resume.brandonaboyd.com/sitemap.xml
 
 # Crawl-delay for aggressive bots
 User-agent: AhrefsBot
@@ -38,7 +38,7 @@ const sitemapCode = `<?xml version="1.0" encoding="UTF-8"?>
 
   <!-- Homepage — highest priority -->
   <url>
-    <loc>https://brandonaboyd.com/</loc>
+    <loc>https://resume.brandonaboyd.com/</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -46,7 +46,7 @@ const sitemapCode = `<?xml version="1.0" encoding="UTF-8"?>
 
   <!-- About page -->
   <url>
-    <loc>https://brandonaboyd.com/about</loc>
+    <loc>https://resume.brandonaboyd.com/about</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -54,7 +54,7 @@ const sitemapCode = `<?xml version="1.0" encoding="UTF-8"?>
 
   <!-- Skills overview -->
   <url>
-    <loc>https://brandonaboyd.com/skills</loc>
+    <loc>https://resume.brandonaboyd.com/skills</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -62,7 +62,7 @@ const sitemapCode = `<?xml version="1.0" encoding="UTF-8"?>
 
   <!-- Individual skill pages — auto-generated from skillsConfig -->
   <url>
-    <loc>https://brandonaboyd.com/skills/linux-admin</loc>
+    <loc>https://resume.brandonaboyd.com/skills/linux-admin</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -92,7 +92,7 @@ Header always set X-Content-Type-Options "nosniff"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
 # Canonical tag via PHP (for WordPress — add to header.php)
-# <link rel="canonical" href="https://brandonaboyd.com<?php echo $_SERVER['REQUEST_URI']; ?>" />
+# <link rel="canonical" href="https://resume.brandonaboyd.com<?php echo $_SERVER['REQUEST_URI']; ?>" />
 
 # Gzip compression for faster LCP
 <IfModule mod_deflate.c>

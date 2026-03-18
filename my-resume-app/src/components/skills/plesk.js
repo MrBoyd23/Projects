@@ -93,7 +93,7 @@ const Plesk = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>How I Use It Daily</h2>
           <p className={styles.sectionText}>
-            Plesk is the control panel for a portion of GoDaddy's Windows and Linux hosting fleet. I manage
+            Plesk is one of the control panels I use across Windows and Linux hosting environments. I manage
             Plesk-based environments for both consumer and business hosting products — configuring subscriptions,
             installing SSL certificates via Let's Encrypt and manual uploads, managing DNS zones,
             and using WordPress Toolkit for bulk site management.

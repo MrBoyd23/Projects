@@ -166,7 +166,7 @@ const WordPress = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>How I Use It Daily</h2>
           <p className={styles.sectionText}>
-            WordPress is the most common platform on GoDaddy's infrastructure — it's involved in a majority of
+            WordPress is the most common platform in the hosting environments I support — it's involved in a majority of
             my daily support escalations. I use WP-CLI for everything: updating core, plugins, and themes;
             resetting admin passwords; fixing database encoding issues; diagnosing WSOD (White Screen of Death);
             and performing malware remediation.

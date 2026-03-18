@@ -79,7 +79,7 @@ const PHP = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>How I Use It Daily</h2>
           <p className={styles.sectionText}>
-            PHP is the backbone of nearly every WordPress site on GoDaddy's shared and managed hosting fleet. As a System Engineer III,
+            PHP is the backbone of nearly every WordPress site on shared and managed hosting platforms. As a System Engineer III,
             I manage PHP-FPM pool configurations, diagnose memory exhaustion errors, switch PHP versions for compatibility issues,
             and tune <code>php.ini</code> directives like <code>memory_limit</code>, <code>max_execution_time</code>, and OPcache settings.
           </p>

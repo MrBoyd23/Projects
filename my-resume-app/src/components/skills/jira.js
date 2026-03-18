@@ -91,7 +91,7 @@ const Jira = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>How I Use It Daily</h2>
           <p className={styles.sectionText}>
-            Jira is the primary incident and change management system at GoDaddy. Every production incident I respond to
+            Jira is the primary incident and change management system I work with. Every production incident I respond to
             gets a Jira ticket — from initial detection through resolution and root cause analysis documentation.
             I create and triage tickets, track SLA compliance, and use JQL for advanced filtering to identify patterns
             across our incident queue.

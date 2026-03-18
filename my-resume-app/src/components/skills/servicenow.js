@@ -158,7 +158,7 @@ const ServiceNow = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>How I Use It Daily</h2>
           <p className={styles.sectionText}>
-            ServiceNow is the primary ITSM platform for incident and change management at GoDaddy. I create and resolve
+            ServiceNow is the primary ITSM platform I use for incident and change management. I create and resolve
             incidents, manage change requests through the CAB approval workflow, and query the CMDB (Configuration
             Management Database) to look up server configurations, relationships, and ownership during incident response.
           </p>

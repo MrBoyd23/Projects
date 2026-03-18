@@ -11,7 +11,7 @@ const indexHtmlCode = `<!-- index.html — GA4 script tag in the <head> -->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Brandon Boyd — System Engineer III at GoDaddy" />
+  <meta name="description" content="Brandon Boyd — System Engineer III" />
   <title>Brandon Boyd | System Engineer III</title>
 
   <!-- Google tag (gtag.js) — Google Analytics 4 -->

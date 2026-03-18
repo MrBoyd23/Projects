@@ -7,7 +7,7 @@ const s3HostingCode = `#!/bin/bash
 # Deploy static site to S3 + CloudFront + Route 53
 
 BUCKET="my-resume-site"
-DOMAIN="brandonaboyd.com"
+DOMAIN="resume.brandonaboyd.com"
 REGION="us-east-1"
 
 # 1. Create S3 bucket
@@ -72,7 +72,7 @@ aws cloudfront create-distribution \\
     },
     "Aliases": {
       "Quantity": 1,
-      "Items": ["brandonaboyd.com"]
+      "Items": ["resume.brandonaboyd.com"]
     },
     "ViewerCertificate": {
       "ACMCertificateArn": "arn:aws:acm:us-east-1:123456789:certificate/abc123",
@@ -93,7 +93,7 @@ aws route53 change-resource-record-sets \\
     "Changes": [{
       "Action": "UPSERT",
       "ResourceRecordSet": {
-        "Name": "brandonaboyd.com",
+        "Name": "resume.brandonaboyd.com",
         "Type": "A",
         "AliasTarget": {
           "HostedZoneId": "Z2FDTNDATAQYW2",
@@ -107,7 +107,7 @@ aws route53 change-resource-record-sets \\
 # Verify propagation
 aws route53 list-resource-record-sets \\
   --hosted-zone-id "$HOSTED_ZONE_ID" \\
-  --query "ResourceRecordSets[?Name=='brandonaboyd.com.']"`;
+  --query "ResourceRecordSets[?Name=='resume.brandonaboyd.com.']"`;
 
 const AWS = () => {
   const [activeTab, setActiveTab] = useState('s3');
@@ -128,7 +128,7 @@ const AWS = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>How I Use It Daily</h2>
           <p className={styles.sectionText}>
-            AWS is central to GoDaddy's cloud infrastructure. I manage EC2 instances across multiple accounts — starting,
+            AWS is central to the enterprise cloud environments I support. I manage EC2 instances across multiple accounts — starting,
             stopping, and resizing instances in response to capacity tickets and incident escalations. I configure S3 bucket
             policies for customer data, update Route 53 DNS records during migrations, and set up CloudWatch alarms for
             CPU, disk, and network thresholds.

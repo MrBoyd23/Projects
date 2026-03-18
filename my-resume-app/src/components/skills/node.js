@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGIN || 'https://brandonaboyd.com',
+  origin: process.env.ALLOWED_ORIGIN || 'https://resume.brandonaboyd.com',
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
@@ -86,7 +86,7 @@ module.exports = {
       env: {
         NODE_ENV: 'production',
         PORT: 3001,
-        ALLOWED_ORIGIN: 'https://brandonaboyd.com'
+        ALLOWED_ORIGIN: 'https://resume.brandonaboyd.com'
       },
       error_file: './logs/err.log',
       out_file: './logs/out.log',
