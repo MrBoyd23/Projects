@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wsl -e mkdir -p /home/flossmore/Sites/Resume/.claude)",
+      "Bash(cd \"\\\\\\\\wsl.localhost\\\\Ubuntu\\\\home\\\\flossmore\\\\Sites\\\\Resume\")",
+      "Bash(mkdir -p .claude)"
+    ]
+  }
+}

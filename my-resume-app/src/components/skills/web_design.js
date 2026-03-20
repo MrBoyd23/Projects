@@ -97,10 +97,10 @@ const gridLayoutCode = `/* monitoring-dashboard.css — Responsive grid layout *
 }`;
 
 const sites = [
-  { name: 'PhoenixAZEvents.com', url: 'http://phoenixazevents.com/', desc: 'Local event discovery site for the Phoenix, AZ area — WordPress with custom event listings.', thumb: 'https://image.thum.io/get/width/600/http://phoenixazevents.com/' },
-  { name: 'RJPJ2020.com', url: 'http://rjpj2020.com/', desc: 'Wedding website celebrating the union of Richard & Polli Jones.', thumb: 'https://image.thum.io/get/width/600/http://rjpj2020.com/' },
-  { name: 'BrandonABoyd.com', url: 'http://brandonaboyd.com/', desc: 'A family website bringing together moments, memories, and milestones shared with my kids.', thumb: 'https://image.thum.io/get/width/600/http://brandonaboyd.com/' },
-  { name: 'RachelIGarcia.com', url: 'http://racheligarcia.com/', desc: 'A heartfelt tribute dedicated to the life and legacy of Rachel Irene Garcia.', thumb: 'https://image.thum.io/get/width/600/http://racheligarcia.com/' },
+  { name: 'PhoenixAZEvents.com', url: 'http://phoenixazevents.com/', desc: 'Local event discovery site for the Phoenix, AZ area — WordPress with custom event listings.', thumb: 'https://image.thum.io/get/width/600/wait/3/noanimate/http://phoenixazevents.com/' },
+  { name: 'RJPJ2020.com', url: 'http://rjpj2020.com/', desc: 'Wedding website celebrating the union of Richard & Polli Jones.', thumb: 'https://image.thum.io/get/width/600/wait/3/noanimate/http://rjpj2020.com/' },
+  { name: 'BrandonABoyd.com', url: 'http://brandonaboyd.com/', desc: 'A family website bringing together moments, memories, and milestones shared with my kids.', thumb: 'https://image.thum.io/get/width/600/wait/3/noanimate/http://brandonaboyd.com/' },
+  { name: 'RachelIGarcia.com', url: 'http://racheligarcia.com/', desc: 'A heartfelt tribute dedicated to the life and legacy of Rachel Irene Garcia.', thumb: 'https://image.thum.io/get/width/600/wait/3/noanimate/http://racheligarcia.com/' },
 ];
 
 const WebDesign = () => {
