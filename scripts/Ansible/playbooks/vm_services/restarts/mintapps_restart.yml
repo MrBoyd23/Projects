@@ -1,54 +1,57 @@
-# ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/vm_services/mintapps_service.yml
+# ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/vm_services/restarts/mintapps_restart.yml
 - name: MINTAPPS RESTART SERVICES
   hosts: MintApps
   gather_facts: false
-  become: "{{ enable_become | default(false) }}"
+  become: true
   serial: 1
   vars_files:
     - ../../../.secrets/secret_vars.yml
+  vars:
+    managed_services:
+      - accounts-daemon.service
+      - acpid.service
+      - avahi-daemon.service
+      - colord.service
+      - containerd.service
+      - cron.service
+      - cups-browsed.service
+      - cups.service
+      - dbus.service
+      - docker.service
+      - fwupd.service
+      - haveged.service
+      - irqbalance.service
+      - kerneloops.service
+      - ModemManager.service
+      - networkd-dispatcher.service
+      - NetworkManager.service
+      - nmbd.service
+      - packagekit.service
+      - polkit.service
+      - rsyslog.service
+      - rtkit-daemon.service
+      - sddm.service
+      - smbd.service
+      - snapd.service
+      - ssh.service
+      - systemd-journald.service
+      - systemd-logind.service
+      - systemd-resolved.service
+      - systemd-timesyncd.service
+      - systemd-udevd.service
+      - udisks2.service
+      - unattended-upgrades.service
+      - upower.service
+      - user@1000.service
+      - wpa_supplicant.service
 
   tasks:
     - name: RESTART SPECIFIED SERVICES
       command: systemctl restart "{{ item }}"
-      loop:
-        - accounts-daemon.service
-        - acpid.service
-        - avahi-daemon.service
-        - colord.service
-        - containerd.service
-        - cron.service
-        - cups-browsed.service
-        - cups.service
-        - dbus.service
-        - docker.service
-        - fwupd.service
-        - haveged.service
-        - irqbalance.service
-        - kerneloops.service
-        - ModemManager.service
-        - networkd-dispatcher.service
-        - NetworkManager.service
-        - nmbd.service
-        - packagekit.service
-        - polkit.service
-        - rsyslog.service
-        - rtkit-daemon.service
-        - sddm.service
-        - smbd.service
-        - snapd.service
-        - ssh.service
-        - systemd-journald.service
-        - systemd-logind.service
-        - systemd-resolved.service
-        - systemd-timesyncd.service
-        - systemd-udevd.service
-        - udisks2.service
-        - unattended-upgrades.service
-        - upower.service
-        - user@1000.service
-        - wpa_supplicant.service      
+      loop: "{{ managed_services }}"
       register: restart_results
-      ignore_errors: true
+      failed_when: false
+      changed_when: true
 
     - name: DISPLAY RESTART RESULTS
       debug:

@@ -9,10 +9,21 @@
     - ../.secrets/secret_vars.yml
     
   tasks:
-    - name: RUN SWAP COMMAND
-      shell: /home/scripts/crons/swap-clear.sh
-      register: swap_clear
+    - name: CHECK SWAP CLEAR SCRIPT EXISTS
+      stat:
+        path: /home/scripts/crons/swap-clear.sh
+      register: swap_script
 
-    - name:
+    - name: ABORT IF SWAP CLEAR SCRIPT IS MISSING
+      fail:
+        msg: "Swap clear script not found at /home/scripts/crons/swap-clear.sh"
+      when: not swap_script.stat.exists
+
+    - name: RUN SWAP CLEAR SCRIPT
+      command: /home/scripts/crons/swap-clear.sh
+      register: swap_clear
+      changed_when: false
+
+    - name: DISPLAY SWAP CLEAR OUTPUT
       debug:
         msg: "{{ swap_clear.stdout_lines }}"

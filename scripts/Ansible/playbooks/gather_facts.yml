@@ -9,13 +9,13 @@
     - ../.secrets/secret_vars.yml
 
   tasks:
-    - name: DISPLAY GATHERED FACTS
-      debug:
-        var: ansible_facts
-
-    - name: DISPLAY DETAILS ON VMS
+    - name: DISPLAY KEY SYSTEM FACTS
       debug:
         msg:
-          - "Hostname: {{ ansible_facts['hostname']  }}"
-          - "Distribution: {{ ansible_facts['distribution'] }}"
+          - "Hostname: {{ ansible_facts['hostname'] }}"
+          - "OS: {{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
           - "IP Address: {{ ansible_facts['default_ipv4']['address'] }}"
+          - "Memory Total: {{ ansible_facts['memtotal_mb'] }} MB"
+          - "Memory Free: {{ ansible_facts['memfree_mb'] }} MB"
+          - "Swap Total: {{ ansible_facts['swaptotal_mb'] }} MB"
+          - "Disk: {{ ansible_facts['mounts'] | map(attribute='mount') | list }}"

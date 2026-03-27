@@ -10,12 +10,13 @@
 
   tasks:
     - name: GET A LIST OF RUNNING SERVICES
-      command: systemctl list-units --type=service --state=running
+      command: systemctl list-units --type=service --state=running --no-legend
       register: running_services
+      changed_when: false
 
     - name: EXTRACT SERVICE NAMES
       set_fact:
-        service_names: "{{ running_services.stdout_lines[1:] | map('regex_replace', '^\\s*(\\S+).+', '\\1') | list }}"
+        service_names: "{{ running_services.stdout_lines | map('regex_replace', '^\\s*(\\S+).+', '\\1') | list }}"
 
     - name: DISPLAY SERVICE NAMES
       debug:

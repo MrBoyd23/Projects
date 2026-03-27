@@ -1,48 +1,52 @@
-#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/vm_services/mastermint_service.yml
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/vm_services/proxmox_service.yml
 - name: PROXMOX CURRENT SERVICES STATUS
   hosts: Prox
   gather_facts: false
+  become: true
   serial: 1
   vars_files:
     - ../../.secrets/secret_vars.yml
+  vars:
+    managed_services:
+      - cron.service
+      - dbus.service
+      - dm-event.service
+      - getty@tty1.service
+      - ksmtuned.service
+      - lxc-monitord.service
+      - lxcfs.service
+      - postfix@-.service
+      - pve-cluster.service
+      - pve-firewall.service
+      - pve-ha-crm.service
+      - pve-ha-lrm.service
+      - pve-lxc-syscalld.service
+      - pvedaemon.service
+      - pvefw-logger.service
+      - pveproxy.service
+      - pvescheduler.service
+      - pvestatd.service
+      - qmeventd.service
+      - rpcbind.service
+      - rrdcached.service
+      - smartmontools.service
+      - spiceproxy.service
+      - ssh.service
+      - systemd-journald.service
+      - systemd-logind.service
+      - systemd-timesyncd.service
+      - systemd-udevd.service
+      - user@0.service
+      - watchdog-mux.service
+      - zfs-zed.service
 
   tasks:
     - name: CHECK STATUS OF SPECIFIED SERVICES
       command: systemctl status "{{ item }}"
-      loop:
-        - cron.service
-        - dbus.service
-        - dm-event.service
-        - getty@tty1.service
-        - ksmtuned.service
-        - lxc-monitord.service
-        - lxcfs.service
-        - postfix@-.service
-        - pve-cluster.service
-        - pve-firewall.service
-        - pve-ha-crm.service
-        - pve-ha-lrm.service
-        - pve-lxc-syscalld.service
-        - pvedaemon.service
-        - pvefw-logger.service
-        - pveproxy.service
-        - pvescheduler.service
-        - pvestatd.service
-        - qmeventd.service
-        - rpcbind.service
-        - rrdcached.service
-        - smartmontools.service
-        - spiceproxy.service
-        - ssh.service
-        - systemd-journald.service
-        - systemd-logind.service
-        - systemd-timesyncd.service
-        - systemd-udevd.service
-        - user@0.service
-        - watchdog-mux.service
-        - zfs-zed.service      
+      loop: "{{ managed_services }}"
       register: service_status
-      failed_when: false  # This ensures the task does not fail due to non-zero return codes
+      failed_when: false
+      changed_when: false
 
     - name: DEBUG SERVICE STATUS
       debug:
@@ -55,7 +59,8 @@
       loop: "{{ service_status.results }}"
       when: '"inactive" in item.stdout or "dead" in item.stdout'
       register: start_result
-      ignore_errors: true
+      failed_when: false
+      changed_when: true
 
     - name: DISPLAY SERVICE STATUS AFTER CHECKING AND STARTING/RESTARTING
       debug:

@@ -21,19 +21,33 @@
         state: present
       become: "{{ enable_become | default(false) }}"
 
-    - name: GET UNHEALTHY CONTAINERS
+    - name: GET UNHEALTHY CONTAINER IDS
       command: docker ps --filter "health=unhealthy" --quiet
       register: unhealthy_containers
       changed_when: false
 
-    - name: EXTRACT CONTAINER NAMES
+    - name: GET CONTAINER NAMES FROM IDS
+      command: "docker inspect --format '{{'{{'}}.Name{{'}}'}}' {{ item }}"
+      loop: "{{ unhealthy_containers.stdout_lines }}"
+      register: unhealthy_names
+      changed_when: false
+      when: unhealthy_containers.stdout != ""
+
+    - name: BUILD LIST OF UNHEALTHY CONTAINER NAMES
       set_fact:
-        container_ids: "{{ unhealthy_containers.stdout_lines }}"      
+        container_names: "{{ unhealthy_names.results | map(attribute='stdout') | map('regex_replace', '^/', '') | list }}"
+      when: unhealthy_containers.stdout != ""
+
+    - name: REPORT NO UNHEALTHY CONTAINERS
+      debug:
+        msg: "No unhealthy containers found."
+      when: unhealthy_containers.stdout == ""
 
     - name: RESTART UNHEALTHY CONTAINERS
       docker_container:
         name: "{{ item }}"
         state: started
-      loop: "{{ container_ids }}"
+      loop: "{{ container_names | default([]) }}"
+      when: unhealthy_containers.stdout != ""
       vars:
         ansible_python_interpreter: "/usr/bin/python3"

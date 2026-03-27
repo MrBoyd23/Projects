@@ -28,6 +28,7 @@
       loop: "{{ active_services.stdout_lines }}"
       register: service_versions
       changed_when: false
+      ignore_errors: true
 
     - name: FILTER SERVICES WITH VERSION INFORMATION
       set_fact:

@@ -11,27 +11,27 @@
 
   tasks:
     - name: UPDATE APT CACHE
-      become: yes
       apt:
-        update_cache: yes
+        update_cache: true
 
     - name: INSTALL POSTFIX
-      become: yes
       apt:
         name: postfix
         state: present
 
     - name: COPY MAIN.CF CONFIGURATION FILE
-      become: yes
       template:
         src: templates/main.cf.j2  # Adjust the path as per your template location
         dest: /etc/postfix/main.cf
-      notify: 
+      notify:
         - restart postfix
+
+    - name: VALIDATE POSTFIX CONFIGURATION
+      command: postfix check
+      changed_when: false
 
   handlers:
     - name: RESTART POSTFIX
-      become: yes
       service:
         name: postfix
         state: restarted

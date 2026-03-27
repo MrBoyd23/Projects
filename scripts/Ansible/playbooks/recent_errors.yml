@@ -13,9 +13,16 @@
       shell: 'journalctl --since "24 hours ago" | grep -i error'
       register: error_logs
       changed_when: false
+      failed_when: error_logs.rc > 1
+
+    - name: REPORT NO ERRORS FOUND
+      debug:
+        msg: "No error logs found in the last 24 hours."
+      when: error_logs.stdout == ""
 
     - name: FORMAT ERROR LOGS
       debug:
         msg: |
-          {% set logs = error_logs.stdout | regex_replace('\\n([A-Za-z]{3} [0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2})', '\n\n\\1') %}
-          {{ logs }}      
+          {% set logs = error_logs.stdout | regex_replace('\n(\w{3} \d{2} \d{2}:\d{2}:\d{2})', '\n\n\\1') %}
+          {{ logs }}
+      when: error_logs.stdout != ""

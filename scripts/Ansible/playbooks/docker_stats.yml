@@ -9,6 +9,17 @@
     - ../.secrets/secret_vars.yml
 
   tasks:
+    - name: CHECK DOCKER DAEMON IS RUNNING
+      command: docker info
+      register: docker_info
+      changed_when: false
+      failed_when: false
+
+    - name: ABORT IF DOCKER IS NOT AVAILABLE
+      fail:
+        msg: "Docker daemon is not running or not accessible on this host."
+      when: docker_info.rc != 0
+
     - name: GET DOCKER CONTAINER STATS
       shell: docker ps --format '{{ "{{ json ." }} }}'
       register: docker_container_output
@@ -17,20 +28,26 @@
     - name: CONVERT DOCKER CONTAINER STATS TO LIST
       set_fact:
         container_stats: "{{ docker_container_output.stdout_lines | map('from_json') | list }}"
+      when: docker_container_output.stdout != ""
+
+    - name: NO CONTAINERS RUNNING
+      debug:
+        msg: "No Docker containers are currently running."
+      when: docker_container_output.stdout == ""
 
     - name: DISPLAY SPECIFIC DOCKER STATS FOR EACH CONTAINER
       debug:
         msg:
-          - "Name: {{ item.Names }}"
-          - "CreatedAt: {{ item.CreatedAt }}"
-          - "Image: {{ item.Image }}"
-          - "ID: {{ item.ID }}"
-          - "Size: {{ item.Size }}"
-          - "Ports: {{ item.Ports }}"
-          - "Network: {{ item.Networks }}"
-          - "RunningFor: {{ item.RunningFor }}"
-          - "State: {{ item.State }}"
-          - "Status: {{ item.Status }}"
-      loop: "{{ container_stats }}"
+          - "Name: {{ item.Names | default('N/A') }}"
+          - "CreatedAt: {{ item.CreatedAt | default('N/A') }}"
+          - "Image: {{ item.Image | default('N/A') }}"
+          - "ID: {{ item.ID | default('N/A') }}"
+          - "Size: {{ item.Size | default('N/A') }}"
+          - "Ports: {{ item.Ports | default('N/A') }}"
+          - "Network: {{ item.Networks | default('N/A') }}"
+          - "RunningFor: {{ item.RunningFor | default('N/A') }}"
+          - "State: {{ item.State | default('N/A') }}"
+          - "Status: {{ item.Status | default('N/A') }}"
+      loop: "{{ container_stats | default([]) }}"
       loop_control:
         label: ""

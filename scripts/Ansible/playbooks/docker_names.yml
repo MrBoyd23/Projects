@@ -9,9 +9,21 @@
     - ../.secrets/secret_vars.yml
 
   tasks:
+    - name: CHECK DOCKER DAEMON IS RUNNING
+      command: docker info
+      register: docker_info
+      changed_when: false
+      failed_when: false
+
+    - name: ABORT IF DOCKER IS NOT AVAILABLE
+      fail:
+        msg: "Docker daemon is not running or not accessible on this host."
+      when: docker_info.rc != 0
+
     - name: PARSE DOCKER NAMES
       command: docker ps --format "table {{'{{'}}.Names{{'}}'}}\t{{'{{'}}.ID{{'}}'}}"
       register: docker_ps_output
+      changed_when: false
 
     - name: SPLIT DOCKER OUTPUT INTO LINES
       set_fact:

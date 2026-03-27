@@ -11,37 +11,30 @@
   tasks:
     - name: UPDATE APT CACHE
       apt:
-        update_cache: yes
+        update_cache: true
+      changed_when: false
 
-    - name: CHECK FOR AVAILABLE UPDATES
-      apt:
-        upgrade: dist
-        update_cache: yes
+    - name: CHECK FOR AVAILABLE UPDATES (DRY RUN)
+      command: apt list --upgradable
       register: update_result
+      changed_when: false
 
     - name: DISPLAY UPDATE STATUS
       debug:
         var: update_result.stdout_lines
 
     - name: CHECK FOR HELD PACKAGES
-      shell: apt-mark showhold
+      command: apt-mark showhold
       register: held_packages
       changed_when: false
       ignore_errors: true
 
     - name: DISPLAY HELD BACK PACKAGES
       debug:
-        msg: "Held back packages: {{ held_packages.stdout }}"
+        msg: "Held back packages (not auto-upgrading): {{ held_packages.stdout_lines }}"
       when: held_packages.stdout != ""
 
-    - name: UPGRADE HELD BACK PACKAGES
-      apt:
-        upgrade: yes
-        state: latest
-      register: upgrade_output
-      when: held_packages.stdout != "" and update_result.changed
-
-    - name: DISPLAY UPGRADE OUTPUT
+    - name: NO HELD PACKAGES
       debug:
-        msg: "Upgrade output: {{ upgrade_output.stdout }}"
-      when: upgrade_output.stdout is defined
+        msg: "No held packages found."
+      when: held_packages.stdout == ""

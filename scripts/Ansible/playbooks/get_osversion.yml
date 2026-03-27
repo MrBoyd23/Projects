@@ -2,17 +2,13 @@
 ---
 - name: GET OPERATING SYSTEM FROM PROXMOX VMS
   hosts: all
-  gather_facts: false
+  gather_facts: true
   become: "{{ enable_become | default(false) }}"
   serial: 4
   vars_files:
     - ../.secrets/secret_vars.yml
 
   tasks:
-    - name: OBTAIN OPERATING SYSTEM
-      shell: cat /etc/os-release
-      register: osversion
-
-    - name: DISPLAY HOSTNAME
+    - name: DISPLAY OPERATING SYSTEM VERSION
       debug:
-        msg: '{{ osversion.stdout_lines}}'
+        msg: "{{ ansible_distribution }} {{ ansible_distribution_version }} ({{ ansible_distribution_release }})"

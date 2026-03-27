@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # List of skill names
 skills=(
     PHP CSS API SEO AWS HTML Linux MySQL Apache cPanel Plesk
@@ -23,18 +25,15 @@ for skill in "${skills[@]}"; do
     if [ -f "$file_path" ]; then
         echo "Updating file: ${file_name}.js"
 
-        # Debugging output: echo file path before updating
-        echo "File path: $file_path"
-
-        # Use sed to update the existing file
-        sed -i "3s/.*/const ${component_name} = () => {/" "$file_path"
-        sed -i "6s/.*/            <h2>${skill} Details<\/h2>/" "$file_path"
-        sed -i "7s/.*/            <p>Details about ${skill}...<\/p>/" "$file_path"
-        sed -i "10s/.*/export default ${component_name};/" "$file_path"
+        # Use sed to update the existing file (creating .bak backups)
+        sed -i.bak "3s/.*/const ${component_name} = () => {/" "$file_path"
+        sed -i.bak "6s/.*/            <h2>${skill} Details<\/h2>/" "$file_path"
+        sed -i.bak "7s/.*/            <p>Details about ${skill}...<\/p>/" "$file_path"
+        sed -i.bak "10s/.*/export default ${component_name};/" "$file_path"
 
         echo "Updated ${file_name}.js"
     else
-        echo "File ${file_name}.js not found."
+        echo "File ${file_name}.js not found. Skipping."
     fi
 done
 
