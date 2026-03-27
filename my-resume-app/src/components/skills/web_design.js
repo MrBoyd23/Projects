@@ -167,6 +167,7 @@ const WebDesign = () => {
                   src={site.thumb}
                   alt={`${site.name} screenshot`}
                   loading="lazy"
+                  onError={e => { e.target.style.display = 'none'; }}
                   style={{ width: '100%', height: 140, objectFit: 'cover', objectPosition: 'top', display: 'block', borderBottom: '1px solid #2d0000' }}
                 />
               </a>

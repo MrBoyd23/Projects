@@ -1,6 +1,6 @@
 /* Header.module.css — Sticky header with clean, readable nav */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap');
+/* Fonts loaded via index.html <link> tags — no @import needed here */
 
 /* ── Outer header ──────────────────────────────────────────── */
 .header {

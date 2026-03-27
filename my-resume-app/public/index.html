@@ -4,7 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <meta name="description" content="This WebSite Was Created By Brandon A. Boyd!" />
+  <meta name="description" content="Brandon Boyd — System Engineer III with 18+ years at GoDaddy. Skills in cloud infrastructure, incident management, AI development, and full-stack web development." />
+  <link rel="canonical" href="https://resume.brandonaboyd.com/" />
+
+  <!-- Open Graph (Facebook, LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Brandon Boyd — System Engineer III | Resume & Portfolio" />
+  <meta property="og:description" content="System Engineer III with 18+ years at GoDaddy. Skills in cloud infrastructure, incident management, AI development, and full-stack web development." />
+  <meta property="og:url" content="https://resume.brandonaboyd.com/" />
+  <meta property="og:site_name" content="Brandon Boyd Resume" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Brandon Boyd — System Engineer III" />
+  <meta name="twitter:description" content="System Engineer III with 18+ years at GoDaddy. Cloud infrastructure, AI development, and full-stack web development." />
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
@@ -19,25 +32,28 @@
     Learn how to configure a non-root public URL by running `npm run build`.
   -->
 
-  <!-- Preconnect to Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Preconnect to font & analytics origins (speeds up DNS + TLS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://image.thum.io" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCR1VN8WRP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-PCR1VN8WRP');
-  </script>
+  <!-- Single combined Google Fonts request with display=swap for fast text paint -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Sitemap reference -->
   <link rel="sitemap" type="application/xml" href="%PUBLIC_URL%/sitemap.xml" />
 
-  <title>Brandon's Resume</title>
+  <title>Brandon Boyd — System Engineer III | Resume &amp; Portfolio</title>
+
+  <!-- Defer Google Analytics to not block initial render -->
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-PCR1VN8WRP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PCR1VN8WRP', { send_page_view: false });
+  </script>
 </head>
 <body>
   <!-- Google tag (noscript fallback) -->

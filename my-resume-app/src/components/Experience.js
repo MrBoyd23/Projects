@@ -13,8 +13,56 @@ const Experience = () => (
             <div className="job-details">
                 <h3>System Engineer III</h3>
                 <p><b>GoDaddy</b></p>
-                <p>February 2024 &ndash; Present</p>
+                <p>February 2025 &ndash; Present</p>
                 <p>Remote</p>
+                <h4>Core Competencies</h4>
+
+                <p><strong>Independent Problem Solving &amp; Execution</strong> &mdash;</p>
+                <ul>
+                    <li>Consistently solving complex problems and delivering solutions independently, often serving as a go-to resource for peers facing similar challenges.</li>
+                    <li>Operating with a high degree of autonomy, requiring minimal direction on day-to-day work and proactively scoping new assignments.</li>
+                </ul>
+
+                <p><strong>Documentation Excellence</strong> &mdash;</p>
+                <ul>
+                    <li>Maintaining a strong track record of high-quality ticket documentation, upholding high team standards.</li>
+                    <li>Authoring comprehensive documentation across multiple products and platforms, including operational SOPs, developer notes, and Atlassian knowledge base articles.</li>
+                </ul>
+
+                <p><strong>Emerging Leadership</strong> &mdash;</p>
+                <ul>
+                    <li>Regularly leading standups, team meetings, and cross-functional discussions.</li>
+                    <li>Recognized as an emerging leader driving alignment, accountability, and team-wide operational readiness.</li>
+                </ul>
+
+                <p><strong>Continuous Improvement &amp; Innovation</strong> &mdash;</p>
+                <ul>
+                    <li>Championing continuous improvement initiatives, identifying and implementing process enhancements, tooling upgrades, and automation that increased team efficiency.</li>
+                    <li>Taking calculated risks and experimenting with new approaches, with a proven history of turning experiments into adopted solutions.</li>
+                </ul>
+
+                <p><strong>Multi-Technology Investigations</strong> &mdash;</p>
+                <ul>
+                    <li>Investigating and resolving issues of moderate-to-high scope across multiple technologies&mdash;including application infrastructure, networking, databases, and security.</li>
+                    <li>Often connecting dots across systems that others miss.</li>
+                </ul>
+
+                <p><strong>Customer-First Mindset</strong> &mdash;</p>
+                <ul>
+                    <li>Proactively identifying gaps and problems within area of ownership and driving them to resolution without waiting for escalation.</li>
+                    <li>Leading complex, customer-impacting investigations end-to-end, coordinating across teams and delivering root cause analysis with actionable follow-ups.</li>
+                </ul>
+
+                <p><strong>Operational Readiness &amp; Training</strong> &mdash;</p>
+                <ul>
+                    <li>Independently driving operational readiness across the team, including maintaining up-to-date documentation, developing training materials, onboarding new team members, and writing SOPs to standardize processes.</li>
+                </ul>
+
+                <p><strong>Subject Matter Expertise</strong> &mdash;</p>
+                <ul>
+                    <li>Established SME in Incident Management Process and one or more System Operations products/services, regularly consulted by peers and leadership for guidance.</li>
+                    <li>Deep experience coordinating and improving incident response workflows over multiple cycles.</li>
+                </ul>
             </div>
         </div>
 
@@ -23,7 +71,7 @@ const Experience = () => (
             <div className="job-details">
                 <h3>System Engineer II</h3>
                 <p><b>GoDaddy</b></p>
-                <p>July 2021 &ndash; February 2024</p>
+                <p>July 2021 &ndash; February 2025</p>
                 <p>Remote</p>
                 <ul>
                     <li>Developed Remediation Scripting For Troubleshooting Server Environment</li>

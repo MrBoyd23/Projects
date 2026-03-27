@@ -2,8 +2,7 @@ Adjust this code to change the format for mobile devices with smaller screens
 Here is the existing CSS from my App.css file
 
 /* Reset default styles and apply base styles */
-/* Import Google Fonts and basic resets */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&family=Merriweather:wght@400;700&display=swap');
+/* Fonts loaded via index.html <link> tags — no @import needed here */
 
 /* General container style */
 .container {

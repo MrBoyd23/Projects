@@ -2,13 +2,16 @@ import React, { Suspense, lazy, useEffect } from 'react';
 import './css/styles.css';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/Header';
-import Skills from './components/Skills';
-import Coding from './components/Coding';
-import Software from './components/Software';
 import Experience from './components/Experience';
-import Education from './components/Education';
-import Certifications from './components/Certifications';
+import NotFound from './components/NotFound';
 import { allSkills, CUSTOM_SKILL_IDS } from './data/skillsConfig';
+
+// Lazy-load non-homepage route components — only fetched when navigated to
+const Skills = lazy(() => import('./components/Skills'));
+const Coding = lazy(() => import('./components/Coding'));
+const Software = lazy(() => import('./components/Software'));
+const Education = lazy(() => import('./components/Education'));
+const Certifications = lazy(() => import('./components/Certifications'));
 
 // Lazy-load custom skill components — only fetched when that route is visited
 const customComponents = {
@@ -42,6 +45,7 @@ const customComponents = {
   website_analytics:  lazy(() => import('./components/skills/website_analytics')),
   online_marketing:   lazy(() => import('./components/skills/online_marketing')),
   data_analytics:     lazy(() => import('./components/skills/data_analytics')),
+  ai_development:     lazy(() => import('./components/skills/ai_development')),
 };
 
 // Generic placeholder for skills without custom content yet
@@ -70,16 +74,17 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />
         <PageTracker />
-        <div className="container">
+        <main id="main-content" className="container">
           <Routes>
             {/* Top-level section routes */}
             <Route path="/"             element={<Experience />} />
-            <Route path="/Experience/*" element={<Skills />} />
-            <Route path="/Education/*"  element={<><Education /><Certifications /></>} />
-            <Route path="/coding/*"     element={<Coding />} />
-            <Route path="/Software/*"   element={<Software />} />
+            <Route path="/Experience/*" element={<Suspense fallback={<div style={{color:'#666',fontStyle:'italic',padding:'40px 0',textAlign:'center'}}>Loading…</div>}><Skills /></Suspense>} />
+            <Route path="/Education/*"  element={<Suspense fallback={<div style={{color:'#666',fontStyle:'italic',padding:'40px 0',textAlign:'center'}}>Loading…</div>}><Education /><Certifications /></Suspense>} />
+            <Route path="/coding/*"     element={<Suspense fallback={<div style={{color:'#666',fontStyle:'italic',padding:'40px 0',textAlign:'center'}}>Loading…</div>}><Coding /></Suspense>} />
+            <Route path="/Software/*"   element={<Suspense fallback={<div style={{color:'#666',fontStyle:'italic',padding:'40px 0',textAlign:'center'}}>Loading…</div>}><Software /></Suspense>} />
 
             {/* Skill detail routes — generated from skillsConfig (no manual list needed) */}
             {allSkills.map(({ id, label, category }) => {
@@ -93,7 +98,7 @@ function App() {
                   key={id}
                   path={`/${id}/*`}
                   element={
-                    <Suspense fallback={<div>Loading…</div>}>
+                    <Suspense fallback={<div style={{color:'#666',fontStyle:'italic',padding:'40px 0',textAlign:'center'}}>Loading…</div>}>
                       <CategoryNav />
                       <SkillComponent name={label} />
                     </Suspense>
@@ -101,8 +106,11 @@ function App() {
                 />
               );
             })}
+
+            {/* 404 catch-all — must be last */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
-        </div>
+        </main>
       </div>
     </Router>
   );

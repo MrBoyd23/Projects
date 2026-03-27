@@ -1,6 +1,6 @@
 /* Skills.module.css — Scoped styles for Skills, Coding, and Software components */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@400;500;600&display=swap');
+/* Fonts loaded via index.html <link> tags — no @import needed here */
 
 /* ── Skills overview page ──────────────────────────────────── */
 .skillsPage {
@@ -175,6 +175,77 @@
 }
 
 .skillsContainer { width: 100%; }
+
+/* ── Key Projects 2×2 grid ────────────────────────────────── */
+.projectsSection {
+  width: 100%;
+  margin-top: 28px;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .projectsGrid { grid-template-columns: 1fr; }
+}
+
+.projectCard {
+  background: #0d0d0d;
+  border: 1px solid #1e1e1e;
+  border-left: 3px solid #8b0000;
+  border-radius: 0 10px 10px 0;
+  padding: 20px 22px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.projectCard:hover {
+  border-color: #3d0000;
+  border-left-color: #cc0000;
+  box-shadow: 0 4px 20px rgba(139, 0, 0, 0.15);
+}
+
+.projectCardTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 6px;
+}
+
+.projectCardSubtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  color: #cc3333;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.projectCardList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.projectCardList li {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  color: #aaa;
+  line-height: 1.6;
+  padding: 4px 0 4px 14px;
+  position: relative;
+}
+
+.projectCardList li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #40e0d0;
+  font-size: 0.7rem;
+}
 
 /* ── Sites I've Built section ─────────────────────────────── */
 .sitesSection {
