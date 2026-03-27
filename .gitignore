@@ -35,3 +35,4 @@ coverage/
 
 # Source maps (optional — remove this line if you want source maps committed)
 *.map
+.claude
