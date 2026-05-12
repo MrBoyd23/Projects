@@ -1,0 +1,14 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/get_osversion.yml
+---
+- name: GET OPERATING SYSTEM FROM PROXMOX VMS
+  hosts: all
+  gather_facts: true
+  become: "{{ enable_become | default(false) }}"
+  serial: 4
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: DISPLAY OPERATING SYSTEM VERSION
+      debug:
+        msg: "{{ ansible_distribution }} {{ ansible_distribution_version }} ({{ ansible_distribution_release }})"

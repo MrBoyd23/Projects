@@ -4,14 +4,19 @@ import { NavLink } from 'react-router-dom';
 import styles from '../css/Header.module.css';
 
 const NAV_ITEMS = [
-    { to: '/',           label: 'Home',        icon: '⌂', end: true,  external: false },
-    { to: '/Experience', label: 'Experience',   icon: '◈', end: false, external: false },
-    { to: '/Education',  label: 'Education',    icon: '◆', end: false, external: false },
+    { to: '/',           label: 'Home',         end: true,  external: false },
+    { to: '/Experience', label: 'Experience',   end: false, external: false },
+    { to: '/Education',  label: 'Education',    end: false, external: false },
     {
         href: `https://github.com/${process.env.REACT_APP_GITHUB_REPO}`,
         label: 'GitHub Repos',
-        icon: '⎇',
         external: true,
+    },
+    {
+        href: '/Brandon_Boyd_Resume.docx',
+        label: 'Download Resume',
+        external: true,
+        download: true,
     },
 ];
 
@@ -27,22 +32,22 @@ const Header = () => {
             </div>
             <nav aria-label="Main navigation">
                 <ul className={styles.navList}>
-                    {NAV_ITEMS.map(({ to, href, label, icon, end, external }) => (
+                    {NAV_ITEMS.map(({ to, href, label, end, external, download }) => (
                         <li key={label} className={styles.navItem}>
                             {external ? (
                                 <a
                                     href={href}
-                                    className={styles.navLink}
-                                    target="_blank"
+                                    className={download ? styles.navDownload : styles.navLink}
+                                    target={download ? '_self' : '_blank'}
                                     rel="noopener noreferrer"
+                                    {...(download && { download: true })}
                                 >
-                                    <span className={styles.navIcon}>{icon}</span>
                                     <span className={styles.navLabel}>{label}</span>
-                                    <span className={styles.navExternalDot} aria-hidden="true">↗</span>
+                                    {!download && <span className={styles.navExternalDot} aria-hidden="true">↗</span>}
+                                    {download && <span className={styles.navDownloadIcon} aria-hidden="true">↓</span>}
                                 </a>
                             ) : (
                                 <NavLink to={to} end={end} className={linkClass}>
-                                    <span className={styles.navIcon}>{icon}</span>
                                     <span className={styles.navLabel}>{label}</span>
                                 </NavLink>
                             )}

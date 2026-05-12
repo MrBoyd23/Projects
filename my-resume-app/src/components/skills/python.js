@@ -183,16 +183,16 @@ const Python = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Automation Use Cases</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Log parsing</strong> — Regular expressions against Apache/PHP/MySQL logs to
+            <strong style={{ color: '#93c5fd' }}>Log parsing</strong> — Regular expressions against Apache/PHP/MySQL logs to
             extract error patterns, count occurrences by type, and generate daily summaries sent to the team.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>API integrations</strong> — Using <code>requests</code> to query the
+            <strong style={{ color: '#93c5fd' }}>API integrations</strong> — Using <code>requests</code> to query the
             ServiceNow REST API for ticket data, the GitHub API for deployment tracking, and Prometheus for metric
             snapshots during incident post-mortems.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Bulk operations</strong> — Scripts that iterate over thousands of cPanel
+            <strong style={{ color: '#93c5fd' }}>Bulk operations</strong> — Scripts that iterate over thousands of cPanel
             accounts, check specific file conditions, and apply changes — operations that would take hours manually.
           </p>
           <div className={styles.tipBox}>
@@ -215,7 +215,7 @@ const Python = () => {
           {[['disk', 'Disk usage report'], ['subprocess', 'subprocess patterns']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

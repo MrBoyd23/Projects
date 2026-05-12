@@ -198,17 +198,17 @@ const Data_Analytics = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Analytical Capabilities</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Incident root cause analysis</strong> — Correlating error spikes
+            <strong style={{ color: '#93c5fd' }}>Incident root cause analysis</strong> — Correlating error spikes
             with deployment events, config changes, and infrastructure modifications to pinpoint the exact trigger
             of a production incident — even when the evidence is spread across multiple log sources.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Trend detection</strong> — Using rolling averages and statistical
+            <strong style={{ color: '#93c5fd' }}>Trend detection</strong> — Using rolling averages and statistical
             deviation to identify when an error rate has moved beyond normal variance. Proactive detection before
             a trend becomes a customer-visible outage.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Automated reporting</strong> — Python scripts that pull Splunk data
+            <strong style={{ color: '#93c5fd' }}>Automated reporting</strong> — Python scripts that pull Splunk data
             via REST API, format it into structured reports, and distribute them to the team via email or Slack
             on a scheduled basis.
           </p>
@@ -233,7 +233,7 @@ const Data_Analytics = () => {
           {[['splunk', 'SPL queries — RCA'], ['alerts', 'SPL alerts + saved searches'], ['python', 'Python Splunk API report']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

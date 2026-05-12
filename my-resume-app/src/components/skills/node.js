@@ -150,17 +150,17 @@ const Node = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Key Patterns</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>PM2 cluster mode</strong> — Running Node apps with multiple workers
+            <strong style={{ color: '#93c5fd' }}>PM2 cluster mode</strong> — Running Node apps with multiple workers
             across all available CPU cores. Zero-downtime reloads (<code>pm2 reload</code>) deploy code changes without
             dropping connections — critical for production API servers.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Graceful shutdown</strong> — Listening for <code>SIGTERM</code> to drain
+            <strong style={{ color: '#93c5fd' }}>Graceful shutdown</strong> — Listening for <code>SIGTERM</code> to drain
             in-flight requests before exiting. Kubernetes and PM2 both send SIGTERM before SIGKILL — handling it properly
             prevents dropped connections during deploys.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Input validation</strong> — Never trusting client-submitted data. Every
+            <strong style={{ color: '#93c5fd' }}>Input validation</strong> — Never trusting client-submitted data. Every
             API endpoint validates required fields, sanitizes inputs, and returns structured error responses.
           </p>
           <div className={styles.tipBox}>
@@ -182,7 +182,7 @@ const Node = () => {
           {[['express', 'Express server'], ['pm2', 'PM2 ecosystem config']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

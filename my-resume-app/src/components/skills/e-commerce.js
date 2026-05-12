@@ -134,17 +134,17 @@ const ECommerce = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Most Common E-Commerce Incidents</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Broken checkout / Stripe iframe not loading</strong> — Mixed content
+            <strong style={{ color: '#93c5fd' }}>Broken checkout / Stripe iframe not loading</strong> — Mixed content
             (HTTP resources on an HTTPS page) is the #1 cause. The Stripe payment iframe requires the entire page to
             be HTTPS. The fix is almost always a WordPress <code>siteurl</code>/<code>home</code> option pointing to HTTP.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Slow checkout performance</strong> — WooCommerce sessions hammering
+            <strong style={{ color: '#93c5fd' }}>Slow checkout performance</strong> — WooCommerce sessions hammering
             the database, missing database indexes on <code>wp_woocommerce_sessions</code>, or unoptimized cart
             fragment AJAX calls causing excessive server load.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>PCI compliance failures</strong> — TLS 1.0/1.1 still enabled,
+            <strong style={{ color: '#93c5fd' }}>PCI compliance failures</strong> — TLS 1.0/1.1 still enabled,
             exposed admin paths, weak cipher suites. I harden these as part of migration and security review workflows.
           </p>
           <div className={styles.tipBox}>
@@ -166,7 +166,7 @@ const ECommerce = () => {
           {[['mixed', 'Mixed content fix'], ['csp', 'Security headers (CSP)'], ['pci', 'PCI-DSS checklist']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

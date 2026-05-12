@@ -65,13 +65,13 @@ const gridLayoutCode = `/* monitoring-dashboard.css — Responsive grid layout *
 /* Panel base styles */
 .panel {
   background: #111;
-  border: 1px solid #2d0000;
+  border: 1px solid #1e293b;
   border-radius: 10px;
   padding: 20px;
   transition: border-color 0.2s;
 }
 
-.panel:hover { border-color: #8b0000; }
+.panel:hover { border-color: #3b82f6; }
 
 /* Flexbox for panel internals */
 .panel-header {
@@ -97,10 +97,10 @@ const gridLayoutCode = `/* monitoring-dashboard.css — Responsive grid layout *
 }`;
 
 const sites = [
-  { name: 'PhoenixAZEvents.com', url: 'http://phoenixazevents.com/', desc: 'Local event discovery site for the Phoenix, AZ area — WordPress with custom event listings.', thumb: 'https://image.thum.io/get/width/600/wait/3/noanimate/http://phoenixazevents.com/' },
-  { name: 'RJPJ2020.com', url: 'http://rjpj2020.com/', desc: 'Wedding website celebrating the union of Richard & Polli Jones.', thumb: 'https://image.thum.io/get/width/600/wait/3/noanimate/http://rjpj2020.com/' },
-  { name: 'BrandonABoyd.com', url: 'http://brandonaboyd.com/', desc: 'A family website bringing together moments, memories, and milestones shared with my kids.', thumb: 'https://image.thum.io/get/width/600/wait/3/noanimate/http://brandonaboyd.com/' },
-  { name: 'RachelIGarcia.com', url: 'http://racheligarcia.com/', desc: 'A heartfelt tribute dedicated to the life and legacy of Rachel Irene Garcia.', thumb: 'https://image.thum.io/get/width/600/wait/3/noanimate/http://racheligarcia.com/' },
+  { name: 'PhoenixAZEvents.com', url: 'http://phoenixazevents.com/', desc: 'Local event discovery site for the Phoenix, AZ area — WordPress with custom event listings.' },
+  { name: 'RJPJ2020.com', url: 'http://rjpj2020.com/', desc: 'Wedding website celebrating the union of Richard & Polli Jones.' },
+  { name: 'BrandonABoyd.com', url: 'http://brandonaboyd.com/', desc: 'A family website bringing together moments, memories, and milestones shared with my kids.' },
+  { name: 'RachelIGarcia.com', url: 'http://racheligarcia.com/', desc: 'A heartfelt tribute dedicated to the life and legacy of Rachel Irene Garcia.' },
 ];
 
 const WebDesign = () => {
@@ -134,16 +134,16 @@ const WebDesign = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Design Principles I Follow</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Mobile-first</strong> — Base styles target small screens, complexity added
+            <strong style={{ color: '#93c5fd' }}>Mobile-first</strong> — Base styles target small screens, complexity added
             with <code>min-width</code> breakpoints. Results in leaner, more maintainable CSS than desktop-down rewrites.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Performance as design</strong> — A beautifully designed page that loads
+            <strong style={{ color: '#93c5fd' }}>Performance as design</strong> — A beautifully designed page that loads
             in 4 seconds is a bad design. I optimize Core Web Vitals (LCP, CLS, FID) as part of the design process,
             not as an afterthought.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Semantic HTML</strong> — Using correct elements (<code>nav</code>, <code>main</code>,
+            <strong style={{ color: '#93c5fd' }}>Semantic HTML</strong> — Using correct elements (<code>nav</code>, <code>main</code>,
             <code>article</code>, <code>section</code>) improves accessibility, SEO crawlability, and screen reader compatibility.
           </p>
           <div className={styles.tipBox}>
@@ -161,23 +161,12 @@ const WebDesign = () => {
         </p>
         <div className={styles.cardsGrid}>
           {sites.map(site => (
-            <div key={site.name} className={styles.card} style={{ padding: 0, overflow: 'hidden' }}>
-              <a href={site.url} target="_blank" rel="noopener noreferrer" style={{ display: 'block' }}>
-                <img
-                  src={site.thumb}
-                  alt={`${site.name} screenshot`}
-                  loading="lazy"
-                  onError={e => { e.target.style.display = 'none'; }}
-                  style={{ width: '100%', height: 140, objectFit: 'cover', objectPosition: 'top', display: 'block', borderBottom: '1px solid #2d0000' }}
-                />
+            <div key={site.name} className={styles.card}>
+              <div className={styles.cardTitle}>{site.name}</div>
+              <p className={styles.cardMeta}>{site.desc}</p>
+              <a href={site.url} target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
+                Visit site →
               </a>
-              <div style={{ padding: '14px 16px 16px' }}>
-                <div className={styles.cardTitle}>{site.name}</div>
-                <p className={styles.cardMeta} style={{ color: '#aaa', fontSize: '0.82rem', lineHeight: 1.5 }}>{site.desc}</p>
-                <a href={site.url} target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
-                  Visit site →
-                </a>
-              </div>
             </div>
           ))}
         </div>

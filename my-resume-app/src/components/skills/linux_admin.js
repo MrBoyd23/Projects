@@ -161,17 +161,17 @@ const Linux_Admin = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Core Competencies</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Process management</strong> — <code>ps</code>, <code>top</code>,
+            <strong style={{ color: '#93c5fd' }}>Process management</strong> — <code>ps</code>, <code>top</code>,
             <code> htop</code>, <code>lsof</code>, <code>strace</code>, <code>kill</code>/<code>pkill</code>.
             Identifying runaway processes, zombie processes, and memory leaks without rebooting.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Log analysis</strong> — <code>journalctl</code> for systemd services,
+            <strong style={{ color: '#93c5fd' }}>Log analysis</strong> — <code>journalctl</code> for systemd services,
             <code> tail -f</code> for real-time monitoring, <code>grep</code>/<code>awk</code>/<code>sed</code>
             for log parsing. Correlating events across multiple log sources during incident timelines.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>LVM management</strong> — Extending logical volumes without downtime,
+            <strong style={{ color: '#93c5fd' }}>LVM management</strong> — Extending logical volumes without downtime,
             creating snapshots before risky operations, managing VG/PV allocation.
           </p>
           <div className={styles.tipBox}>
@@ -194,7 +194,7 @@ const Linux_Admin = () => {
           {[['cpu', 'CPU diagnosis'], ['services', 'Service management'], ['firewall', 'Firewall rules']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

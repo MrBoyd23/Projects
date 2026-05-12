@@ -181,12 +181,12 @@ const LivePerson = () => {
             a structured answer with diagnostic steps in under 2 seconds.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Intents I built:</strong> DNS propagation troubleshooting, WordPress
+            <strong style={{ color: '#93c5fd' }}>Intents I built:</strong> DNS propagation troubleshooting, WordPress
             500 errors and WSOD, SSL certificate issues, email delivery failures, PHP memory exhaustion,
             cPanel/WHM navigation questions, and domain transfer status.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Routing architecture:</strong> Customer chats are first routed to
+            <strong style={{ color: '#93c5fd' }}>Routing architecture:</strong> Customer chats are first routed to
             HelpBot for Tier-1 containment. Unresolved issues fall through to human agents in the appropriate skill queue,
             with HelpBot's transcript attached so agents have full context.
           </p>
@@ -209,7 +209,7 @@ const LivePerson = () => {
           {[['bot', 'HelpBot intent config'], ['routing', 'Routing rules']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

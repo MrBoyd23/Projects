@@ -84,17 +84,17 @@ const AIDevelopment = () => {
           Tools like Claude Code, GitHub Copilot, and locally hosted models through Ollama have become part of my daily toolkit.
         </p>
         <p className={styles.sectionText}>
-          <strong style={{ color: '#ff9999' }}>Claude Code</strong> — Using Anthropic's CLI agent for autonomous
+          <strong style={{ color: '#93c5fd' }}>Claude Code</strong> — Using Anthropic's CLI agent for autonomous
           multi-file edits, codebase exploration, test generation, and complex refactors. This resume site itself
           was built and iterated on with Claude Code.
         </p>
         <p className={styles.sectionText}>
-          <strong style={{ color: '#ff9999' }}>Prompt Engineering</strong> — Crafting structured prompts for consistent,
+          <strong style={{ color: '#93c5fd' }}>Prompt Engineering</strong> — Crafting structured prompts for consistent,
           reliable outputs. Understanding token limits, system prompts, temperature tuning, and when to use
           few-shot examples vs. zero-shot approaches.
         </p>
         <p className={styles.sectionText}>
-          <strong style={{ color: '#ff9999' }}>MCP (Model Context Protocol)</strong> — Building custom tool servers
+          <strong style={{ color: '#93c5fd' }}>MCP (Model Context Protocol)</strong> — Building custom tool servers
           that give AI agents access to real-time data, APIs, and system operations — turning LLMs from
           text generators into actionable automation engines.
         </p>
@@ -115,16 +115,16 @@ const AIDevelopment = () => {
           OpenAI API, and building middleware that routes requests to different models based on task complexity.
         </p>
         <p className={styles.sectionText}>
-          <strong style={{ color: '#ff9999' }}>Streaming Responses</strong> — Implementing real-time streaming for
+          <strong style={{ color: '#93c5fd' }}>Streaming Responses</strong> — Implementing real-time streaming for
           better UX in chat interfaces and CLI tools, handling partial responses and error recovery gracefully.
         </p>
         <p className={styles.sectionText}>
-          <strong style={{ color: '#ff9999' }}>Tool Use & Function Calling</strong> — Defining tool schemas that let
+          <strong style={{ color: '#93c5fd' }}>Tool Use & Function Calling</strong> — Defining tool schemas that let
           AI models interact with external systems — databases, APIs, file systems — enabling agents that can
           take action, not just generate text.
         </p>
         <p className={styles.sectionText}>
-          <strong style={{ color: '#ff9999' }}>Cost & Performance</strong> — Understanding model selection trade-offs:
+          <strong style={{ color: '#93c5fd' }}>Cost & Performance</strong> — Understanding model selection trade-offs:
           when to use a fast, lightweight model (Haiku) vs. a more capable one (Opus), managing token budgets,
           and caching strategies to reduce API costs.
         </p>
@@ -145,17 +145,17 @@ const AIDevelopment = () => {
           no usage fees, full control over the stack.
         </p>
         <p className={styles.sectionText}>
-          <strong style={{ color: '#ff9999' }}>Ollama</strong> — Setting up and managing locally hosted LLMs with
+          <strong style={{ color: '#93c5fd' }}>Ollama</strong> — Setting up and managing locally hosted LLMs with
           a simple pull-and-run workflow. Running multiple models, customizing model parameters, and building
           local API endpoints that mirror cloud provider interfaces.
         </p>
         <p className={styles.sectionText}>
-          <strong style={{ color: '#ff9999' }}>Hardware Considerations</strong> — Understanding GPU memory requirements,
+          <strong style={{ color: '#93c5fd' }}>Hardware Considerations</strong> — Understanding GPU memory requirements,
           quantization trade-offs (Q4 vs Q8), and how to run capable models on consumer hardware. Balancing
           model size against response quality for different use cases.
         </p>
         <p className={styles.sectionText}>
-          <strong style={{ color: '#ff9999' }}>Use Cases</strong> — Local code completion, private document analysis,
+          <strong style={{ color: '#93c5fd' }}>Use Cases</strong> — Local code completion, private document analysis,
           internal chatbots for homelab documentation, and automated log summarization — all running without
           sending data to external services.
         </p>

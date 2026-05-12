@@ -160,17 +160,17 @@ const Online_Marketing = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>GTM Architecture Principles</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Single container for all pixels</strong> — One GTM container replaces
+            <strong style={{ color: '#93c5fd' }}>Single container for all pixels</strong> — One GTM container replaces
             all hardcoded tracking scripts. Marketing can add/modify tags without developer involvement, and you get
             a centralized audit trail of what's firing and when.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>dataLayer-driven events</strong> — E-commerce events (add-to-cart,
+            <strong style={{ color: '#93c5fd' }}>dataLayer-driven events</strong> — E-commerce events (add-to-cart,
             purchase, checkout steps) push structured data to the <code>dataLayer</code> from the backend. GTM tags
             read these variables and forward to GA4, Meta Pixel, and Google Ads simultaneously.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Server-side GTM</strong> — For high-traffic and privacy-sensitive
+            <strong style={{ color: '#93c5fd' }}>Server-side GTM</strong> — For high-traffic and privacy-sensitive
             deployments, I've worked with server-side GTM configurations that process events on the server before
             forwarding to ad platforms, improving ad signal quality and bypassing client-side blocking.
           </p>
@@ -194,7 +194,7 @@ const Online_Marketing = () => {
           {[['datalayer', 'WooCommerce dataLayer push (PHP)'], ['gtm', 'GTM container config']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

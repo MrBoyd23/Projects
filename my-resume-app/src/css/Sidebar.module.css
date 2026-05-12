@@ -1,14 +1,14 @@
 /* Sidebar.module.css */
 
 .sidebar {
-    width: 200px; /* Adjust width as needed */
+    width: 200px;
     background-color: transparent;
     padding: 20px;
-    position: fixed; /* Fixed position to ensure it stays in place */
-    top: 60px; /* Adjust this value to match the height of your header */
-    right: 0; /* Align with the right side of the viewport */
-    z-index: 10; /* Higher z-index for the sidebar */
-    font-family: 'Playfair Display', Arial;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    z-index: 10;
+    font-family: 'Inter', sans-serif;
 }
 
 .sidebarList {
@@ -18,42 +18,41 @@
 
 .sidebarList li {
     margin-bottom: 10px;
-    position: relative; /* Ensure position context for pseudo-element */
+    position: relative;
 }
 
 .sidebarList li::before {
-    content: '•'; /* Bullet point content */
-    color: yellow; /* Yellow color for bullet points */
+    content: '•';
+    color: #38bdf8;
     display: inline-block;
-    width: 10px; /* Adjust width of bullet point if needed */
-    margin-right: 5px; /* Adjust spacing between bullet point and text */
+    width: 10px;
+    margin-right: 5px;
     position: absolute;
-    left: -15px; /* Adjust position of bullet point relative to text */
-    top: 50%; /* Align bullet point vertically with text */
-    transform: translateY(-50%); /* Center bullet point vertically */
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .sidebarList li a {
     text-decoration: none;
-    color: #ff0;
+    color: #38bdf8;
     font-weight: bold;
-    display: inline-block; /* Ensure proper alignment with bullet points */
-    vertical-align: middle; /* Align text vertically with bullet point */
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .sidebarList li a:hover {
     text-decoration: underline;
-    color: #00ffff; /* Turquoise color on hover */
+    color: #7dd3fc;
 }
 
 @media (max-width: 768px) {
     .sidebar {
-        width: 100%; /* Full width on small screens */
-        border-right: none; /* Remove border on small screens */
-        border-bottom: 1px solid #ccc; /* Add bottom border for separation */
-        top: 60px; /* Adjust this value to match the height of your header */
-        left: 0; /* Align with the left side of the viewport */
-        right: 0; /* Ensure the sidebar spans the full width */
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #1e293b;
+        top: 60px;
+        left: 0;
+        right: 0;
     }
 }
-

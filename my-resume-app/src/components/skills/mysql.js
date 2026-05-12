@@ -114,16 +114,16 @@ const MySQL = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Incident Patterns</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Too many connections</strong> — A rogue PHP process (often a WP cron job)
+            <strong style={{ color: '#93c5fd' }}>Too many connections</strong> — A rogue PHP process (often a WP cron job)
             opens hundreds of connections and never releases them. Fix: identify via <code>SHOW PROCESSLIST</code>,
             KILL the offending threads, tune <code>max_connections</code> and <code>wait_timeout</code>.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Table-level lock contention</strong> — Plugins using <code>MyISAM</code>
+            <strong style={{ color: '#93c5fd' }}>Table-level lock contention</strong> — Plugins using <code>MyISAM</code>
             instead of InnoDB cause full table locks on writes. Fix: convert to InnoDB with <code>ALTER TABLE ... ENGINE=InnoDB</code>.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Replication lag</strong> — I monitor <code>Seconds_Behind_Master</code>
+            <strong style={{ color: '#93c5fd' }}>Replication lag</strong> — I monitor <code>Seconds_Behind_Master</code>
             on read replicas and identify the binary log position causing delays, adjusting <code>slave_parallel_workers</code>
             to reduce lag.
           </p>
@@ -146,7 +146,7 @@ const MySQL = () => {
           {[['process', 'PROCESSLIST + KILL'], ['slow', 'Slow query log'], ['backup', 'Backup + Grants']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

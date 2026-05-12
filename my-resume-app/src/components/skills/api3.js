@@ -15,7 +15,7 @@ const ratingBadgeColor = (score) => {
 const cardStyle = {
   backgroundColor: '#0d0d0d',
   border: '1px solid #1e1e1e',
-  borderTop: '3px solid #8b0000',
+  borderTop: '3px solid #3b82f6',
   borderRadius: '10px',
   overflow: 'hidden',
   display: 'flex',
@@ -33,14 +33,14 @@ const sectionHeadingStyle = {
   fontFamily: "'Playfair Display', serif",
   fontSize: '1.6rem',
   color: '#fff',
-  borderBottom: '2px solid #8b0000',
+  borderBottom: '2px solid #3b82f6',
   paddingBottom: '8px',
   marginBottom: '20px',
 };
 
 const errorBoxStyle = {
   backgroundColor: 'rgba(139,0,0,0.15)',
-  border: '1px solid #8b0000',
+  border: '1px solid #3b82f6',
   borderRadius: '8px',
   padding: '16px 20px',
   color: '#ff6b6b',
@@ -61,7 +61,7 @@ const paginationBtnBase = {
 
 const paginationBtn = (isActive) => ({
   ...paginationBtnBase,
-  backgroundColor: isActive ? '#8b0000' : '#0d0d0d',
+  backgroundColor: isActive ? '#3b82f6' : '#0d0d0d',
   color: isActive ? '#fff' : '#aaa',
 });
 
@@ -83,7 +83,7 @@ const SearchBar = ({ onSearch, onClear, onCategoryChange, selectedCategory }) =>
     fontFamily: "'Poppins', sans-serif",
     fontSize: '0.85rem',
     fontWeight: active ? 600 : 400,
-    backgroundColor: active ? '#8b0000' : '#1a1a1a',
+    backgroundColor: active ? '#3b82f6' : '#1a1a1a',
     color: active ? '#fff' : '#aaa',
     transition: 'background-color 0.2s ease, color 0.2s ease',
     outline: 'none',
@@ -98,7 +98,7 @@ const SearchBar = ({ onSearch, onClear, onCategoryChange, selectedCategory }) =>
     fontFamily: "'Poppins', sans-serif",
     fontSize: '0.95rem',
     fontWeight: 600,
-    backgroundColor: variant === 'primary' ? '#8b0000' : '#1a1a1a',
+    backgroundColor: variant === 'primary' ? '#3b82f6' : '#1a1a1a',
     color: '#fff',
     transition: 'background-color 0.2s ease',
   });
@@ -120,7 +120,7 @@ const SearchBar = ({ onSearch, onClear, onCategoryChange, selectedCategory }) =>
             maxWidth: '500px',
             backgroundColor: '#111',
             color: '#fff',
-            border: `2px solid ${inputFocused ? '#8b0000' : '#1e1e1e'}`,
+            border: `2px solid ${inputFocused ? '#3b82f6' : '#1e1e1e'}`,
             borderRadius: '8px',
             outline: 'none',
             fontFamily: "'Poppins', sans-serif",
@@ -621,7 +621,7 @@ const TheMovieDBTopActors = ({ searchQuery, onActorClick }) => {
                     transition: 'border-color 0.2s ease',
                   }}
                   onClick={() => handleActorClick(actor.id)}
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#8b0000'; }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#3b82f6'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#1e1e1e'; }}
                 />
               </div>
@@ -694,7 +694,7 @@ const App = () => {
             style={{
               marginBottom: '16px',
               padding: '10px 24px',
-              backgroundColor: '#8b0000',
+              backgroundColor: '#3b82f6',
               color: '#fff',
               border: 'none',
               borderRadius: '8px',

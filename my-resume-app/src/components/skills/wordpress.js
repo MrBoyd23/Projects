@@ -192,16 +192,16 @@ const WordPress = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Common Incident Types</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Malware / compromise</strong> — Injected PHP in theme files or
+            <strong style={{ color: '#93c5fd' }}>Malware / compromise</strong> — Injected PHP in theme files or
             <code> wp-content/uploads</code>. Detected via <code>wp core verify-checksums</code> and file modification
             timestamps. Remediated with full credential reset, file cleanup, and permission hardening.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>White Screen of Death</strong> — Almost always a PHP fatal error.
+            <strong style={{ color: '#93c5fd' }}>White Screen of Death</strong> — Almost always a PHP fatal error.
             Diagnosed via PHP error log + WP-CLI plugin deactivation to isolate the offending plugin.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Database connection errors</strong> — Wrong credentials in
+            <strong style={{ color: '#93c5fd' }}>Database connection errors</strong> — Wrong credentials in
             <code> wp-config.php</code> after a migration, or MySQL max_connections exceeded. Fixed via WP-CLI config
             update or direct MySQL intervention.
           </p>
@@ -225,7 +225,7 @@ const WordPress = () => {
           {[['remediation', 'Malware remediation'], ['daily', 'Daily WP-CLI commands']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

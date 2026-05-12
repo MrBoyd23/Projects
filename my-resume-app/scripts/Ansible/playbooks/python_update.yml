@@ -1,0 +1,28 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/python_update.yml
+---
+- name: UPDATE AND UPGRADE PACKAGES ON SERVERS
+  hosts: all
+  become: true
+  serial: 1
+  vars_files:
+    - ../.secrets/secret_vars.yml
+  tasks:
+    - name: UPDATE APT CACHE
+      apt:
+        update_cache: true
+
+    - name: UPGRADE ALL PACKAGES
+      apt:
+        upgrade: yes
+        autoremove: true
+
+    - name: PERFORM DISTRIBUTION UPGRADE (IF NEEDED)
+      apt:
+        upgrade: dist
+
+    - name: INSTALL PYTHON UPDATE MANAGER PACKAGES
+      apt:
+        name:
+          - python3-update-manager
+          - update-manager-core
+        state: latest

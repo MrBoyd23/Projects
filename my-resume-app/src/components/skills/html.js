@@ -267,7 +267,7 @@ const ContactForm = () => {
                             <span>
                                 <strong>Something went wrong.</strong><br />
                                 Please try again or email me directly at{' '}
-                                <a href="mailto:flossmore@brandonaboyd.com" style={{ color: '#ff9999' }}>
+                                <a href="mailto:flossmore@brandonaboyd.com" style={{ color: '#93c5fd' }}>
                                     flossmore@brandonaboyd.com
                                 </a>
                             </span>

@@ -1,8 +1,8 @@
 /* ============================================================
    styles.css  —  Global styles for Brandon's Resume
-   Color palette: #000 bg | #8b0000 dark-red | #fff text
-                  #40e0d0 turquoise links | #61dafb cyan accents
-                  #282c34 code bg
+   Color palette: #0a0f1a bg | #3b82f6 blue accent | #f1f5f9 text
+                  #38bdf8 sky links | #1e293b borders
+                  #0f172a code bg
    ============================================================ */
 
 /* Fonts loaded via index.html <link> tags — no @import needed here */
@@ -14,7 +14,7 @@
   top: 0;
   z-index: 9999;
   padding: 10px 20px;
-  background: #8b0000;
+  background: #3b82f6;
   color: #fff;
   font-size: 0.9rem;
   text-decoration: none;
@@ -31,8 +31,8 @@ body {
   font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #000;
-  color: #fff;
+  background-color: #0a0f1a;
+  color: #f1f5f9;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
@@ -45,29 +45,29 @@ body {
   width: 100%;
   padding: 30px 40px;
   box-sizing: border-box;
-  background: #000;
+  background: #0a0f1a;
   margin: 0 auto;
   max-width: 1200px;
 }
 
 /* ── Typography ────────────────────────────────────────────── */
 h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
   margin-top: 0;
 }
 
 h2, .container h2 {
   font-size: 1.6rem;
   margin-bottom: 14px;
-  color: #fff;
-  border-bottom: 2px solid #8b0000;
+  color: #f1f5f9;
+  border-bottom: 2px solid #3b82f6;
   display: inline-block;
   padding-bottom: 6px;
   letter-spacing: 0.5px;
 }
 
 p, .container p {
-  color: #ddd;
+  color: #cbd5e1;
   line-height: 1.75;
   margin: 8px 0;
   font-family: 'Poppins', Arial;
@@ -75,10 +75,10 @@ p, .container p {
 }
 
 a {
-  color: #40e0d0;
+  color: #38bdf8;
   transition: color 0.2s;
 }
-a:hover { color: #7fffd4; }
+a:hover { color: #7dd3fc; }
 
 /* ── Buttons ───────────────────────────────────────────────── */
 button {
@@ -87,9 +87,9 @@ button {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   margin: 5px;
-  border: 1px solid #8b0000;
-  background: linear-gradient(135deg, #1a0000, #2d0000);
-  color: #fff;
+  border: 1px solid #3b82f6;
+  background: linear-gradient(135deg, #0f172a, #1e3a5f);
+  color: #f1f5f9;
   cursor: pointer;
   transition: all 0.25s ease;
   border-radius: 6px;
@@ -97,9 +97,9 @@ button {
 }
 
 button:hover {
-  background: linear-gradient(135deg, #8b0000, #cc0000);
-  border-color: #cc0000;
-  box-shadow: 0 2px 12px rgba(139,0,0,0.4);
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  border-color: #60a5fa;
+  box-shadow: 0 2px 12px rgba(59,130,246,0.3);
   transform: translateY(-1px);
 }
 
@@ -129,13 +129,13 @@ ul li {
   margin: 6px 0;
   padding-left: 22px;
   text-indent: -22px;
-  color: #ddd;
+  color: #cbd5e1;
   font-size: 0.9rem;
 }
 
 ul li::before {
   content: '▸';
-  color: #61dafb;
+  color: #38bdf8;
   display: inline-block;
   width: 22px;
   font-size: 0.75rem;
@@ -156,16 +156,16 @@ ul li::before {
   top: 10px;
   bottom: 10px;
   width: 2px;
-  background: linear-gradient(to bottom, #8b0000, #3d0000);
+  background: linear-gradient(to bottom, #3b82f6, #1e3a5f);
   border-radius: 2px;
 }
 
 /* ── Job cards ─────────────────────────────────────────────── */
 .job {
   position: relative;
-  background: #0d0d0d;
-  border: 1px solid #1e1e1e;
-  border-left: 3px solid #8b0000;
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-left: 3px solid #3b82f6;
   border-radius: 0 10px 10px 0;
   padding: 24px 28px;
   margin-bottom: 24px;
@@ -173,8 +173,8 @@ ul li::before {
 }
 
 .job:hover {
-  border-left-color: #cc0000;
-  box-shadow: 0 4px 24px rgba(139,0,0,0.18);
+  border-left-color: #60a5fa;
+  box-shadow: 0 4px 24px rgba(59,130,246,0.12);
 }
 
 /* Timeline dot */
@@ -186,29 +186,29 @@ ul li::before {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #8b0000;
-  border: 2px solid #000;
-  box-shadow: 0 0 0 2px #8b0000;
+  background: #3b82f6;
+  border: 2px solid #0a0f1a;
+  box-shadow: 0 0 0 2px #3b82f6;
 }
 
 .job h3 {
   margin: 0 0 4px;
   font-size: 1.35rem;
-  color: #fff;
-  font-family: 'Playfair Display', serif;
+  color: #f1f5f9;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
 }
 
 .job-details p {
   margin: 3px 0;
   font-size: 0.875rem;
-  color: #cc3333;
+  color: #60a5fa;
   font-family: 'Poppins', sans-serif;
 }
 
 /* Bold company name stays white */
 .job-details p b {
-  color: #fff;
+  color: #f1f5f9;
   font-size: 0.95rem;
 }
 
@@ -228,38 +228,38 @@ ul li::before {
 
 .job ul ul li::before {
   content: '◦';
-  color: #8b0000;
+  color: #3b82f6;
 }
 
 /* ── Education & Certifications ─────────────────────────────── */
 .education, .certifications {
   margin-bottom: 30px;
   padding: 24px;
-  background: #0d0d0d;
-  border: 1px solid #1e1e1e;
-  border-left: 3px solid #8b0000;
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-left: 3px solid #3b82f6;
   border-radius: 0 10px 10px 0;
 }
 
 .education p, .certifications p {
-  color: #ddd;
+  color: #cbd5e1;
 }
 
 .certifications .heading,
 .education .heading {
   font-size: 1.5rem;
-  color: #fff;
-  border-bottom: 2px solid #61dafb;
+  color: #f1f5f9;
+  border-bottom: 2px solid #38bdf8;
   display: inline-block;
   padding-bottom: 5px;
   margin-bottom: 20px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .certifications .certificationItem {
   margin-bottom: 20px;
   padding-bottom: 16px;
-  border-bottom: 1px solid #1e1e1e;
+  border-bottom: 1px solid #1e293b;
 }
 
 .certifications .certificationItem:last-child {
@@ -269,22 +269,22 @@ ul li::before {
 
 .certifications .certificationTitle {
   font-size: 1.05rem;
-  color: #cc3333;
+  color: #60a5fa;
   margin-bottom: 4px;
   font-weight: 500;
 }
 
 .certifications .issueDate,
 .certifications .issuer {
-  color: #bbb;
+  color: #94a3b8;
   font-size: 0.875rem;
   margin: 3px 0;
 }
 
-.certifications .issuer a { color: #40e0d0; }
+.certifications .issuer a { color: #38bdf8; }
 .certifications .issuer a:hover { text-decoration: underline; }
 
-.issuer a { color: #40e0d0; text-decoration: none; }
+.issuer a { color: #38bdf8; text-decoration: none; }
 .issuer a:hover { text-decoration: underline; }
 
 /* ── Code blocks ───────────────────────────────────────────── */
@@ -293,14 +293,14 @@ ul li::before {
   overflow-x: auto;
   overflow-y: auto;
   max-height: 600px;
-  background: #282c34;
+  background: #0f172a;
   border-radius: 8px;
   padding: 16px;
   margin: 16px 0;
   box-sizing: border-box;
   font-family: 'Fira Code', monospace;
   font-size: 0.85rem;
-  border: 1px solid #333;
+  border: 1px solid #1e293b;
 }
 
 .code-block pre { margin: 0; }
@@ -317,26 +317,26 @@ ul li::before {
 }
 
 .github-code-viewer h2 {
-  color: #fff;
-  font-family: 'Playfair Display', serif;
-  border-bottom: 2px solid #8b0000;
+  color: #f1f5f9;
+  font-family: 'Inter', sans-serif;
+  border-bottom: 2px solid #3b82f6;
   padding-bottom: 6px;
   display: inline-block;
   margin-bottom: 8px;
 }
 
-.github-code-viewer p { color: #bbb; }
+.github-code-viewer p { color: #94a3b8; }
 
 /* ── Job details color overrides (non-p elements) ──────────── */
 .experience .job h3,
 .education h3 {
   font-size: 1.35rem;
-  color: #fff;
+  color: #f1f5f9;
 }
 
 .skills ul li,
 .certifications ul li {
-  color: #ddd;
+  color: #cbd5e1;
 }
 
 /* ── Responsive ────────────────────────────────────────────── */

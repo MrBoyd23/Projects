@@ -64,8 +64,8 @@ const WeatherComponent = () => {
     return (
       <div style={{
         background: '#1a0000',
-        border: '1px solid #3d0000',
-        borderLeft: '3px solid #8b0000',
+        border: '1px solid #1e3a5f',
+        borderLeft: '3px solid #3b82f6',
         borderRadius: '8px',
         padding: '14px 18px',
         color: '#ff4444',
@@ -103,7 +103,7 @@ const WeatherComponent = () => {
             style={{
               background: '#0d0d0d',
               border: '1px solid #1e1e1e',
-              borderTop: '3px solid #8b0000',
+              borderTop: '3px solid #3b82f6',
               borderLeft: hoveredIndex === index ? '3px solid #40e0d0' : '1px solid #1e1e1e',
               borderRadius: '10px',
               padding: '20px',

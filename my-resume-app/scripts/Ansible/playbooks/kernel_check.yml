@@ -1,0 +1,14 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/kernel_check.yml
+---
+- name: CHECK KERNEL VERSION
+  hosts: all
+  gather_facts: true
+  become: "{{ enable_become | default(false) }}"
+  serial: 5
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: DISPLAY KERNEL VERSION
+      debug:
+        msg: "{{ ansible_kernel }}"

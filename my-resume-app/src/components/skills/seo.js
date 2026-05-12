@@ -133,16 +133,16 @@ const SEO = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Technical SEO Checklist</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>HTTPS + HSTS</strong> — 301 redirect from HTTP, non-www canonical,
+            <strong style={{ color: '#93c5fd' }}>HTTPS + HSTS</strong> — 301 redirect from HTTP, non-www canonical,
             HSTS header with <code>includeSubDomains</code> and <code>preload</code>. Verified with Chrome DevTools
             and <code>curl -I</code>.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Crawl budget</strong> — <code>robots.txt</code> blocking admin pages,
+            <strong style={{ color: '#93c5fd' }}>Crawl budget</strong> — <code>robots.txt</code> blocking admin pages,
             search results, and tag archives. Only indexable, canonical content gets crawler access.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Core Web Vitals</strong> — LCP under 2.5s via image optimization and
+            <strong style={{ color: '#93c5fd' }}>Core Web Vitals</strong> — LCP under 2.5s via image optimization and
             preloading, CLS near zero by setting explicit image dimensions, FID/INP low via deferring non-critical JS.
           </p>
           <div className={styles.tipBox}>
@@ -164,7 +164,7 @@ const SEO = () => {
           {[['robots', 'robots.txt'], ['sitemap', 'sitemap.xml'], ['htaccess', '.htaccess HTTPS + HSTS']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

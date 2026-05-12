@@ -143,19 +143,19 @@ const AWS = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Key Services I Work With</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>EC2</strong> — Instance lifecycle management, EBS volume expansion,
+            <strong style={{ color: '#93c5fd' }}>EC2</strong> — Instance lifecycle management, EBS volume expansion,
             security group rule updates, AMI snapshots for pre-maintenance backups.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>S3</strong> — Static site hosting, bucket policy management, lifecycle rules
+            <strong style={{ color: '#93c5fd' }}>S3</strong> — Static site hosting, bucket policy management, lifecycle rules
             for log archiving, cross-account replication for DR.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>CloudWatch</strong> — Custom metric alarms, log group subscriptions,
+            <strong style={{ color: '#93c5fd' }}>CloudWatch</strong> — Custom metric alarms, log group subscriptions,
             composite alarms for multi-condition alerting, dashboards for team operations.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>IAM</strong> — Role-based access for EC2 and Lambda, policy auditing,
+            <strong style={{ color: '#93c5fd' }}>IAM</strong> — Role-based access for EC2 and Lambda, policy auditing,
             permission boundary enforcement, cross-account role trust relationships.
           </p>
           <div className={styles.tipBox}>
@@ -176,7 +176,7 @@ const AWS = () => {
           {[['s3', 'S3 setup + sync'], ['cf', 'CloudFront'], ['r53', 'Route 53']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

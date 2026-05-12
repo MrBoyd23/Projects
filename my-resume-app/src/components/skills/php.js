@@ -107,17 +107,17 @@ const PHP = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Common Incident Patterns</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Fatal error: Allowed memory size exhausted</strong> — The most frequent PHP ticket.
+            <strong style={{ color: '#93c5fd' }}>Fatal error: Allowed memory size exhausted</strong> — The most frequent PHP ticket.
             Caused by a WordPress plugin loading too much data. Fix: increase <code>memory_limit</code> in <code>php.ini</code> or
             the site's <code>wp-config.php</code> (<code>define('WP_MEMORY_LIMIT', '256M')</code>).
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Max execution time exceeded</strong> — Long-running WooCommerce imports
+            <strong style={{ color: '#93c5fd' }}>Max execution time exceeded</strong> — Long-running WooCommerce imports
             or backup plugins hitting the default 30-second limit. I identify the offending process via FPM slow logs and
             tune <code>max_execution_time</code> for the specific pool, not globally.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>PHP version mismatch</strong> — Plugin requiring PHP 8.0+ running on 7.4.
+            <strong style={{ color: '#93c5fd' }}>PHP version mismatch</strong> — Plugin requiring PHP 8.0+ running on 7.4.
             I use <code>update-alternatives</code> to switch CLI and coordinate FPM pool changes to avoid downtime.
           </p>
           <div className={styles.tipBox}>
@@ -142,7 +142,7 @@ const PHP = () => {
               onClick={() => setActiveTab(key)}
               style={{
                 padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-                background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+                background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
               }}
             >
               {label}

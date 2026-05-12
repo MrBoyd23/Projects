@@ -98,12 +98,12 @@ const PhpMyAdmin = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>When I Reach for phpMyAdmin vs CLI</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>phpMyAdmin is faster for:</strong> Browsing table structures and row data,
+            <strong style={{ color: '#93c5fd' }}>phpMyAdmin is faster for:</strong> Browsing table structures and row data,
             visual comparison of tables, quick exports of specific tables, verifying import results, and diagnosing
             WordPress option misconfigurations (<code>siteurl</code>, <code>home</code>).
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>CLI is better for:</strong> Large imports (&gt;100MB), scripted operations,
+            <strong style={{ color: '#93c5fd' }}>CLI is better for:</strong> Large imports (&gt;100MB), scripted operations,
             bulk operations across multiple databases, and anything that needs to be repeatable or auditable.
           </p>
           <p className={styles.sectionText}>
@@ -130,7 +130,7 @@ const PhpMyAdmin = () => {
           {[['audit', 'Audit queries'], ['export', 'Export / import']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

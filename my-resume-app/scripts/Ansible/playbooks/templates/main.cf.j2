@@ -1,0 +1,24 @@
+# Example main.cf.j2 template for Postfix
+# Adjust according to your specific requirements
+
+# General settings
+myhostname = {{ mail_hostname }}
+mydomain = {{ mail_domain }}
+myorigin = $mydomain
+inet_interfaces = all
+inet_protocols = all
+
+# Relay settings (if needed)
+relayhost = [{{ mail_hostname }}]
+
+# Virtual domain settings (if needed)
+virtual_alias_domains = {{ mail_domain }}
+virtual_alias_maps = hash:/etc/postfix/virtual
+
+# TLS settings (optional but recommended)
+smtp_tls_security_level = may
+smtpd_tls_cert_file = {{ tls_cert_path }}
+smtpd_tls_key_file = {{ tls_key_path }}
+smtpd_tls_security_level = {{ smtpd_tls_security_level | default('encrypt') }}
+
+# Additional settings as required

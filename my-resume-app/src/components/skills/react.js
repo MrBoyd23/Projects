@@ -164,16 +164,16 @@ const ReactComponent = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>This Resume's Architecture</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>React Router v6</strong> — Nested routes, data-driven route generation
+            <strong style={{ color: '#93c5fd' }}>React Router v6</strong> — Nested routes, data-driven route generation
             from <code>skillsConfig.js</code>, and a <code>useLocation</code> hook to fire GA4 page-view events on every
             navigation without a full page reload.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Code splitting</strong> — Every skill page is a separate webpack chunk loaded
+            <strong style={{ color: '#93c5fd' }}>Code splitting</strong> — Every skill page is a separate webpack chunk loaded
             on demand via <code>React.lazy()</code>. The initial bundle stays small regardless of how many skill pages exist.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>CSS Modules</strong> — Scoped class names prevent style collisions between components.
+            <strong style={{ color: '#93c5fd' }}>CSS Modules</strong> — Scoped class names prevent style collisions between components.
             The shared <code>SkillPage.module.css</code> provides a consistent design system across all 23 skill pages.
           </p>
           <div className={styles.tipBox}>
@@ -195,7 +195,7 @@ const ReactComponent = () => {
           {[['app', 'App.js + GA4 hook'], ['config', 'skillsConfig.js'], ['lazy', 'Lazy loading']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

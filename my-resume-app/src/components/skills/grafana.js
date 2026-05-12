@@ -183,16 +183,16 @@ const Grafana = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Dashboard Design Principles</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Signal over noise</strong> — A dashboard with 40 panels is worthless.
+            <strong style={{ color: '#93c5fd' }}>Signal over noise</strong> — A dashboard with 40 panels is worthless.
             I design dashboards around questions: "Is this server healthy right now?" Key metrics front and center,
             details available on drill-down.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Thresholds as context</strong> — Every metric panel has green/yellow/red
+            <strong style={{ color: '#93c5fd' }}>Thresholds as context</strong> — Every metric panel has green/yellow/red
             thresholds so operators can read health status at a glance without knowing the underlying numbers.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Templating for scale</strong> — Dashboard variables allow a single
+            <strong style={{ color: '#93c5fd' }}>Templating for scale</strong> — Dashboard variables allow a single
             dashboard to display any server, region, or cluster. One dashboard design serves the entire fleet.
           </p>
           <div className={styles.tipBox}>
@@ -214,7 +214,7 @@ const Grafana = () => {
           {[['promql', 'PromQL queries'], ['panel', 'Panel JSON'], ['alert', 'Alert rule YAML']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

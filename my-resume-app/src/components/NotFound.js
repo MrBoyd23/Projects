@@ -5,7 +5,7 @@ import { codingSkills, softwareSkills } from '../data/skillsConfig';
 const sectionStyle = {
   background: '#0d0d0d',
   border: '1px solid #1e1e1e',
-  borderLeft: '3px solid #8b0000',
+  borderLeft: '3px solid #3b82f6',
   borderRadius: '0 10px 10px 0',
   padding: '24px 28px',
   marginBottom: '22px',
@@ -17,7 +17,7 @@ const headingStyle = {
   color: '#fff',
   margin: '0 0 14px',
   paddingBottom: '8px',
-  borderBottom: '1px solid #2d0000',
+  borderBottom: '1px solid #1e293b',
 };
 
 const linkGridStyle = {
@@ -29,8 +29,8 @@ const linkGridStyle = {
 const linkStyle = {
   display: 'block',
   padding: '8px 14px',
-  background: 'linear-gradient(135deg, #1a0000, #3d0000)',
-  border: '1px solid #8b0000',
+  background: 'linear-gradient(135deg, #1a0000, #1e3a5f)',
+  border: '1px solid #3b82f6',
   borderRadius: '6px',
   color: '#fff',
   textDecoration: 'none',
@@ -43,7 +43,7 @@ const linkStyle = {
 const NotFound = () => (
   <div style={{ width: '100%', padding: '20px 0' }}>
     <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-      <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: '3rem', color: '#cc0000', margin: '0 0 8px' }}>
+      <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: '3rem', color: '#60a5fa', margin: '0 0 8px' }}>
         404
       </h1>
       <p style={{ color: '#aaa', fontSize: '1rem', margin: '0 0 6px' }}>

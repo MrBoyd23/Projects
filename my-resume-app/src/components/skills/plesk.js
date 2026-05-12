@@ -108,17 +108,17 @@ const Plesk = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Key Features I Work With</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>WordPress Toolkit</strong> — The most powerful feature for managed
+            <strong style={{ color: '#93c5fd' }}>WordPress Toolkit</strong> — The most powerful feature for managed
             WordPress hosting. I use it to apply bulk updates across all WordPress installations on a server,
             check security scores, enable maintenance mode before updates, and create pre-update backups.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Let's Encrypt integration</strong> — Automated certificate provisioning
+            <strong style={{ color: '#93c5fd' }}>Let's Encrypt integration</strong> — Automated certificate provisioning
             and renewal for all domains on a subscription. I use the Plesk extension CLI to script certificate
             installation across new account setups.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Subscription management</strong> — Creating, modifying, and transferring
+            <strong style={{ color: '#93c5fd' }}>Subscription management</strong> — Creating, modifying, and transferring
             subscriptions including PHP version selection, disk quota enforcement, and service plan assignment.
           </p>
           <div className={styles.tipBox}>
@@ -140,7 +140,7 @@ const Plesk = () => {
           {[['cli', 'Subscription + SSL CLI'], ['wptk', 'WordPress Toolkit CLI']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

@@ -1,0 +1,29 @@
+# ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/git_push.yml
+---
+- name: EXECUTE GIT COMMANDS ON REMOTE HOSTS
+  hosts: all  # Specify your target hosts here
+  gather_facts: false
+  become: "{{ enable_become | default(false) }}"
+  serial: 1
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: CHECK AUTO-COMMIT SCRIPT EXISTS AND IS EXECUTABLE
+      stat:
+        path: /home/scripts/auto-commit.sh
+      register: commit_script
+
+    - name: ABORT IF SCRIPT IS MISSING OR NOT EXECUTABLE
+      fail:
+        msg: "Script /home/scripts/auto-commit.sh does not exist or is not executable."
+      when: not commit_script.stat.exists or not commit_script.stat.executable
+
+    - name: EXECUTE THE AUTO-COMMIT SCRIPT
+      command: /home/scripts/auto-commit.sh
+      register: script_output
+      failed_when: script_output.rc != 0
+
+    - name: PRINT THE OUTPUT OF THE SCRIPT
+      debug:
+        var: script_output.stdout_lines

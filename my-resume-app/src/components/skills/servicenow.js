@@ -172,17 +172,17 @@ const ServiceNow = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Key Capabilities</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>CMDB queries</strong> — Identifying server ownership, environment,
+            <strong style={{ color: '#93c5fd' }}>CMDB queries</strong> — Identifying server ownership, environment,
             and related CIs during incidents. A well-maintained CMDB tells me which team owns a server, what services
             run on it, and what the change history looks like — in seconds.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Change management</strong> — Creating and tracking change requests
+            <strong style={{ color: '#93c5fd' }}>Change management</strong> — Creating and tracking change requests
             through the approval workflow. Every infrastructure change that touches production goes through a ServiceNow
             change request with risk assessment, implementation plan, and rollback steps.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Automation via REST API</strong> — Python scripts that create incidents,
+            <strong style={{ color: '#93c5fd' }}>Automation via REST API</strong> — Python scripts that create incidents,
             update CI records, and close tickets automatically as part of provisioning and decommission workflows.
           </p>
           <div className={styles.tipBox}>
@@ -204,7 +204,7 @@ const ServiceNow = () => {
           {[['create', 'Auto-create incident (Python)'], ['cmdb', 'CMDB REST API queries']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

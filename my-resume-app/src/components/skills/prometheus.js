@@ -256,16 +256,16 @@ const Prometheus = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Architecture Overview</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Scrape model</strong> — Prometheus polls targets (node_exporter,
+            <strong style={{ color: '#93c5fd' }}>Scrape model</strong> — Prometheus polls targets (node_exporter,
             mysql_exporter, custom exporters) at configurable intervals. File-based service discovery means new servers
             auto-appear in monitoring without restarting Prometheus.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Alert pipeline</strong> — Prometheus evaluates alert rules every 60s,
+            <strong style={{ color: '#93c5fd' }}>Alert pipeline</strong> — Prometheus evaluates alert rules every 60s,
             fires to Alertmanager, which deduplicates and routes to PagerDuty/Slack based on severity and team labels.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Recording rules</strong> — Pre-computed expressions stored as new metrics.
+            <strong style={{ color: '#93c5fd' }}>Recording rules</strong> — Pre-computed expressions stored as new metrics.
             Critical for dashboards that query 100K+ time series — a recording rule reduces query time from seconds to milliseconds.
           </p>
           <div className={styles.tipBox}>
@@ -287,7 +287,7 @@ const Prometheus = () => {
           {[['scrape', 'prometheus.yml'], ['onboard', 'onboard_server.sh'], ['alerts', 'alert rules'], ['recording', 'recording rules']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

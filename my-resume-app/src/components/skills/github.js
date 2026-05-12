@@ -139,17 +139,17 @@ const GitHub = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Workflow Practices</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Branch protection</strong> — Main branch requires at least one
+            <strong style={{ color: '#93c5fd' }}>Branch protection</strong> — Main branch requires at least one
             PR review and passing CI checks before merging. Prevents direct pushes to production and maintains
             a clean, reviewable git history.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Conventional commits</strong> — Using prefixes like <code>feat:</code>,
+            <strong style={{ color: '#93c5fd' }}>Conventional commits</strong> — Using prefixes like <code>feat:</code>,
             <code> fix:</code>, <code>chore:</code>, <code>docs:</code> for machine-readable changelogs and
             automated semantic versioning.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Secrets management</strong> — All sensitive values (API keys, AWS
+            <strong style={{ color: '#93c5fd' }}>Secrets management</strong> — All sensitive values (API keys, AWS
             credentials) stored as GitHub Actions secrets or environment secrets — never in code or <code>.env</code> files
             committed to the repo.
           </p>

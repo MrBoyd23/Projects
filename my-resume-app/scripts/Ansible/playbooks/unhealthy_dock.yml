@@ -1,0 +1,53 @@
+# ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/unhealthy_dock.yml
+---
+- name: RESTART UNHEALTHY DOCKER CONTAINERS
+  hosts: all
+  gather_facts: true  # Enable fact gathering to get ansible_facts
+  become: "{{ enable_become | default(false) }}"
+  serial: 1
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: ENSURE PIP IS INSTALLED
+      apt:
+        name: python3-pip
+        state: present
+      become: "{{ enable_become | default(false) }}"
+
+    - name: ENSURE DOCKER SDK FOR PYTHON IS INSTALLED
+      pip:
+        name: docker
+        state: present
+      become: "{{ enable_become | default(false) }}"
+
+    - name: GET UNHEALTHY CONTAINER IDS
+      command: docker ps --filter "health=unhealthy" --quiet
+      register: unhealthy_containers
+      changed_when: false
+
+    - name: GET CONTAINER NAMES FROM IDS
+      command: "docker inspect --format '{{'{{'}}.Name{{'}}'}}' {{ item }}"
+      loop: "{{ unhealthy_containers.stdout_lines }}"
+      register: unhealthy_names
+      changed_when: false
+      when: unhealthy_containers.stdout != ""
+
+    - name: BUILD LIST OF UNHEALTHY CONTAINER NAMES
+      set_fact:
+        container_names: "{{ unhealthy_names.results | map(attribute='stdout') | map('regex_replace', '^/', '') | list }}"
+      when: unhealthy_containers.stdout != ""
+
+    - name: REPORT NO UNHEALTHY CONTAINERS
+      debug:
+        msg: "No unhealthy containers found."
+      when: unhealthy_containers.stdout == ""
+
+    - name: RESTART UNHEALTHY CONTAINERS
+      docker_container:
+        name: "{{ item }}"
+        state: started
+      loop: "{{ container_names | default([]) }}"
+      when: unhealthy_containers.stdout != ""
+      vars:
+        ansible_python_interpreter: "/usr/bin/python3"

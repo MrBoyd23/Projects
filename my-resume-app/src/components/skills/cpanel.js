@@ -108,16 +108,16 @@ const CPanel = () => {
         <div className={styles.section}>
           <h2 className={styles.sectionTitle}>Key Operations</h2>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Account management</strong> — Create, suspend, terminate, and transfer
+            <strong style={{ color: '#93c5fd' }}>Account management</strong> — Create, suspend, terminate, and transfer
             accounts using WHM GUI and <code>whmapi1</code> CLI. Bulk account audits using the API to identify accounts
             over disk quota, with suspended accounts, or with security flags.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>DNS management</strong> — Zone editing, TTL adjustments, MX record
+            <strong style={{ color: '#93c5fd' }}>DNS management</strong> — Zone editing, TTL adjustments, MX record
             configuration for email providers, and DNS cluster management across multiple nameservers.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>SSL certificates</strong> — AutoSSL management, manual DV/OV certificate
+            <strong style={{ color: '#93c5fd' }}>SSL certificates</strong> — AutoSSL management, manual DV/OV certificate
             installation, troubleshooting certificate chain issues and mixed-content warnings.
           </p>
           <div className={styles.tipBox}>
@@ -139,7 +139,7 @@ const CPanel = () => {
           {[['api', 'WHM API calls'], ['migrate', 'pkgacct migration']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

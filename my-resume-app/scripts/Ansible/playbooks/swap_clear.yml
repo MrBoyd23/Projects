@@ -1,0 +1,29 @@
+#ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/swap_clear.yml
+---
+- name: CLEAR SWAP AND LIST CONNECTIONS
+  hosts: all
+  gather_facts: false  # This is the default; you can set it to false to disable fact gathering
+  become: "{{ enable_become | default(false) }}"
+  serial: 1
+  vars_files:
+    - ../.secrets/secret_vars.yml
+    
+  tasks:
+    - name: CHECK SWAP CLEAR SCRIPT EXISTS
+      stat:
+        path: /home/scripts/crons/swap-clear.sh
+      register: swap_script
+
+    - name: ABORT IF SWAP CLEAR SCRIPT IS MISSING
+      fail:
+        msg: "Swap clear script not found at /home/scripts/crons/swap-clear.sh"
+      when: not swap_script.stat.exists
+
+    - name: RUN SWAP CLEAR SCRIPT
+      command: /home/scripts/crons/swap-clear.sh
+      register: swap_clear
+      changed_when: false
+
+    - name: DISPLAY SWAP CLEAR OUTPUT
+      debug:
+        msg: "{{ swap_clear.stdout_lines }}"

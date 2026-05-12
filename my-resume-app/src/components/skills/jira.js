@@ -111,12 +111,12 @@ const Jira = () => {
             SLA breach monitors, and sprint completion tracking.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>Pattern identification</strong> — Querying by component and time window
+            <strong style={{ color: '#93c5fd' }}>Pattern identification</strong> — Querying by component and time window
             lets me spot when a particular service (MySQL, PHP-FPM, DNS) is generating a spike in incidents,
             triggering a proactive investigation before customers notice a trend.
           </p>
           <p className={styles.sectionText}>
-            <strong style={{ color: '#ff9999' }}>SLA management</strong> — Using the <code>breached()</code> function
+            <strong style={{ color: '#93c5fd' }}>SLA management</strong> — Using the <code>breached()</code> function
             to surface tickets that have missed SLA targets, enabling immediate escalation and RCA documentation.
           </p>
           <div className={styles.tipBox}>
@@ -139,7 +139,7 @@ const Jira = () => {
           {[['jql', 'JQL queries'], ['workflow', 'Incident template']].map(([key, label]) => (
             <button key={key} onClick={() => setActiveTab(key)} style={{
               padding: '6px 16px', borderRadius: '6px', border: 'none', cursor: 'pointer', fontSize: '0.8rem',
-              background: activeTab === key ? '#8b0000' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
+              background: activeTab === key ? '#3b82f6' : '#1e1e1e', color: activeTab === key ? '#fff' : '#888'
             }}>{label}</button>
           ))}
         </div>

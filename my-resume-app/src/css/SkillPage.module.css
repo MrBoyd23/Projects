@@ -4,15 +4,15 @@
 .skillPage {
   width: 100%;
   padding: 0 0 40px;
-  color: #fff;
+  color: #f1f5f9;
   font-family: 'Poppins', Arial, sans-serif;
 }
 
 /* ── Hero banner ───────────────────────────────────────────── */
 .hero {
-  background: linear-gradient(135deg, #0d0000 0%, #1a0000 50%, #0d0000 100%);
-  border: 1px solid #2d0000;
-  border-left: 4px solid #cc0000;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  border: 1px solid #1e293b;
+  border-left: 4px solid #3b82f6;
   border-radius: 0 10px 10px 0;
   padding: 28px 32px;
   margin-bottom: 28px;
@@ -28,22 +28,22 @@
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(139,0,0,0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .heroTitle {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 2rem;
   font-weight: 700;
-  color: #fff;
+  color: #f1f5f9;
   margin: 0 0 8px;
   letter-spacing: 0.5px;
 }
 
 .heroTagline {
   font-size: 0.88rem;
-  color: #cc3333;
+  color: #60a5fa;
   margin: 0 0 12px;
   font-style: italic;
   letter-spacing: 0.3px;
@@ -59,11 +59,11 @@
 .heroBadge {
   display: inline-block;
   padding: 4px 12px;
-  background: rgba(139,0,0,0.25);
-  border: 1px solid #8b0000;
+  background: rgba(59,130,246,0.15);
+  border: 1px solid rgba(59,130,246,0.3);
   border-radius: 12px;
   font-size: 0.72rem;
-  color: #ff9999;
+  color: #93c5fd;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -71,8 +71,8 @@
 
 /* ── Content sections ──────────────────────────────────────── */
 .section {
-  background: #0d0d0d;
-  border: 1px solid #1e1e1e;
+  background: #111827;
+  border: 1px solid #1e293b;
   border-radius: 10px;
   padding: 24px 28px;
   margin-bottom: 22px;
@@ -80,16 +80,16 @@
 }
 
 .section:hover {
-  border-color: #3d0000;
+  border-color: #1e3a5f;
 }
 
 .sectionTitle {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
-  color: #fff;
+  color: #f1f5f9;
   margin: 0 0 14px;
   padding-bottom: 8px;
-  border-bottom: 1px solid #2d0000;
+  border-bottom: 1px solid #1e293b;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -100,13 +100,13 @@
   display: inline-block;
   width: 4px;
   height: 1.2em;
-  background: linear-gradient(to bottom, #cc0000, #8b0000);
+  background: linear-gradient(to bottom, #3b82f6, #2563eb);
   border-radius: 2px;
   flex-shrink: 0;
 }
 
 .sectionText {
-  color: #ccc;
+  color: #cbd5e1;
   font-size: 0.91rem;
   line-height: 1.8;
   margin: 0 0 12px;
@@ -129,16 +129,16 @@
   margin: 16px 0 0;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid #333;
+  border: 1px solid #1e293b;
 }
 
 .codeLabel {
-  background: #1e1e1e;
-  color: #888;
+  background: #0f172a;
+  color: #64748b;
   font-size: 0.72rem;
   font-family: 'Fira Code', monospace;
   padding: 6px 14px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #1e293b;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   display: flex;
@@ -148,41 +148,41 @@
 
 .codeLabel::before {
   content: '●';
-  color: #8b0000;
+  color: #3b82f6;
   font-size: 0.9em;
 }
 
 /* ── Tip / note box ────────────────────────────────────────── */
 .tipBox {
-  background: rgba(97, 218, 251, 0.06);
-  border: 1px solid rgba(97, 218, 251, 0.2);
-  border-left: 3px solid #61dafb;
+  background: rgba(56, 189, 248, 0.06);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-left: 3px solid #38bdf8;
   border-radius: 0 8px 8px 0;
   padding: 14px 18px;
   margin: 14px 0;
   font-size: 0.875rem;
-  color: #b0eaff;
+  color: #7dd3fc;
   line-height: 1.65;
 }
 
 .tipBox strong {
-  color: #61dafb;
+  color: #38bdf8;
   font-weight: 600;
 }
 
 /* ── Live data section ─────────────────────────────────────── */
 .liveSection {
-  border: 1px solid #1e1e1e;
-  background: #0d0d0d;
+  border: 1px solid #1e293b;
+  background: #111827;
   border-radius: 10px;
   padding: 24px 28px;
   margin-bottom: 22px;
 }
 
 .liveSectionTitle {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.2rem;
-  color: #fff;
+  color: #f1f5f9;
   margin: 0 0 6px;
   display: flex;
   align-items: center;
@@ -194,7 +194,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #40e0d0;
+  background: #38bdf8;
   animation: pulse 2s infinite;
   flex-shrink: 0;
 }
@@ -206,7 +206,7 @@
 
 .liveSubtitle {
   font-size: 0.8rem;
-  color: #666;
+  color: #64748b;
   margin: 0 0 18px;
   font-style: italic;
 }
@@ -219,22 +219,22 @@
 }
 
 .card {
-  background: #111;
-  border: 1px solid #2d0000;
+  background: #0f172a;
+  border: 1px solid #1e293b;
   border-radius: 8px;
   padding: 14px 16px;
   transition: border-color 0.2s, transform 0.2s;
 }
 
 .card:hover {
-  border-color: #8b0000;
+  border-color: #3b82f6;
   transform: translateY(-2px);
 }
 
 .cardTitle {
   font-size: 0.88rem;
   font-weight: 600;
-  color: #fff;
+  color: #f1f5f9;
   margin: 0 0 4px;
   white-space: nowrap;
   overflow: hidden;
@@ -243,7 +243,7 @@
 
 .cardMeta {
   font-size: 0.76rem;
-  color: #777;
+  color: #64748b;
   margin: 2px 0;
 }
 
@@ -251,32 +251,32 @@
   display: inline-block;
   margin-top: 8px;
   font-size: 0.76rem;
-  color: #40e0d0;
+  color: #38bdf8;
   text-decoration: none;
 }
 
 .cardLink:hover { text-decoration: underline; }
 
 .cardStar {
-  color: #ffcc00;
+  color: #fbbf24;
   font-size: 0.76rem;
 }
 
 /* ── Loading / error states ────────────────────────────────── */
 .loading {
-  color: #666;
+  color: #64748b;
   font-size: 0.85rem;
   font-style: italic;
   padding: 10px 0;
 }
 
 .error {
-  color: #cc3333;
+  color: #f87171;
   font-size: 0.85rem;
   padding: 10px 14px;
-  background: rgba(139,0,0,0.1);
+  background: rgba(239,68,68,0.1);
   border-radius: 6px;
-  border: 1px solid #3d0000;
+  border: 1px solid rgba(239,68,68,0.2);
 }
 
 /* ── Stat blocks ───────────────────────────────────────────── */
@@ -288,8 +288,8 @@
 }
 
 .statBlock {
-  background: #111;
-  border: 1px solid #2d0000;
+  background: #0f172a;
+  border: 1px solid #1e293b;
   border-radius: 8px;
   padding: 14px 20px;
   min-width: 100px;
@@ -299,14 +299,14 @@
 .statNum {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #cc3333;
-  font-family: 'Playfair Display', serif;
+  color: #60a5fa;
+  font-family: 'Inter', sans-serif;
   line-height: 1.2;
 }
 
 .statLabel {
   font-size: 0.72rem;
-  color: #888;
+  color: #64748b;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   margin-top: 2px;

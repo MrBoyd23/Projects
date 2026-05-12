@@ -48,11 +48,11 @@ const projects = [
 ];
 
 const sites = [
-  { name: 'Dev.BrandonABoyd.com', url: 'http://dev.brandonaboyd.com/', desc: 'Development and staging environment for testing new features before production.', thumb: 'https://image.thum.io/get/width/600/wait/3/noanimate/http://dev.brandonaboyd.com/' },
-  { name: 'PhoenixAZEvents.com', url: 'http://phoenixazevents.com/', desc: 'Local event discovery site for the Phoenix, AZ area — WordPress with custom event listings.', thumb: 'https://image.thum.io/get/width/600/wait/3/noanimate/http://phoenixazevents.com/' },
-  { name: 'RJPJ2020.com', url: 'http://rjpj2020.com/', desc: 'Wedding website celebrating the union of Richard & Polli Jones.', thumb: 'https://image.thum.io/get/width/600/wait/3/noanimate/http://rjpj2020.com/' },
-  { name: 'BrandonABoyd.com', url: 'http://brandonaboyd.com/', desc: 'A family website bringing together moments, memories, and milestones shared with my kids.', thumb: 'https://image.thum.io/get/width/600/wait/3/noanimate/http://brandonaboyd.com/' },
-  { name: 'RachelIGarcia.com', url: 'http://racheligarcia.com/', desc: 'A heartfelt tribute dedicated to the life and legacy of Rachel Irene Garcia.', thumb: 'https://image.thum.io/get/width/600/wait/3/noanimate/http://racheligarcia.com/' },
+  { name: 'Dev.BrandonABoyd.com', url: 'http://dev.brandonaboyd.com/', desc: 'Development and staging environment for testing new features before production.' },
+  { name: 'PhoenixAZEvents.com', url: 'http://phoenixazevents.com/', desc: 'Local event discovery site for the Phoenix, AZ area — WordPress with custom event listings.' },
+  { name: 'RJPJ2020.com', url: 'http://rjpj2020.com/', desc: 'Wedding website celebrating the union of Richard & Polli Jones.' },
+  { name: 'BrandonABoyd.com', url: 'http://brandonaboyd.com/', desc: 'A family website bringing together moments, memories, and milestones shared with my kids.' },
+  { name: 'RachelIGarcia.com', url: 'http://racheligarcia.com/', desc: 'A heartfelt tribute dedicated to the life and legacy of Rachel Irene Garcia.' },
 ];
 
 /**
@@ -105,23 +105,12 @@ const Skills = () => {
         <h2 className={styles.sitesHeading}>Sites I've Built</h2>
         <div className={styles.sitesGrid}>
           {sites.map(site => (
-            <div key={site.name} className={styles.siteCard} style={{ padding: 0, overflow: 'hidden' }}>
-              <a href={site.url} target="_blank" rel="noopener noreferrer" style={{ display: 'block' }}>
-                <img
-                  src={site.thumb}
-                  alt={`${site.name} screenshot`}
-                  loading="lazy"
-                  onError={e => { e.target.style.display = 'none'; }}
-                  style={{ width: '100%', height: 140, objectFit: 'cover', objectPosition: 'top', display: 'block', borderBottom: '1px solid #2d0000' }}
-                />
+            <div key={site.name} className={styles.siteCard}>
+              <h3 className={styles.siteCardName}>{site.name}</h3>
+              <p className={styles.siteCardDesc}>{site.desc}</p>
+              <a href={site.url} target="_blank" rel="noopener noreferrer" className={styles.siteCardLink}>
+                Visit site →
               </a>
-              <div style={{ padding: '14px 16px 16px' }}>
-                <h3 className={styles.siteCardName}>{site.name}</h3>
-                <p className={styles.siteCardDesc}>{site.desc}</p>
-                <a href={site.url} target="_blank" rel="noopener noreferrer" className={styles.siteCardLink}>
-                  Visit site →
-                </a>
-              </div>
             </div>
           ))}
         </div>

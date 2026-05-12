@@ -1,0 +1,28 @@
+# ansible-playbook --ask-vault-pass -i inventory.ini -K playbooks/recent_errors.yml
+---
+- name: DISPLAY RECENT ERROR LOGS
+  hosts: all
+  gather_facts: false
+  become: "{{ enable_become | default(false) }}"
+  serial: 4
+  vars_files:
+    - ../.secrets/secret_vars.yml
+
+  tasks:
+    - name: CHECK RECENT ERROR LOGS IN THE LAST 24 HOURS
+      shell: 'journalctl --since "24 hours ago" | grep -i error'
+      register: error_logs
+      changed_when: false
+      failed_when: error_logs.rc > 1
+
+    - name: REPORT NO ERRORS FOUND
+      debug:
+        msg: "No error logs found in the last 24 hours."
+      when: error_logs.stdout == ""
+
+    - name: FORMAT ERROR LOGS
+      debug:
+        msg: |
+          {% set logs = error_logs.stdout | regex_replace('\n(\w{3} \d{2} \d{2}:\d{2}:\d{2})', '\n\n\\1') %}
+          {{ logs }}
+      when: error_logs.stdout != ""
